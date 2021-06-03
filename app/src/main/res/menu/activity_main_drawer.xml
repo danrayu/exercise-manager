@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@android:drawable/arrow_up_float"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_exercises"
+            android:icon="@android:drawable/ic_lock_idle_low_battery"
+            android:title="@string/exercises" />
+        <item
+            android:id="@+id/nav_muscles"
+            android:icon="@android:drawable/ic_menu_call"
+            android:title="@string/muscles" />
+        <item
+            android:id="@+id/nav_groups"
+            android:icon="@android:drawable/ic_dialog_dialer"
+            android:title="@string/groups" />
+    </group>
+</menu>

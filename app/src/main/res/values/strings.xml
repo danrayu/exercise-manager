@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Exercise Manager</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="create_exercise">Create Exercise</string>
+    <string name="cancel">Cancel</string>
+    <string name="exercise_creator">Exercise Creator</string>
+    <string name="example">Example</string>
+    <string name="description_text">Description Text</string>
+    <string name="edit_exercise">Edit Exercise</string>
+    <string name="exercise_name">Exercise Name</string>
+    <string name="exercise_description">Exercise Description</string>
+    <string name="confirm_changes">Confirm Changes</string>
+    <string name="exercises">Exercises</string>
+    <string name="muscles">Muscles</string>
+    <string name="workouts">Workouts</string>
+    <string name="reset_database">Reset Database</string>
+    <string name="add_muscle">Add Muscle</string>
+    <string name="muscle_name">Muscle Name</string>
+    <string name="edit_muscle">Edit Muscle</string>
+    <string name="groups">Groups</string>
+    <string name="todo">TODO</string>
+    <string name="description">Description</string>
+    <string name="group_name">Group Name</string>
+
+    <string-array name="muscle_list">
+        <item>None</item>
+        <item>Biceps</item>
+        <item>Upper Chest</item>
+        <item>Lower Chest</item>
+        <item>Mid Chest</item>
+        <item>Triceps</item>
+        <item>Abs</item>
+        <item>Erectus Pinae</item>
+        <item>Front Delts</item>
+        <item>Side Delts</item>
+        <item>Back Delts</item>
+
+    </string-array>
+</resources>
