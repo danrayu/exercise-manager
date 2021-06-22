@@ -1,28 +1,30 @@
 package com.example.exercisemanager.ui.groups
 
+import android.R
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.exercisemanager.R
-import com.example.exercisemanager.databinding.FragmentGroupsBinding
+import com.example.exercisemanager.databinding.FragmentGroupEditBinding
 import com.example.exercisemanager.src.DataBaseHandler
+import com.example.exercisemanager.src.ExerciseManagerUtility
 import com.example.exercisemanager.ui.exercises.Exercise
 
-class EditGroupFragment(group: Group) : Fragment(), GroupsRVAdapter.EditEventInterface {
+
+class EditGroupFragment(private var group: Group) : Fragment(), GroupExercisesRVAdapter.EditEventInterface {
 
     // View Binging
-    private var _binding: FragmentGroupsBinding? = null
+    private var _binding: FragmentGroupEditBinding? = null
     private val binding get() = _binding!!
+    private var emu = ExerciseManagerUtility()
 
     private lateinit var db: DataBaseHandler
 
     private var exerciseList = group.exercises
-    private lateinit var rvAdapter: GroupsRVAdapter
+    private lateinit var rvAdapter: GroupExercisesRVAdapter
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -34,20 +36,18 @@ class EditGroupFragment(group: Group) : Fragment(), GroupsRVAdapter.EditEventInt
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentGroupsBinding.inflate(layoutInflater)
-        binding.rvGroups.layoutManager = LinearLayoutManager(context)
+        _binding = FragmentGroupEditBinding.inflate(layoutInflater)
+        binding.rvGroupExercises.layoutManager = LinearLayoutManager(context)
 
-        rvAdapter = GroupsRVAdapter(exerciseList, this)
-        binding.rvGroups.adapter = rvAdapter
+        rvAdapter = GroupExercisesRVAdapter(exerciseList, this)
+        binding.rvGroupExercises.adapter = rvAdapter
 
         return _binding!!.root
     }
 
-    override fun editGroupButtonPressed(group: Group) {
-        val fragment = EditGroupFragment()
-        val manager : FragmentManager = childFragmentManager
-        val transaction = manager.beginTransaction()
-        transaction.replace(R.id.cl_groups_fragment, fragment)
+    override fun removeButtonPressed(exercise: Exercise, exerciseIndex: Int) {
+        exerciseList.removeAt(exerciseIndex)
+        rvAdapter.notifyItemRemoved(exerciseIndex)
     }
 
     override fun onDestroy() {

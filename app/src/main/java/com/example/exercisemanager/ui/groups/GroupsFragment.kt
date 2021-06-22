@@ -9,10 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.exercisemanager.R
-import com.example.exercisemanager.databinding.FragmentExercisesBinding
 import com.example.exercisemanager.databinding.FragmentGroupsBinding
 import com.example.exercisemanager.src.DataBaseHandler
-import com.example.exercisemanager.ui.exercises.ExerciseERVAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class GroupsFragment : Fragment(), GroupsRVAdapter.EditEventInterface {
@@ -30,7 +28,6 @@ class GroupsFragment : Fragment(), GroupsRVAdapter.EditEventInterface {
         super.onAttach(context)
         db = DataBaseHandler(context)
         groupList = db.readGroupData(db.readableDatabase)
-
     }
 
     override fun onCreateView(
@@ -44,14 +41,20 @@ class GroupsFragment : Fragment(), GroupsRVAdapter.EditEventInterface {
         rvAdapter = GroupsRVAdapter(groupList, this)
         binding.rvGroups.adapter = rvAdapter
 
+        val btnAddGroup: FloatingActionButton = _binding!!.root.findViewById(R.id.fab_add_group)
+        btnAddGroup.setOnClickListener {
+            val group = Group("","", db.readExercisesData(db.readableDatabase), false, 0)
+            editGroupButtonPressed(group)
+        }
         return _binding!!.root
     }
 
     override fun editGroupButtonPressed(group: Group) {
         val fragment = EditGroupFragment(group)
-        val manager : FragmentManager = childFragmentManager
+        val manager : FragmentManager = parentFragmentManager
         val transaction = manager.beginTransaction()
-        transaction.replace(R.id.cl_groups_fragment, fragment)
+        transaction.replace(R.id.nav_host_fragment, fragment)
+        transaction.commit()
     }
 
     override fun onDestroy() {

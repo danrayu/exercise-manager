@@ -1,6 +1,8 @@
 package com.example.exercisemanager.src
 
+import android.database.sqlite.SQLiteDatabase
 import com.example.exercisemanager.ui.exercises.Exercise
+import com.example.exercisemanager.ui.groups.Group
 import com.example.exercisemanager.ui.muscles.Muscle
 
 class ExerciseManagerUtility {
@@ -43,5 +45,14 @@ class ExerciseManagerUtility {
             }
         }
         return foundName
+    }
+
+    fun groupExists(group : Group, databaseGroups: MutableList<Group>) : Boolean {
+        for (groupIteration in databaseGroups) {
+            if (groupIteration.name == group.name) {
+                return true
+            }
+        }
+        return false
     }
 }

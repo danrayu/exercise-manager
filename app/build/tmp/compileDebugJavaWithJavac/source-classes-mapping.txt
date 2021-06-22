@@ -12,10 +12,10 @@ com/example/exercisemanager/databinding/MusclePickerItemBinding.java
  com.example.exercisemanager.databinding.MusclePickerItemBinding
 com/example/exercisemanager/databinding/ContentMainBinding.java
  com.example.exercisemanager.databinding.ContentMainBinding
+com/example/exercisemanager/databinding/FragmentGroupEditBinding.java
+ com.example.exercisemanager.databinding.FragmentGroupEditBinding
 com/example/exercisemanager/databinding/FragmentMusclesBinding.java
  com.example.exercisemanager.databinding.FragmentMusclesBinding
-com/example/exercisemanager/databinding/GroupEditFragmentBinding.java
- com.example.exercisemanager.databinding.GroupEditFragmentBinding
 com/example/exercisemanager/databinding/DialogMuscleCreatorBinding.java
  com.example.exercisemanager.databinding.DialogMuscleCreatorBinding
 com/example/exercisemanager/databinding/DialogMuscleEditorBinding.java

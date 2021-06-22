@@ -1952,6 +1952,7 @@ id dropdown_menu
 id easeIn
 id easeInOut
 id easeOut
+id edit_group_layout
 id edit_query
 id elastic
 id end

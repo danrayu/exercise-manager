@@ -21,6 +21,9 @@ public final class FragmentGroupEditBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final ConstraintLayout editGroupLayout;
+
+  @NonNull
   public final EditText etGroupDescription;
 
   @NonNull
@@ -36,10 +39,11 @@ public final class FragmentGroupEditBinding implements ViewBinding {
   public final TextView tvGroupName;
 
   private FragmentGroupEditBinding(@NonNull ConstraintLayout rootView,
-      @NonNull EditText etGroupDescription, @NonNull EditText etGroupName,
-      @NonNull RecyclerView rvGroupExercises, @NonNull TextView tvGroupDescription,
-      @NonNull TextView tvGroupName) {
+      @NonNull ConstraintLayout editGroupLayout, @NonNull EditText etGroupDescription,
+      @NonNull EditText etGroupName, @NonNull RecyclerView rvGroupExercises,
+      @NonNull TextView tvGroupDescription, @NonNull TextView tvGroupName) {
     this.rootView = rootView;
+    this.editGroupLayout = editGroupLayout;
     this.etGroupDescription = etGroupDescription;
     this.etGroupName = etGroupName;
     this.rvGroupExercises = rvGroupExercises;
@@ -74,6 +78,8 @@ public final class FragmentGroupEditBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      ConstraintLayout editGroupLayout = (ConstraintLayout) rootView;
+
       id = R.id.et_group_description;
       EditText etGroupDescription = rootView.findViewById(id);
       if (etGroupDescription == null) {
@@ -104,8 +110,8 @@ public final class FragmentGroupEditBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentGroupEditBinding((ConstraintLayout) rootView, etGroupDescription,
-          etGroupName, rvGroupExercises, tvGroupDescription, tvGroupName);
+      return new FragmentGroupEditBinding((ConstraintLayout) rootView, editGroupLayout,
+          etGroupDescription, etGroupName, rvGroupExercises, tvGroupDescription, tvGroupName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
