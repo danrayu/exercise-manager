@@ -12,6 +12,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import com.example.exercisemanager.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -19,6 +20,12 @@ import java.lang.String;
 public final class FragmentGroupEditBinding implements ViewBinding {
   @NonNull
   private final ConstraintLayout rootView;
+
+  @NonNull
+  public final FloatingActionButton btnAddGroupExercise;
+
+  @NonNull
+  public final FloatingActionButton btnSaveGroup;
 
   @NonNull
   public final ConstraintLayout editGroupLayout;
@@ -39,10 +46,13 @@ public final class FragmentGroupEditBinding implements ViewBinding {
   public final TextView tvGroupName;
 
   private FragmentGroupEditBinding(@NonNull ConstraintLayout rootView,
+      @NonNull FloatingActionButton btnAddGroupExercise, @NonNull FloatingActionButton btnSaveGroup,
       @NonNull ConstraintLayout editGroupLayout, @NonNull EditText etGroupDescription,
       @NonNull EditText etGroupName, @NonNull RecyclerView rvGroupExercises,
       @NonNull TextView tvGroupDescription, @NonNull TextView tvGroupName) {
     this.rootView = rootView;
+    this.btnAddGroupExercise = btnAddGroupExercise;
+    this.btnSaveGroup = btnSaveGroup;
     this.editGroupLayout = editGroupLayout;
     this.etGroupDescription = etGroupDescription;
     this.etGroupName = etGroupName;
@@ -78,6 +88,18 @@ public final class FragmentGroupEditBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btn_add_group_exercise;
+      FloatingActionButton btnAddGroupExercise = rootView.findViewById(id);
+      if (btnAddGroupExercise == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_save_group;
+      FloatingActionButton btnSaveGroup = rootView.findViewById(id);
+      if (btnSaveGroup == null) {
+        break missingId;
+      }
+
       ConstraintLayout editGroupLayout = (ConstraintLayout) rootView;
 
       id = R.id.et_group_description;
@@ -110,8 +132,9 @@ public final class FragmentGroupEditBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentGroupEditBinding((ConstraintLayout) rootView, editGroupLayout,
-          etGroupDescription, etGroupName, rvGroupExercises, tvGroupDescription, tvGroupName);
+      return new FragmentGroupEditBinding((ConstraintLayout) rootView, btnAddGroupExercise,
+          btnSaveGroup, editGroupLayout, etGroupDescription, etGroupName, rvGroupExercises,
+          tvGroupDescription, tvGroupName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -53,7 +53,7 @@ class GroupsFragment : Fragment(), GroupsRVAdapter.EditEventInterface {
         val fragment = EditGroupFragment(group)
         val manager : FragmentManager = parentFragmentManager
         val transaction = manager.beginTransaction()
-        transaction.replace(R.id.nav_host_fragment, fragment)
+        transaction.replace(R.id.nav_host_fragment, fragment).addToBackStack( null )
         transaction.commit()
     }
 

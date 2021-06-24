@@ -1874,11 +1874,13 @@ id blocking
 id bottom
 id bounce
 id btn_add_exercise
+id btn_add_group_exercise
 id btn_delete_exercise
 id btn_delete_muscle
 id btn_edit_exercise
 id btn_edit_group
 id btn_edit_muscle
+id btn_save_group
 id btn_select_muscle
 id btn_select_muscle_edit
 id btn_unpick_muscle
