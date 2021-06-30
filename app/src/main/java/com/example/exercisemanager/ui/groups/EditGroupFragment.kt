@@ -1,6 +1,5 @@
 package com.example.exercisemanager.ui.groups
 
-import android.R
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,10 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.exercisemanager.R
 import com.example.exercisemanager.databinding.FragmentGroupEditBinding
 import com.example.exercisemanager.src.DataBaseHandler
 import com.example.exercisemanager.src.ExerciseManagerUtility
+import com.example.exercisemanager.ui.elements.ExerciseCreatorDialogueFragment
 import com.example.exercisemanager.ui.exercises.Exercise
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class EditGroupFragment(private var group: Group) : Fragment(), GroupExercisesRVAdapter.EditEventInterface {
@@ -25,6 +27,8 @@ class EditGroupFragment(private var group: Group) : Fragment(), GroupExercisesRV
 
     private var exerciseList = group.exercises
     private lateinit var rvAdapter: GroupExercisesRVAdapter
+
+    private lateinit var dialogCreate: ExerciseCreatorDialogueFragment
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -41,6 +45,16 @@ class EditGroupFragment(private var group: Group) : Fragment(), GroupExercisesRV
 
         rvAdapter = GroupExercisesRVAdapter(exerciseList, this)
         binding.rvGroupExercises.adapter = rvAdapter
+
+        val addExerciseFAB : FloatingActionButton = _binding!!.root.findViewById(R.id.btn_add_group_exercise)
+        addExerciseFAB.setOnClickListener {
+
+        }
+
+        val saveGroupFAB : FloatingActionButton = _binding!!.root.findViewById(R.id.btn_save_group)
+        saveGroupFAB.setOnClickListener {
+
+        }
 
         return _binding!!.root
     }
