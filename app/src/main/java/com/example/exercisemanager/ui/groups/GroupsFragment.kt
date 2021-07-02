@@ -43,14 +43,14 @@ class GroupsFragment : Fragment(), GroupsRVAdapter.EditEventInterface {
 
         val btnAddGroup: FloatingActionButton = _binding!!.root.findViewById(R.id.fab_add_group)
         btnAddGroup.setOnClickListener {
-            val group = Group("","", db.readExercisesData(db.readableDatabase), false, 0)
-            editGroupButtonPressed(group)
+            val group = Group("","", ArrayList(), false, 0)
+            editGroupButtonPressed(group, true)
         }
         return _binding!!.root
     }
 
-    override fun editGroupButtonPressed(group: Group) {
-        val fragment = EditGroupFragment(group)
+    override fun editGroupButtonPressed(group: Group, isNew: Boolean) {
+        val fragment = EditGroupFragment(group, isNew)
         val manager : FragmentManager = parentFragmentManager
         val transaction = manager.beginTransaction()
         transaction.replace(R.id.nav_host_fragment, fragment).addToBackStack( null )

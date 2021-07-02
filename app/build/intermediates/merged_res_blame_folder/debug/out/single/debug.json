@@ -88,6 +88,10 @@
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/menu/activity_main_drawer.xml"
     },
     {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/res/merged/debug/layout_dialog_select_exercise.xml.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/dialog_select_exercise.xml"
+    },
+    {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/res/merged/debug/layout_muscle_picker_item.xml.flat",
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/muscle_picker_item.xml"
     },

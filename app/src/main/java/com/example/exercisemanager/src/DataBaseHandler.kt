@@ -141,7 +141,7 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         else {
             Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
         }
-        insertExerciseMuscleRelation(db, getExerciseNameId(db, exercise.name).id, exercise.muscles)
+        insertExerciseMuscleRelation(db, getExerciseFromName(db, exercise.name).id, exercise.muscles)
     }
 
     fun insertMusclesData(db:SQLiteDatabase, muscle: String) {
@@ -156,6 +156,21 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         }
     }
 
+    fun insertGroupData(db: SQLiteDatabase, group: Group) {
+        val contentValues = ContentValues()
+        contentValues.put(COL_NAME_GROUPS, group.name)
+        contentValues.put(COL_DESCRIPTION_GROUPS, group.description)
+
+        val resultE = db.insert(TABLE_GROUPS, null, contentValues)
+        if (resultE == (0).toLong()) {
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show()
+        }
+        else {
+            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
+        }
+        insertGroupExerciseRelation(db, getGroupFromName(db, group.name).id, group.exercises)
+    }
+
     private fun insertExerciseMuscleRelation(db: SQLiteDatabase?, exerciseId: Int, muscles: MutableList<Muscle>) : Boolean {
         val contentValues = ContentValues()
         for (muscle in muscles) {
@@ -167,21 +182,6 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
             }
         }
         return true
-    }
-
-    fun insertMuscleDate(db:SQLiteDatabase, group: Group) {
-        val contentValues = ContentValues()
-        contentValues.put(COL_NAME_EXERCISES, group.name)
-        contentValues.put(COL_DESCRIPTION_EXERCISES, group.description)
-
-        val resultE = db.insert(TABLE_GROUPS, null, contentValues)
-        if (resultE == (0).toLong()) {
-            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show()
-        }
-        else {
-            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
-        }
-        insertGroupExerciseRelation(db, getExerciseNameId(db, group.name).id, group.exercises)
     }
 
     private fun insertGroupExerciseRelation(db: SQLiteDatabase?, groupId: Int, exercises: MutableList<Exercise>) : Boolean {
@@ -299,8 +299,8 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
             do {
                 val groupId = result.getInt(result.getColumnIndex(COL_ID_GROUPS))
                 val group = Group(
-                    result.getString(result.getColumnIndex(COL_NAME_EXERCISES)),
-                    result.getString(result.getColumnIndex(COL_DESCRIPTION_EXERCISES)),
+                    result.getString(result.getColumnIndex(COL_NAME_GROUPS)),
+                    result.getString(result.getColumnIndex(COL_DESCRIPTION_GROUPS)),
                     readGroupExercisesData(db, groupId),
                     id = groupId
                 )
@@ -314,10 +314,10 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
     
     private fun readGroupExercisesData(db: SQLiteDatabase, groupId: Int) : MutableList<Exercise> {
         val list: MutableList<Exercise> = mutableListOf()
-        val query = "Select " +
+        val query = "SELECT " +
                 "$TABLE_GROUP_EXERCISES.$COL_GROUP_ID_GE, " +
                 "$TABLE_EXERCISES.$COL_NAME_EXERCISES, " +
-                "$TABLE_EXERCISES.$COL_DESCRIPTION_EXERCISES, "
+                "$TABLE_EXERCISES.$COL_DESCRIPTION_EXERCISES, " +
                 "$TABLE_EXERCISES.$COL_ID_EXERCISES " +
                 "FROM $TABLE_GROUP_EXERCISES " +
                 "INNER JOIN $TABLE_EXERCISES " +
@@ -325,7 +325,7 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         val result = db.rawQuery(query, null)
         if (result.moveToFirst()) {
             do {
-                if (result.getInt(result.getColumnIndex(COL_EXERCISE_ID_EM)) == groupId) {
+                if (result.getInt(result.getColumnIndex(COL_GROUP_ID_GE)) == groupId) {
                     val id = result.getInt(result.getColumnIndex(COL_ID_EXERCISES))
                     val exercise = Exercise(
                         result.getString(result.getColumnIndex(COL_NAME_EXERCISES)),
@@ -377,7 +377,7 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
 
 
     // helper methods
-    private fun getExerciseNameId(db: SQLiteDatabase, name: String) : Exercise {
+    private fun getExerciseFromName(db: SQLiteDatabase, name: String) : Exercise {
         lateinit var correctExercise: Exercise
         val exList = readExercisesData(db)
         for (ex in exList) {
@@ -386,5 +386,16 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
             }
         }
         return correctExercise
+    }
+
+    private fun getGroupFromName(db: SQLiteDatabase, name: String) : Group {
+        lateinit var correctGroup: Group
+        val grList = readGroupData(db)
+        for (gr in grList) {
+            if (gr.name == name) {
+                correctGroup = gr
+            }
+        }
+        return correctGroup
     }
 }

@@ -2163,6 +2163,7 @@ id search_plate
 id search_src_text
 id search_voice_btn
 id select_dialog_listview
+id select_exercise_dialog_name
 id selected
 id selection_type
 id shortcut
@@ -2185,6 +2186,7 @@ id square
 id src_atop
 id src_in
 id src_over
+id ss_select_exercise
 id ss_select_muscle_create
 id ss_select_muscle_edit
 id standard
@@ -2372,6 +2374,7 @@ layout dialog_ex_creator
 layout dialog_ex_editor
 layout dialog_muscle_creator
 layout dialog_muscle_editor
+layout dialog_select_exercise
 layout exercise_item
 layout exercise_item_uneditable
 layout fragment_exercises
@@ -2593,6 +2596,7 @@ string path_password_strike_through
 string reset_database
 string save
 string search_menu_title
+string select_exercise
 string status_bar_notification_info_overflow
 string todo
 string workouts

@@ -16,56 +16,79 @@ import com.example.exercisemanager.ui.exercises.Exercise
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
-class EditGroupFragment(private var group: Group) : Fragment(), GroupExercisesRVAdapter.EditEventInterface {
+class EditGroupFragment(private var group: Group, private val isNew: Boolean) : Fragment(),
+    GroupExercisesRVAdapter.EditEventInterface,
+    SelectExerciseDialog.OnAddGroupExercise {
 
     // View Binging
     private var _binding: FragmentGroupEditBinding? = null
     private val binding get() = _binding!!
-    private var emu = ExerciseManagerUtility()
 
     private lateinit var db: DataBaseHandler
 
-    private var exerciseList = group.exercises
     private lateinit var rvAdapter: GroupExercisesRVAdapter
+    private lateinit var allExercises: MutableList<Exercise>
+    private lateinit var dialogSelect: SelectExerciseDialog
 
-    private lateinit var dialogCreate: ExerciseCreatorDialogueFragment
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         db = DataBaseHandler(context)
+        allExercises = db.readExercisesData(db.readableDatabase)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentGroupEditBinding.inflate(layoutInflater)
         binding.rvGroupExercises.layoutManager = LinearLayoutManager(context)
 
-        rvAdapter = GroupExercisesRVAdapter(exerciseList, this)
+        rvAdapter = GroupExercisesRVAdapter(group.exercises, this)
         binding.rvGroupExercises.adapter = rvAdapter
 
         val addExerciseFAB : FloatingActionButton = _binding!!.root.findViewById(R.id.btn_add_group_exercise)
         addExerciseFAB.setOnClickListener {
-
+            showSelectDialog()
         }
 
         val saveGroupFAB : FloatingActionButton = _binding!!.root.findViewById(R.id.btn_save_group)
         saveGroupFAB.setOnClickListener {
-
+            saveGroup(group)
         }
 
         return _binding!!.root
     }
 
+    private fun showSelectDialog() {
+        var otherExercises: MutableList<Exercise> = ArrayList()
+        otherExercises = (allExercises - group.exercises).toMutableList()
+        dialogSelect = SelectExerciseDialog(this, otherExercises)
+        dialogSelect.show(parentFragmentManager, "ExerciseCreatorDialogueFragment")
+    }
+
     override fun removeButtonPressed(exercise: Exercise, exerciseIndex: Int) {
-        exerciseList.removeAt(exerciseIndex)
+        group.exercises.removeAt(exerciseIndex)
         rvAdapter.notifyItemRemoved(exerciseIndex)
     }
 
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    override fun addGroupExercise(exercise: Exercise) {
+        group.exercises.add(exercise)
+        rvAdapter.notifyItemInserted(group.exercises.size-1)
+    }
+
+    private fun saveGroup(group: Group) {
+        if (isNew) {
+            db.insertGroupData(db.writableDatabase, group)
+        }
+        else {
+            db.updateGroupExercisesData(db.writableDatabase, group)
+        }
     }
 }

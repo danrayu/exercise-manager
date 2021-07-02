@@ -13,14 +13,16 @@ import com.example.exercisemanager.R
 import com.example.exercisemanager.src.ExerciseManagerUtility
 import com.example.exercisemanager.ui.elements.ExerciseMuscleRVAdapter
 import com.example.exercisemanager.ui.exercises.Exercise
+import com.toptoche.searchablespinnerlibrary.SearchableSpinner
 import kotlinx.android.synthetic.main.dialog_ex_creator.view.*
 
-class SelectExerciseDialog(val exercisePool: MutableList<Exercise>) : DialogFragment() {
+class SelectExerciseDialog(private val listener: OnAddGroupExercise,
+                           private val exercisePool: MutableList<Exercise>) : DialogFragment() {
 
     private val exu = ExerciseManagerUtility()
-    private lateinit var spinnerArrayAdapter: ArrayAdapter<String>
+    lateinit var spinnerArrayAdapter: ArrayAdapter<String>
 
-    interface onAddGroupExercise {
+    interface OnAddGroupExercise {
         fun addGroupExercise(exercise: Exercise)
     }
 
@@ -42,29 +44,25 @@ class SelectExerciseDialog(val exercisePool: MutableList<Exercise>) : DialogFrag
             val inflater = requireActivity().layoutInflater
             val view = inflater.inflate(R.layout.dialog_select_exercise, null)
             val builder = AlertDialog.Builder(it)
+            val searchableSpinner: SearchableSpinner = view.findViewById(R.id.ss_select_exercise)
+            searchableSpinner.adapter = spinnerArrayAdapter
             builder.setView(view)
                 // Add action buttons
                 .setPositiveButton(
                     R.string.select_exercise,
                     DialogInterface.OnClickListener { _, _ ->
-                        val exercise = exu.connectStringToExercise(searchableSpinner.selectedItem.toString())
-                        if (eName.isNotBlank()) {
-                            listener.onCreateExerciseClick(eName, eDesc, selectedMusclesList)
+                        val exercise = exu.connectStringToExercise(searchableSpinner.selectedItem.toString(), exercisePool)
+                        if (exercise.name != "None") {
+                            listener.addGroupExercise(exercise)
                         }
                         else {
-                            Toast.makeText(context, "No name specified", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, "None selected", Toast.LENGTH_SHORT).show()
                         }
-                        val len = selectedMusclesList.size
-                        selectedMusclesList.clear()
-                        rvAdapter.notifyItemRangeRemoved(0, len)
                     })
                 .setNegativeButton(
                     R.string.cancel,
                     DialogInterface.OnClickListener { _, _ ->
                         this.dismiss()
-                        val len = selectedMusclesList.size
-                        selectedMusclesList.clear()
-                        rvAdapter.notifyItemRangeRemoved(0, len)
                     })
             builder.create()
         } ?: throw IllegalStateException("Activity cannot be null")

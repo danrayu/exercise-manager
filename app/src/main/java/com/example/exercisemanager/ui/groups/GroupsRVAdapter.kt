@@ -12,7 +12,7 @@ class GroupsRVAdapter(
 ) : RecyclerView.Adapter<GroupsRVAdapter.ViewHolder>() {
 
     interface EditEventInterface {
-        fun editGroupButtonPressed(group: Group)
+        fun editGroupButtonPressed(group: Group, isNew:Boolean)
     }
 
     inner class ViewHolder(val binding: GroupItemBinding) : RecyclerView.ViewHolder(binding.root)
@@ -30,7 +30,7 @@ class GroupsRVAdapter(
                 binding.rvGroupDisplay.adapter = ExerciseERVUneditableAdapter(this.exercises)
                 binding.rlExpandedGroup.visibility = if (this.expanded) View.VISIBLE else View.GONE
                 binding.btnEditGroup.setOnClickListener {
-                    callback.editGroupButtonPressed(this)
+                    callback.editGroupButtonPressed(this, false)
                 }
             }
         }

@@ -24,6 +24,8 @@ com/example/exercisemanager/databinding/NavHeaderMainBinding.java
  com.example.exercisemanager.databinding.NavHeaderMainBinding
 com/example/exercisemanager/databinding/DialogExEditorBinding.java
  com.example.exercisemanager.databinding.DialogExEditorBinding
+com/example/exercisemanager/databinding/DialogSelectExerciseBinding.java
+ com.example.exercisemanager.databinding.DialogSelectExerciseBinding
 com/example/exercisemanager/databinding/ActivityMainBinding.java
  com.example.exercisemanager.databinding.ActivityMainBinding
 com/example/exercisemanager/databinding/AppBarMainBinding.java
