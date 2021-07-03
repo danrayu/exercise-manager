@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,6 +13,7 @@ import com.example.exercisemanager.R
 import com.example.exercisemanager.databinding.FragmentGroupsBinding
 import com.example.exercisemanager.src.DataBaseHandler
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.fragment_groups.view.*
 
 class GroupsFragment : Fragment(), GroupsRVAdapter.EditEventInterface {
 
@@ -40,6 +42,10 @@ class GroupsFragment : Fragment(), GroupsRVAdapter.EditEventInterface {
 
         rvAdapter = GroupsRVAdapter(groupList, this)
         binding.rvGroups.adapter = rvAdapter
+
+        if (groupList.size == 0) {
+            _binding!!.root.tv_gempty.isVisible = true
+        }
 
         val btnAddGroup: FloatingActionButton = _binding!!.root.findViewById(R.id.fab_add_group)
         btnAddGroup.setOnClickListener {

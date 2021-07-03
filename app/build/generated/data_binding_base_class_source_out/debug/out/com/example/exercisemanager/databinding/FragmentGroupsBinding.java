@@ -30,16 +30,16 @@ public final class FragmentGroupsBinding implements ViewBinding {
   public final RecyclerView rvGroups;
 
   @NonNull
-  public final TextView tvGdesdcription;
+  public final TextView tvGempty;
 
   private FragmentGroupsBinding(@NonNull ConstraintLayout rootView,
       @NonNull ConstraintLayout clGroupsFragment, @NonNull FloatingActionButton fabAddGroup,
-      @NonNull RecyclerView rvGroups, @NonNull TextView tvGdesdcription) {
+      @NonNull RecyclerView rvGroups, @NonNull TextView tvGempty) {
     this.rootView = rootView;
     this.clGroupsFragment = clGroupsFragment;
     this.fabAddGroup = fabAddGroup;
     this.rvGroups = rvGroups;
-    this.tvGdesdcription = tvGdesdcription;
+    this.tvGempty = tvGempty;
   }
 
   @Override
@@ -83,14 +83,14 @@ public final class FragmentGroupsBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tv_gdesdcription;
-      TextView tvGdesdcription = rootView.findViewById(id);
-      if (tvGdesdcription == null) {
+      id = R.id.tv_gempty;
+      TextView tvGempty = rootView.findViewById(id);
+      if (tvGempty == null) {
         break missingId;
       }
 
       return new FragmentGroupsBinding((ConstraintLayout) rootView, clGroupsFragment, fabAddGroup,
-          rvGroups, tvGdesdcription);
+          rvGroups, tvGempty);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

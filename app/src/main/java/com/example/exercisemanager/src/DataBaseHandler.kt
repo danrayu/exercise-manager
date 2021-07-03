@@ -221,6 +221,14 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         insertExerciseMuscleRelation(db, exercise.id, muscleList)
     }
 
+    fun updateGroupData(db: SQLiteDatabase, group: Group) {
+        val editData = "UPDATE " + TABLE_GROUPS + " SET " +
+                COL_NAME_GROUPS + " = " + "\'" + group.name + "\'" + "," +
+                COL_DESCRIPTION_GROUPS + " = " + "\'" + group.description + "\'" +
+                " WHERE " + COL_ID_GROUPS + " = " + group.id + ";"
+        db.execSQL(editData)
+    }
+
     fun updateGroupExercisesData(db: SQLiteDatabase, group: Group) {
         val exerciseList = group.exercises
         deleteGroupExercisesData(db, group.id)

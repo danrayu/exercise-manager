@@ -2264,7 +2264,7 @@ id tv_enter_mname
 id tv_exercise_name
 id tv_exercise_name_uneditable
 id tv_gdescription
-id tv_gdesdcription
+id tv_gempty
 id tv_group_description
 id tv_group_name
 id tv_muscle_item_name
@@ -2507,6 +2507,7 @@ string description
 string description_text
 string edit_exercise
 string edit_muscle
+string empty
 string error_icon_content_description
 string example
 string exercise_creator
