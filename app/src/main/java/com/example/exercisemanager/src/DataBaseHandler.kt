@@ -226,6 +226,7 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
                 COL_NAME_GROUPS + " = " + "\'" + group.name + "\'" + "," +
                 COL_DESCRIPTION_GROUPS + " = " + "\'" + group.description + "\'" +
                 " WHERE " + COL_ID_GROUPS + " = " + group.id + ";"
+        updateGroupExercisesData(db, group)
         db.execSQL(editData)
     }
 
