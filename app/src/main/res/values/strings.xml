@@ -38,6 +38,7 @@
     <string-array name="muscle_list">
         <item>None</item>
         <item>Biceps</item>
+        <item>Middle Back</item>
         <item>Upper Chest</item>
         <item>Lower Chest</item>
         <item>Mid Chest</item>
@@ -47,6 +48,6 @@
         <item>Front Delts</item>
         <item>Side Delts</item>
         <item>Back Delts</item>
-
     </string-array>
+
 </resources>
