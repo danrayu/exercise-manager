@@ -13,7 +13,6 @@ import com.example.exercisemanager.R
 import com.example.exercisemanager.databinding.FragmentGroupsBinding
 import com.example.exercisemanager.src.DataBaseHandler
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import kotlinx.android.synthetic.main.fragment_groups.view.*
 
 class GroupsFragment : Fragment(), GroupsRVAdapter.EditEventInterface {
 
@@ -44,7 +43,7 @@ class GroupsFragment : Fragment(), GroupsRVAdapter.EditEventInterface {
         binding.rvGroups.adapter = rvAdapter
 
         if (groupList.size == 0) {
-            _binding!!.root.tv_gempty.isVisible = true
+            _binding!!.tvGempty.isVisible = true
         }
 
         val btnAddGroup: FloatingActionButton = _binding!!.root.findViewById(R.id.fab_add_group)

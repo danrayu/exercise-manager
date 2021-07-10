@@ -3,16 +3,14 @@ package com.example.exercisemanager.ui.elements
 import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import com.example.exercisemanager.R
+import com.example.exercisemanager.databinding.DialogMuscleCreatorBinding
 import com.toptoche.searchablespinnerlibrary.SearchableSpinner
-import kotlinx.android.synthetic.main.dialog_ex_creator.view.*
-import kotlinx.android.synthetic.main.dialog_ex_creator.view.et_enter_ename
-import kotlinx.android.synthetic.main.dialog_ex_editor.*
-import kotlinx.android.synthetic.main.dialog_muscle_creator.view.*
 
 class MuscleCreatorDialogueFragment(listener: CreateMuscleDialogListener, var muscleList: MutableList<String>) : DialogFragment() {
 
@@ -25,13 +23,12 @@ class MuscleCreatorDialogueFragment(listener: CreateMuscleDialogListener, var mu
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
             val builder = AlertDialog.Builder(it)
-            val inflater = requireActivity().layoutInflater;
-            val view = inflater.inflate(R.layout.dialog_muscle_creator, null)
-            builder.setView(view)
+            val binding = DialogMuscleCreatorBinding.inflate(LayoutInflater.from(context))
+            builder.setView(binding.root)
                     // Add action buttons
                     .setPositiveButton(R.string.add_muscle,
                             DialogInterface.OnClickListener { dialog, id ->
-                                var mName = view.et_enter_mname.text.toString()
+                                var mName = binding.etEnterMname.text.toString()
                                 if (mName.isNotBlank()) {
                                     var foundCopy = false
                                     for (muscle in muscleList) {

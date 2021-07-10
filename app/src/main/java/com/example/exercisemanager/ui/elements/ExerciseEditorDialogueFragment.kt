@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Toast
@@ -11,12 +12,12 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.exercisemanager.R
+import com.example.exercisemanager.databinding.DialogExCreatorBinding
+import com.example.exercisemanager.databinding.DialogExEditorBinding
 import com.example.exercisemanager.src.ExerciseManagerUtility
 import com.example.exercisemanager.ui.exercises.Exercise
 import com.example.exercisemanager.ui.muscles.Muscle
 import com.toptoche.searchablespinnerlibrary.SearchableSpinner
-import kotlinx.android.synthetic.main.dialog_ex_creator.view.*
-import kotlinx.android.synthetic.main.dialog_ex_editor.view.*
 
 class ExerciseEditorDialogueFragment(private var listener: EditExerciseDialogListener,
                                      private val exercise: Exercise,
@@ -51,23 +52,22 @@ class ExerciseEditorDialogueFragment(private var listener: EditExerciseDialogLis
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
             val builder = AlertDialog.Builder(it)
-            val inflater = requireActivity().layoutInflater
-            val view = inflater.inflate(R.layout.dialog_ex_editor, null)
+            val binding = DialogExEditorBinding.inflate(LayoutInflater.from(context))
 
             selectedMusclesList = exercise.muscles
 
-            view.rv_pick_muscles_edit.layoutManager = LinearLayoutManager(context)
+            binding.rvPickMusclesEdit.layoutManager = LinearLayoutManager(context)
             rvAdapter = ExerciseMuscleRVAdapter(selectedMusclesList, this)
-            view.rv_pick_muscles_edit.adapter = rvAdapter
+            binding.rvPickMusclesEdit.adapter = rvAdapter
 
-            view.et_edit_ename.setText(exercise.name)
-            view.et_edit_edescription.setText(exercise.description)
+            binding.etEditEname.setText(exercise.name)
+            binding.etEditEdescription.setText(exercise.description)
 
-            builder.setView(view)
+            builder.setView(binding.root)
                     .setPositiveButton(R.string.confirm_changes,
                             DialogInterface.OnClickListener { _, _ ->
-                                exercise.name = view.et_edit_ename.text.toString()
-                                exercise.description = view.et_edit_edescription.text.toString()
+                                exercise.name = binding.etEditEname.text.toString()
+                                exercise.description = binding.etEditEdescription.text.toString()
                                 exercise.muscles = selectedMusclesList
                                 listener.onEditExerciseConfirm(exercise)
                             })
@@ -76,14 +76,14 @@ class ExerciseEditorDialogueFragment(private var listener: EditExerciseDialogLis
                                 this.dismiss()
                             })
 
-            val btnDeleteExercise: Button = view.findViewById(R.id.btn_delete_exercise)
+            val btnDeleteExercise: Button = binding.btnDeleteExercise
             btnDeleteExercise.setOnClickListener {
                 listener.onExerciseDeleteClick(this, exerciseIndex)
             }
 
-            val searchableSpinner: SearchableSpinner = view.findViewById(R.id.ss_select_muscle_edit)
+            val searchableSpinner: SearchableSpinner = binding.ssSelectMuscleEdit
             searchableSpinner.adapter = spinnerArrayAdapter
-            val btnSelectMuscle: Button = view.findViewById(R.id.btn_select_muscle_edit)
+            val btnSelectMuscle: Button = binding.btnSelectMuscleEdit
             btnSelectMuscle.setOnClickListener {
                 val muscle = exu.connectStringToMuscle(searchableSpinner.selectedItem.toString(), muscleList)
                 if (!selectedMusclesList.contains(muscle)) {

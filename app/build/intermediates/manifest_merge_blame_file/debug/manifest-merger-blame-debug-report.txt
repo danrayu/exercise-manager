@@ -15,7 +15,7 @@
 12        android:allowBackup="true"
 12-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-13-->[androidx.core:core:1.5.0-rc01] /home/dan/.gradle/caches/transforms-2/files-2.1/f992bbf0810163ce546ba08ac2b08b05/core-1.5.0-rc01/AndroidManifest.xml:24:18-86
+13-->[androidx.core:core:1.6.0] /home/dan/.gradle/caches/transforms-2/files-2.1/3b4b2ff73537da458ffce892e09dd840/core-1.6.0/AndroidManifest.xml:24:18-86
 14        android:debuggable="true"
 15        android:icon="@mipmap/ic_launcher"
 15-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:7:9-43

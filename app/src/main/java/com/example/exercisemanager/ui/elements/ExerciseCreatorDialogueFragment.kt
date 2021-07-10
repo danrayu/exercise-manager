@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Toast
@@ -11,10 +12,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.exercisemanager.R
+import com.example.exercisemanager.databinding.DialogExCreatorBinding
 import com.example.exercisemanager.src.ExerciseManagerUtility
 import com.example.exercisemanager.ui.muscles.Muscle
 import com.toptoche.searchablespinnerlibrary.SearchableSpinner
-import kotlinx.android.synthetic.main.dialog_ex_creator.view.*
 
 class ExerciseCreatorDialogueFragment( private val listener: CreateExerciseDialogListener,
                                        private var muscleList: MutableList<Muscle>)
@@ -45,17 +46,17 @@ class ExerciseCreatorDialogueFragment( private val listener: CreateExerciseDialo
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
             val builder = AlertDialog.Builder(it)
-            val inflater = requireActivity().layoutInflater
-            val view = inflater.inflate(R.layout.dialog_ex_creator, null)
-            view.rv_pick_muscles.layoutManager = LinearLayoutManager(context)
+            val binding = DialogExCreatorBinding.inflate(LayoutInflater.from(context))
+
+            binding.rvPickMuscles.layoutManager = LinearLayoutManager(context)
             rvAdapter = ExerciseMuscleRVAdapter(selectedMusclesList, this)
-            view.rv_pick_muscles.adapter = rvAdapter
-            builder.setView(view)
+            binding.rvPickMuscles.adapter = rvAdapter
+            builder.setView(binding.root)
                     // Add action buttons
                     .setPositiveButton(R.string.create_exercise,
                             DialogInterface.OnClickListener { _, _ ->
-                                val eName = view.et_enter_ename.text.toString()
-                                val eDesc = view.et_enter_edescription.text.toString()
+                                val eName = binding.etEnterEname.text.toString()
+                                val eDesc = binding.etEnterEdescription.text.toString()
                                 if (eName.isNotBlank()) {
                                     listener.onCreateExerciseClick(eName, eDesc, selectedMusclesList)
                                 }
@@ -74,9 +75,9 @@ class ExerciseCreatorDialogueFragment( private val listener: CreateExerciseDialo
                                 rvAdapter.notifyItemRangeRemoved(0, len)
                             })
 
-            val searchableSpinner: SearchableSpinner = view.findViewById(R.id.ss_select_muscle_create)
+            val searchableSpinner: SearchableSpinner = binding.ssSelectMuscleCreate
             searchableSpinner.adapter = spinnerArrayAdapter
-            val btnSelectMuscle: Button = view.findViewById(R.id.btn_select_muscle)
+            val btnSelectMuscle: Button = binding.btnSelectMuscle
             btnSelectMuscle.setOnClickListener {
                 val muscle = exu.connectStringToMuscle(searchableSpinner.selectedItem.toString(), muscleList)
                 if (!selectedMusclesList.contains(muscle)) {

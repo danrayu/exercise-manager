@@ -16,16 +16,14 @@ class ExerciseERVUneditableAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ExerciseItemUneditableBinding.inflate(
-            LayoutInflater.from(parent.context),
-            parent,
-            false
-        )
+            LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder) {
             with(exerciseList[holder.adapterPosition]) {
+
                 binding.tvExerciseNameUneditable.text = this.name
 
                 binding.tvEdescriptionUneditable.text = this.description

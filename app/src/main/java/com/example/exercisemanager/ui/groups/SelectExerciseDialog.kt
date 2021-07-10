@@ -4,17 +4,16 @@ import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.exercisemanager.R
+import com.example.exercisemanager.databinding.DialogSelectExerciseBinding
 import com.example.exercisemanager.src.ExerciseManagerUtility
-import com.example.exercisemanager.ui.elements.ExerciseMuscleRVAdapter
 import com.example.exercisemanager.ui.exercises.Exercise
 import com.toptoche.searchablespinnerlibrary.SearchableSpinner
-import kotlinx.android.synthetic.main.dialog_ex_creator.view.*
 
 class SelectExerciseDialog(private val listener: OnAddGroupExercise,
                            private val exercisePool: MutableList<Exercise>) : DialogFragment() {
@@ -41,12 +40,11 @@ class SelectExerciseDialog(private val listener: OnAddGroupExercise,
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
-            val inflater = requireActivity().layoutInflater
-            val view = inflater.inflate(R.layout.dialog_select_exercise, null)
+            val binding = DialogSelectExerciseBinding.inflate(LayoutInflater.from(context))
             val builder = AlertDialog.Builder(it)
-            val searchableSpinner: SearchableSpinner = view.findViewById(R.id.ss_select_exercise)
+            val searchableSpinner: SearchableSpinner = binding.ssSelectExercise
             searchableSpinner.adapter = spinnerArrayAdapter
-            builder.setView(view)
+            builder.setView(binding.root)
                 // Add action buttons
                 .setPositiveButton(
                     R.string.select_exercise,

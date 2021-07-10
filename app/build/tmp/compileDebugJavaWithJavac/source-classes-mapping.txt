@@ -28,6 +28,8 @@ com/example/exercisemanager/databinding/DialogSelectExerciseBinding.java
  com.example.exercisemanager.databinding.DialogSelectExerciseBinding
 com/example/exercisemanager/databinding/ActivityMainBinding.java
  com.example.exercisemanager.databinding.ActivityMainBinding
+com/example/exercisemanager/DataBindingTriggerClass.java
+ com.example.exercisemanager.DataBindingTriggerClass
 com/example/exercisemanager/databinding/AppBarMainBinding.java
  com.example.exercisemanager.databinding.AppBarMainBinding
 com/example/exercisemanager/databinding/MuscleItemBinding.java

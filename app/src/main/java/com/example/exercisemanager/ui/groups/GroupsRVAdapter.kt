@@ -3,23 +3,23 @@ package com.example.exercisemanager.ui.groups
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.RecycledViewPool
 import com.example.exercisemanager.databinding.GroupItemBinding
-import kotlinx.android.synthetic.main.group_item.view.*
 
 class GroupsRVAdapter(
     private val groupList: MutableList<Group>,
     private val callback: EditEventInterface
 ) : RecyclerView.Adapter<GroupsRVAdapter.ViewHolder>() {
 
-    private lateinit var rvAdapter: ExerciseERVUneditableAdapter
-
+    private val viewPool = RecycledViewPool()
+    
     interface EditEventInterface {
         fun editGroupButtonPressed(group: Group, isNew:Boolean)
     }
 
     inner class ViewHolder(val binding: GroupItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        val recyclerView : RecyclerView = itemView.rv_group_display
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -31,9 +31,19 @@ class GroupsRVAdapter(
         with(holder) {
             with(groupList[position]) {
 
-                rvAdapter = ExerciseERVUneditableAdapter(groupList[position].exercises)
-                holder.recyclerView.adapter = rvAdapter
+                // setting up child rv containing exercises
+                val layoutManager: LinearLayoutManager? = LinearLayoutManager(
+                    holder.binding.rvGroupDisplay.context,
+                    LinearLayoutManager.VERTICAL,
+                    false)
+                layoutManager!!.initialPrefetchItemCount = binding.groupCardLayoutG.childCount
+                layoutManager.initialPrefetchItemCount = groupList[position].exercises.size
+                val childRVExercisesAdapter = ExerciseERVUneditableAdapter(groupList[position].exercises)
+                holder.binding.rvGroupDisplay.layoutManager = layoutManager
+                holder.binding.rvGroupDisplay.adapter = childRVExercisesAdapter
+                holder.binding.rvGroupDisplay.setRecycledViewPool(viewPool)
 
+                // Layout elements setup
                 binding.tvGroupName.text = this.name
                 binding.tvGdescription.text = this.description
                 binding.rvGroupDisplay.adapter = ExerciseERVUneditableAdapter(this.exercises)

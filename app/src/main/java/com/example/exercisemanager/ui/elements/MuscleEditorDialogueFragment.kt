@@ -3,13 +3,14 @@ package com.example.exercisemanager.ui.elements
 import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.widget.Button
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import com.example.exercisemanager.R
+import com.example.exercisemanager.databinding.DialogMuscleCreatorBinding
+import com.example.exercisemanager.databinding.DialogMuscleEditorBinding
 import com.example.exercisemanager.ui.muscles.Muscle
-import kotlinx.android.synthetic.main.dialog_ex_editor.view.*
-import kotlinx.android.synthetic.main.dialog_muscle_editor.view.*
 
 class MuscleEditorDialogueFragment(
     private var listener: EditMuscleDialogListener, private val muscle: Muscle,
@@ -23,20 +24,19 @@ class MuscleEditorDialogueFragment(
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
             val builder = AlertDialog.Builder(it)
-            val inflater = requireActivity().layoutInflater
-            val view = inflater.inflate(R.layout.dialog_muscle_editor, null)
-            view.et_edit_mname.setText(muscle.name)
-            builder.setView(view)
+            val binding = DialogMuscleEditorBinding.inflate(LayoutInflater.from(context))
+            binding.etEditMname.setText(muscle.name)
+            builder.setView(binding.root)
                     .setPositiveButton(R.string.confirm_changes,
                             DialogInterface.OnClickListener { _, _ ->
-                                muscle.name = view.et_edit_mname.text.toString()
+                                muscle.name = binding.etEditMname.text.toString()
                                 listener.onEditMuscleConfirm(muscle)
                             })
                     .setNegativeButton(R.string.cancel,
                             DialogInterface.OnClickListener { _, _ ->
                                 this.dismiss()
                             })
-            val btnDeleteMuscle: Button = view.findViewById(R.id.btn_delete_muscle)
+            val btnDeleteMuscle: Button = binding.btnDeleteMuscle
             btnDeleteMuscle.setOnClickListener {
                 listener.onMuscleDeleteClick(this, muscleIndex)
             }
