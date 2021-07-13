@@ -2141,6 +2141,7 @@ id onDateChanged
 id outline
 id outward
 id packed
+id pager_home
 id parallax
 id parent
 id parentPanel
@@ -2238,6 +2239,7 @@ id stretch
 id submenuarrow
 id submit_area
 id tabMode
+id tab_layout_home
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
 id tag_accessibility_heading
@@ -2305,6 +2307,7 @@ id tv_gdescription
 id tv_gempty
 id tv_group_description
 id tv_group_name
+id tv_home_pager_item
 id tv_muscle_item_name
 id tv_muscle_name
 id unchecked
@@ -2426,6 +2429,7 @@ layout fragment_groups
 layout fragment_home
 layout fragment_muscles
 layout group_item
+layout home_pager_item
 layout material_chip_input_combo
 layout material_clock_display
 layout material_clock_display_divider

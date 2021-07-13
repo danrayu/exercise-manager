@@ -4,23 +4,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import com.example.exercisemanager.R
+import com.example.exercisemanager.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
-        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        return root
+        binding = FragmentHomeBinding.inflate(LayoutInflater.from(context))
+        var pageList : MutableList<String> = ArrayList()
+        pageList.add("A")
+        pageList.add("B")
+        binding.pagerHome.adapter = HomePagerAdapter(pageList)
+        return binding.root
     }
 }
