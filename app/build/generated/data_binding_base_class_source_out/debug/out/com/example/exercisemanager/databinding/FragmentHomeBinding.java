@@ -4,9 +4,9 @@ package com.example.exercisemanager.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewpager2.widget.ViewPager2;
 import com.example.exercisemanager.R;
@@ -17,10 +17,7 @@ import java.lang.String;
 
 public final class FragmentHomeBinding implements ViewBinding {
   @NonNull
-  private final ConstraintLayout rootView;
-
-  @NonNull
-  public final ConstraintLayout clGroupsFragment;
+  private final FrameLayout rootView;
 
   @NonNull
   public final ViewPager2 pagerHome;
@@ -28,18 +25,16 @@ public final class FragmentHomeBinding implements ViewBinding {
   @NonNull
   public final TabLayout tabLayoutHome;
 
-  private FragmentHomeBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ConstraintLayout clGroupsFragment, @NonNull ViewPager2 pagerHome,
+  private FragmentHomeBinding(@NonNull FrameLayout rootView, @NonNull ViewPager2 pagerHome,
       @NonNull TabLayout tabLayoutHome) {
     this.rootView = rootView;
-    this.clGroupsFragment = clGroupsFragment;
     this.pagerHome = pagerHome;
     this.tabLayoutHome = tabLayoutHome;
   }
 
   @Override
   @NonNull
-  public ConstraintLayout getRoot() {
+  public FrameLayout getRoot() {
     return rootView;
   }
 
@@ -64,8 +59,6 @@ public final class FragmentHomeBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      ConstraintLayout clGroupsFragment = (ConstraintLayout) rootView;
-
       id = R.id.pager_home;
       ViewPager2 pagerHome = rootView.findViewById(id);
       if (pagerHome == null) {
@@ -78,8 +71,7 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentHomeBinding((ConstraintLayout) rootView, clGroupsFragment, pagerHome,
-          tabLayoutHome);
+      return new FragmentHomeBinding((FrameLayout) rootView, pagerHome, tabLayoutHome);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

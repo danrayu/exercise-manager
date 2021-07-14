@@ -28,6 +28,10 @@
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/fragment_home.xml"
     },
     {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/home_pager_item.xml",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/home_pager_item.xml"
+    },
+    {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/content_main.xml",
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/content_main.xml"
     },

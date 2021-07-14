@@ -32,6 +32,8 @@ com/example/exercisemanager/DataBindingTriggerClass.java
  com.example.exercisemanager.DataBindingTriggerClass
 com/example/exercisemanager/databinding/AppBarMainBinding.java
  com.example.exercisemanager.databinding.AppBarMainBinding
+com/example/exercisemanager/databinding/HomePagerItemBinding.java
+ com.example.exercisemanager.databinding.HomePagerItemBinding
 com/example/exercisemanager/databinding/MuscleItemBinding.java
  com.example.exercisemanager.databinding.MuscleItemBinding
 com/example/exercisemanager/databinding/FragmentExercisesBinding.java

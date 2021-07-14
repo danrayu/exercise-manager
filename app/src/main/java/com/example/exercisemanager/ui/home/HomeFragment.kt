@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.exercisemanager.R
 import com.example.exercisemanager.databinding.FragmentHomeBinding
+import com.google.android.material.tabs.TabLayoutMediator
 
 class HomeFragment : Fragment() {
 
@@ -22,5 +24,12 @@ class HomeFragment : Fragment() {
         pageList.add("B")
         binding.pagerHome.adapter = HomePagerAdapter(pageList)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val tabLayout = binding.tabLayoutHome
+        TabLayoutMediator(tabLayout, binding.pagerHome) { tab, position ->
+            tab.text = "OBJECT ${(position + 1)}"
+        }.attach()
     }
 }
