@@ -1,25 +1,24 @@
 package com.example.exercisemanager.ui.home
 
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
-import com.example.exercisemanager.R
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentStatePagerAdapter
+import androidx.lifecycle.Lifecycle
+import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class HomePagerAdapter(private val tabNames: MutableList<String>) : RecyclerView.Adapter<HomeViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
-        return HomeViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.home_pager_item, parent, false))
+const val NUM_TABS = 2
+
+class HomePagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle)
+    : FragmentStateAdapter(fragmentManager, lifecycle) {
+
+    override fun getItemCount(): Int {
+        return NUM_TABS
     }
 
-    override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
-        holder.pageName.text = tabNames[position]
+    override fun createFragment(position: Int): Fragment {
+        when (position) {
+            0 -> return TodayFragment()
+        }
+        return SchedulerFragment()
     }
-
-    override fun getItemCount() = tabNames.size
-}
-
-class HomeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
-    val pageName: TextView = view.findViewById(R.id.tv_home_pager_item)
 }

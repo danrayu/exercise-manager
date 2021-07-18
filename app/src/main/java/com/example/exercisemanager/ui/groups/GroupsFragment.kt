@@ -57,9 +57,10 @@ class GroupsFragment : Fragment(), GroupsRVAdapter.EditEventInterface {
     override fun editGroupButtonPressed(group: Group, isNew: Boolean) {
         val fragment = EditGroupFragment(group, isNew)
         val manager : FragmentManager = parentFragmentManager
-        val transaction = manager.beginTransaction()
-        transaction.replace(R.id.nav_host_fragment, fragment).addToBackStack( null )
-        transaction.commit()
+        manager.beginTransaction()
+            .replace(R.id.nav_host_fragment, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 
     override fun onDestroy() {

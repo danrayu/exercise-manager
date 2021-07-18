@@ -61,12 +61,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        val mgr: FragmentManager = supportFragmentManager
-        if (mgr.backStackEntryCount === 0) {
-            // No backstack to pop, so calling super
-            super.onBackPressed()
-        } else {
-            mgr.popBackStack()
-        }
+        supportFragmentManager.popBackStack()
     }
 }

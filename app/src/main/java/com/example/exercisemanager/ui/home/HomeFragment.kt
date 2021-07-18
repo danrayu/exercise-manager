@@ -19,17 +19,20 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(LayoutInflater.from(context))
-        var pageList : MutableList<String> = ArrayList()
-        pageList.add("A")
-        pageList.add("B")
-        binding.pagerHome.adapter = HomePagerAdapter(pageList)
-        return binding.root
-    }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.pagerHome.adapter =
+            HomePagerAdapter(requireActivity().supportFragmentManager, lifecycle)
+
+        val tabNames = arrayOf(
+            "Today",
+            "Scheduler"
+        )
+
         val tabLayout = binding.tabLayoutHome
         TabLayoutMediator(tabLayout, binding.pagerHome) { tab, position ->
-            tab.text = "OBJECT ${(position + 1)}"
+            tab.text = tabNames[position]
         }.attach()
+
+        return binding.root
     }
 }
