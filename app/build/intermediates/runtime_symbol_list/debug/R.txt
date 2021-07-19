@@ -2022,6 +2022,7 @@ int id gone 0x7f0900cd
 int id graph 0x7f0900ce
 int id graph_wrap 0x7f0900cf
 int id group_card_layout_g 0x7f0900d0
+int id group_card_layout_schedule 0x7f090203
 int id group_divider 0x7f0900d1
 int id grouping 0x7f0900d2
 int id groups 0x7f0900d3
@@ -2168,6 +2169,7 @@ int id right_side 0x7f09015f
 int id rl_expanded_edescription 0x7f090160
 int id rl_expanded_edescription_uneditable 0x7f090161
 int id rl_expanded_group 0x7f090162
+int id rl_expanded_un_group 0x7f090204
 int id rounded 0x7f090163
 int id row_index_key 0x7f090164
 int id rv_exercisef 0x7f090165
@@ -2177,6 +2179,8 @@ int id rv_groups 0x7f090168
 int id rv_musclesf 0x7f090169
 int id rv_pick_muscles 0x7f09016a
 int id rv_pick_muscles_edit 0x7f09016b
+int id rv_today_schedule 0x7f090202
+int id rv_un_group_display 0x7f090205
 int id save_non_transition_alpha 0x7f09016c
 int id save_overlay_view 0x7f09016d
 int id sawtooth 0x7f09016e
@@ -2269,6 +2273,7 @@ int id textWatcher 0x7f0901c4
 int id text_input_end_icon 0x7f0901c5
 int id text_input_error_icon 0x7f0901c6
 int id text_input_start_icon 0x7f0901c7
+int id text_view 0x7f090200
 int id textinput_counter 0x7f0901c8
 int id textinput_error 0x7f0901c9
 int id textinput_helper_text 0x7f0901ca
@@ -2279,6 +2284,7 @@ int id time 0x7f0901ce
 int id title 0x7f0901cf
 int id titleDividerNoCustom 0x7f0901d0
 int id title_template 0x7f0901d1
+int id today 0x7f090201
 int id toggle 0x7f0901d2
 int id toolbar 0x7f0901d3
 int id top 0x7f0901d4
@@ -2306,9 +2312,10 @@ int id tv_gdescription 0x7f0901e9
 int id tv_gempty 0x7f0901ea
 int id tv_group_description 0x7f0901eb
 int id tv_group_name 0x7f0901ec
-int id tv_home_pager_item 0x7f0901ed
 int id tv_muscle_item_name 0x7f0901ee
 int id tv_muscle_name 0x7f0901ef
+int id tv_un_group_name 0x7f090206
+int id tv_ung_description 0x7f090207
 int id unchecked 0x7f0901f0
 int id uniform 0x7f0901f1
 int id unlabeled 0x7f0901f2
@@ -2428,7 +2435,7 @@ int layout fragment_groups 0x7f0c0038
 int layout fragment_home 0x7f0c0039
 int layout fragment_muscles 0x7f0c003a
 int layout group_item 0x7f0c003b
-int layout home_pager_item 0x7f0c003c
+int layout group_uneditable_item 0x7f0c0087
 int layout material_chip_input_combo 0x7f0c003d
 int layout material_clock_display 0x7f0c003e
 int layout material_clock_display_divider 0x7f0c003f
@@ -2481,6 +2488,8 @@ int layout notification_template_custom_big 0x7f0c006d
 int layout notification_template_icon_group 0x7f0c006e
 int layout notification_template_part_chronometer 0x7f0c006f
 int layout notification_template_part_time 0x7f0c0070
+int layout schedules_fragment 0x7f0c0085
+int layout schedules_today_fragment 0x7f0c0086
 int layout searchable_list_dialog 0x7f0c0071
 int layout select_dialog_item_material 0x7f0c0072
 int layout select_dialog_multichoice_material 0x7f0c0073

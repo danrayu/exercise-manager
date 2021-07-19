@@ -2023,6 +2023,7 @@ id gone
 id graph
 id graph_wrap
 id group_card_layout_g
+id group_card_layout_schedule
 id group_divider
 id grouping
 id groups
@@ -2169,6 +2170,7 @@ id right_side
 id rl_expanded_edescription
 id rl_expanded_edescription_uneditable
 id rl_expanded_group
+id rl_expanded_un_group
 id rounded
 id row_index_key
 id rv_exercisef
@@ -2178,6 +2180,8 @@ id rv_groups
 id rv_musclesf
 id rv_pick_muscles
 id rv_pick_muscles_edit
+id rv_today_schedule
+id rv_un_group_display
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -2270,6 +2274,7 @@ id textWatcher
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
+id text_view
 id textinput_counter
 id textinput_error
 id textinput_helper_text
@@ -2280,6 +2285,7 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id today
 id toggle
 id toolbar
 id top
@@ -2307,9 +2313,10 @@ id tv_gdescription
 id tv_gempty
 id tv_group_description
 id tv_group_name
-id tv_home_pager_item
 id tv_muscle_item_name
 id tv_muscle_name
+id tv_un_group_name
+id tv_ung_description
 id unchecked
 id uniform
 id unlabeled
@@ -2429,7 +2436,7 @@ layout fragment_groups
 layout fragment_home
 layout fragment_muscles
 layout group_item
-layout home_pager_item
+layout group_uneditable_item
 layout material_chip_input_combo
 layout material_clock_display
 layout material_clock_display_divider
@@ -2482,6 +2489,8 @@ layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout schedules_fragment
+layout schedules_today_fragment
 layout searchable_list_dialog
 layout select_dialog_item_material
 layout select_dialog_multichoice_material

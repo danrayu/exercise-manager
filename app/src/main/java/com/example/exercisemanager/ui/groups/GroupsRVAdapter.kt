@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.RecycledViewPool
 import com.example.exercisemanager.databinding.GroupItemBinding
+import com.example.exercisemanager.ui.exercises.ExerciseERVUneditableAdapter
 
 class GroupsRVAdapter(
     private val groupList: MutableList<Group>,

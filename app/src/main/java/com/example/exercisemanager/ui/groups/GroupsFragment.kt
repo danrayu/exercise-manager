@@ -36,7 +36,7 @@ class GroupsFragment : Fragment(), GroupsRVAdapter.EditEventInterface {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentGroupsBinding.inflate(layoutInflater)
+        _binding = FragmentGroupsBinding.inflate(inflater)
         binding.rvGroups.layoutManager = LinearLayoutManager(context)
 
         rvAdapter = GroupsRVAdapter(groupList, this)
