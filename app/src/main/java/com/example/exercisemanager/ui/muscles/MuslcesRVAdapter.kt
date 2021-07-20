@@ -3,7 +3,7 @@ package com.example.exercisemanager.ui.muscles
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.exercisemanager.databinding.MuscleItemBinding
+import com.example.exercisemanager.databinding.ItemMuscleBinding
 
 class MusclesRVAdapter (
     private val muscleList: MutableList<Muscle>,
@@ -15,10 +15,10 @@ class MusclesRVAdapter (
         fun editMuscleButtonPressed(muscle: Muscle, muscleIndex: Int)
     }
 
-    inner class ViewHolder(val binding: MuscleItemBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class ViewHolder(val binding: ItemMuscleBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = MuscleItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemMuscleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 

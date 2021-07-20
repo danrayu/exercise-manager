@@ -5,18 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.exercisemanager.databinding.SchedulesFragmentBinding
+import com.example.exercisemanager.databinding.FragmentEditScheduleBinding
 
 class SchedulerFragment : Fragment() {
 
-    private lateinit var binding: SchedulesFragmentBinding
+    private lateinit var binding: FragmentEditScheduleBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = SchedulesFragmentBinding.inflate(LayoutInflater.from(context))
+        binding = FragmentEditScheduleBinding.inflate(LayoutInflater.from(context))
         return binding.root
     }
 }

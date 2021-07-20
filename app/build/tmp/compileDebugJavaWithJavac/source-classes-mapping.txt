@@ -1,19 +1,17 @@
 com/example/exercisemanager/BuildConfig.java
  com.example.exercisemanager.BuildConfig
-com/example/exercisemanager/databinding/GroupItemBinding.java
- com.example.exercisemanager.databinding.GroupItemBinding
+com/example/exercisemanager/databinding/ItemMuscleBinding.java
+ com.example.exercisemanager.databinding.ItemMuscleBinding
 com/example/exercisemanager/databinding/DialogExCreatorBinding.java
  com.example.exercisemanager.databinding.DialogExCreatorBinding
 com/example/exercisemanager/databinding/FragmentHomeBinding.java
  com.example.exercisemanager.databinding.FragmentHomeBinding
-com/example/exercisemanager/databinding/ExerciseItemBinding.java
- com.example.exercisemanager.databinding.ExerciseItemBinding
-com/example/exercisemanager/databinding/SchedulesTodayFragmentBinding.java
- com.example.exercisemanager.databinding.SchedulesTodayFragmentBinding
-com/example/exercisemanager/databinding/MusclePickerItemBinding.java
- com.example.exercisemanager.databinding.MusclePickerItemBinding
+com/example/exercisemanager/databinding/ItemUneditableExerciseBinding.java
+ com.example.exercisemanager.databinding.ItemUneditableExerciseBinding
 com/example/exercisemanager/databinding/ContentMainBinding.java
  com.example.exercisemanager.databinding.ContentMainBinding
+com/example/exercisemanager/databinding/FragmentViewScheduleBinding.java
+ com.example.exercisemanager.databinding.FragmentViewScheduleBinding
 com/example/exercisemanager/databinding/FragmentGroupEditBinding.java
  com.example.exercisemanager.databinding.FragmentGroupEditBinding
 com/example/exercisemanager/databinding/FragmentMusclesBinding.java
@@ -24,10 +22,8 @@ com/example/exercisemanager/databinding/DialogMuscleEditorBinding.java
  com.example.exercisemanager.databinding.DialogMuscleEditorBinding
 com/example/exercisemanager/databinding/NavHeaderMainBinding.java
  com.example.exercisemanager.databinding.NavHeaderMainBinding
-com/example/exercisemanager/databinding/GroupUneditableItemBinding.java
- com.example.exercisemanager.databinding.GroupUneditableItemBinding
-com/example/exercisemanager/databinding/SchedulesFragmentBinding.java
- com.example.exercisemanager.databinding.SchedulesFragmentBinding
+com/example/exercisemanager/databinding/FragmentEditScheduleBinding.java
+ com.example.exercisemanager.databinding.FragmentEditScheduleBinding
 com/example/exercisemanager/databinding/DialogExEditorBinding.java
  com.example.exercisemanager.databinding.DialogExEditorBinding
 com/example/exercisemanager/databinding/DialogSelectExerciseBinding.java
@@ -38,11 +34,15 @@ com/example/exercisemanager/DataBindingTriggerClass.java
  com.example.exercisemanager.DataBindingTriggerClass
 com/example/exercisemanager/databinding/AppBarMainBinding.java
  com.example.exercisemanager.databinding.AppBarMainBinding
-com/example/exercisemanager/databinding/MuscleItemBinding.java
- com.example.exercisemanager.databinding.MuscleItemBinding
+com/example/exercisemanager/databinding/ItemMusclePickerBinding.java
+ com.example.exercisemanager.databinding.ItemMusclePickerBinding
+com/example/exercisemanager/databinding/ItemGroupBinding.java
+ com.example.exercisemanager.databinding.ItemGroupBinding
+com/example/exercisemanager/databinding/ItemUneditableGroupBinding.java
+ com.example.exercisemanager.databinding.ItemUneditableGroupBinding
 com/example/exercisemanager/databinding/FragmentExercisesBinding.java
  com.example.exercisemanager.databinding.FragmentExercisesBinding
+com/example/exercisemanager/databinding/ItemExerciseBinding.java
+ com.example.exercisemanager.databinding.ItemExerciseBinding
 com/example/exercisemanager/databinding/FragmentGroupsBinding.java
  com.example.exercisemanager.databinding.FragmentGroupsBinding
-com/example/exercisemanager/databinding/ExerciseItemUneditableBinding.java
- com.example.exercisemanager.databinding.ExerciseItemUneditableBinding

@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.exercisemanager.databinding.ExerciseItemBinding
+import com.example.exercisemanager.databinding.ItemExerciseBinding
 
 class ExerciseERVAdapter(
     private val exerciseList: MutableList<Exercise>,
@@ -15,10 +15,10 @@ class ExerciseERVAdapter(
         fun editButtonPressed(exercise: Exercise, exerciseIndex: Int)
     }
 
-    inner class ViewHolder(val binding: ExerciseItemBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class ViewHolder(val binding: ItemExerciseBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ExerciseItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemExerciseBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 

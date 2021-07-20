@@ -9,9 +9,9 @@ import android.widget.Toast
 import com.example.exercisemanager.R
 import com.example.exercisemanager.ui.exercises.Exercise
 import com.example.exercisemanager.ui.groups.Group
-import com.example.exercisemanager.ui.home.ExerciseSchedule
-import com.example.exercisemanager.ui.home.GroupSchedule
+import com.example.exercisemanager.ui.home.Schedule
 import com.example.exercisemanager.ui.muscles.Muscle
+import org.threeten.bp.LocalDate
 
 const val DATABASE_NAME = "EXERCISE_MANAGER"
 
@@ -152,7 +152,7 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
                     "$COL_IS_EXERCISE NUMBER(1)," +
                     "$COL_SCHEDULE_PATTERN VARCHAR(255)," +
                     "$COL_SCHEDULE_TYPE VARCHAR(255)," +
-                    "$COL_REFERENCE_DATE INT," +
+                    "$COL_REFERENCE_DATE DATETIME," +
                     "FOREIGN KEY($COL_ELEMENT_ID)"
         db?.execSQL(createSchedulesTable)
     }
@@ -226,29 +226,19 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         return true
     }
 
-    private fun insertSchedule(db: SQLiteDatabase?, schedule: ExerciseSchedule) {
+    private fun insertSchedule(db: SQLiteDatabase?, schedule: Schedule) {
         val contentValues = ContentValues()
-        contentValues.put(COL_ELEMENT_ID, schedule.exercise.id)
-        contentValues.put(COL_IS_EXERCISE, true)
+        if (schedule.item is Exercise) {
+            contentValues.put(COL_ELEMENT_ID, schedule.item.id)
+            contentValues.put(COL_IS_EXERCISE, true)
+        }
+        if (schedule.item is Group) {
+            contentValues.put(COL_ELEMENT_ID, schedule.item.id)
+            contentValues.put(COL_IS_EXERCISE, false)
+        }
         contentValues.put(COL_SCHEDULE_PATTERN, schedule.schedulePattern)
         contentValues.put(COL_SCHEDULE_TYPE, schedule.scheduleType)
-        contentValues.put(COL_REFERENCE_DATE, schedule.referenceDate)
-        val result = db?.insert(TABLE_SCHEDULES, null, contentValues)
-        if (result == (0).toLong()) {
-            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show()
-        }
-        else {
-            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    private fun insertSchedule(db: SQLiteDatabase?, schedule: GroupSchedule) {
-        val contentValues = ContentValues()
-        contentValues.put(COL_ELEMENT_ID, schedule.group.id)
-        contentValues.put(COL_IS_EXERCISE, false)
-        contentValues.put(COL_SCHEDULE_PATTERN, schedule.schedulePattern)
-        contentValues.put(COL_SCHEDULE_TYPE, schedule.scheduleType)
-        contentValues.put(COL_REFERENCE_DATE, schedule.referenceDate)
+        contentValues.put(COL_REFERENCE_DATE, schedule.referenceDate.toString())
         val result = db?.insert(TABLE_SCHEDULES, null, contentValues)
         if (result == (0).toLong()) {
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show()
@@ -297,12 +287,7 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         insertGroupExerciseRelation(db, group.id, exerciseList)
     }
 
-    fun updateScheduleData(db: SQLiteDatabase, schedule: ExerciseSchedule) {
-        deleteScheduleData(db, schedule)
-        insertSchedule(db, schedule)
-    }
-
-    fun updateScheduleData(db: SQLiteDatabase, schedule: GroupSchedule) {
+    fun updateScheduleData(db: SQLiteDatabase, schedule: Schedule) {
         deleteScheduleData(db, schedule)
         insertSchedule(db, schedule)
     }
@@ -422,51 +407,37 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         return list
     }
 
-    fun readScheduleExerciseData(db: SQLiteDatabase) : MutableList<ExerciseSchedule> {
-        val list: MutableList<ExerciseSchedule> = ArrayList()
+    fun readScheduleData(db: SQLiteDatabase) : MutableList<Schedule> {
+        val list: MutableList<Schedule> = ArrayList()
         val query = "Select * from $TABLE_SCHEDULES"
         val result = db.rawQuery(query, null)
         if (result.moveToFirst()) {
             do {
+                lateinit var schedule: Schedule
                 if (result.getInt(result.getColumnIndex(COL_IS_EXERCISE)).toBool()) {
-                    val schedule = ExerciseSchedule(
+                    schedule = Schedule(
                         result.getInt(result.getColumnIndex(COL_SCHEDULE_ID)),
-                        getExerciseFromId(db, result.getColumnIndex(COL_ELEMENT_ID)),
                         result.getString(result.getColumnIndex(COL_SCHEDULE_PATTERN)),
+                        getExerciseFromId(db, result.getColumnIndex(COL_ELEMENT_ID)),
                         result.getString(result.getColumnIndex(COL_SCHEDULE_TYPE)),
-                        result.getInt(result.getColumnIndex(COL_REFERENCE_DATE))
-                    )
-                    list.add(schedule)
+                        LocalDate.parse(result.getString(result.getColumnIndex(COL_REFERENCE_DATE)))
+                    )}
+                else {
+                    schedule = Schedule(
+                        result.getInt(result.getColumnIndex(COL_SCHEDULE_ID)),
+                        result.getString(result.getColumnIndex(COL_SCHEDULE_PATTERN)),
+                        getGroupFromId(db, result.getColumnIndex(COL_ELEMENT_ID)),
+                        result.getString(result.getColumnIndex(COL_SCHEDULE_TYPE)),
+                        LocalDate.parse(result.getString(result.getColumnIndex(COL_REFERENCE_DATE)))
+                    )}
+                list.add(schedule)
                 }
+                while (result.moveToNext())
             }
-            while (result.moveToNext())
-        }
         result.close()
         return list
     }
 
-    fun readScheduleGroupData(db: SQLiteDatabase) : MutableList<GroupSchedule> {
-        val list: MutableList<GroupSchedule> = ArrayList()
-        val query = "Select * from $TABLE_SCHEDULES"
-        val result = db.rawQuery(query, null)
-        if (result.moveToFirst()) {
-            do {
-                if (!result.getInt(result.getColumnIndex(COL_IS_EXERCISE)).toBool()) {
-                    val schedule = GroupSchedule(
-                        result.getInt(result.getColumnIndex(COL_SCHEDULE_ID)),
-                        getGroupFromId(db, result.getColumnIndex(COL_ELEMENT_ID)),
-                        result.getString(result.getColumnIndex(COL_SCHEDULE_PATTERN)),
-                        result.getString(result.getColumnIndex(COL_SCHEDULE_TYPE)),
-                        result.getInt(result.getColumnIndex(COL_REFERENCE_DATE))
-                    )
-                    list.add(schedule)
-                }
-            }
-            while (result.moveToNext())
-        }
-        result.close()
-        return list
-    }
 
     // delete methods
     fun deleteExerciseItem(db:SQLiteDatabase, exercise: Exercise) {
@@ -500,15 +471,15 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         db.execSQL(deleteRData)
     }
 
-    private fun deleteScheduleData(db:SQLiteDatabase, schedule: ExerciseSchedule) {
-        val deleteRData = "DELETE FROM " + TABLE_SCHEDULES + " WHERE " + COL_SCHEDULE_ID + " = " +
-                schedule.id + ";"
-        db.execSQL(deleteRData)
-    }
+    private fun deleteScheduleData(db:SQLiteDatabase, schedule: Schedule) {
+        val deleteRData: String = if (schedule.item is Exercise) {
+            "DELETE FROM " + TABLE_SCHEDULES + " WHERE " + COL_SCHEDULE_ID + " = " +
+                    schedule.id + ";"
+        } else {
+            "DELETE FROM " + TABLE_SCHEDULES + " WHERE " + COL_SCHEDULE_ID + " = " +
+                    schedule.id + ";"
+        }
 
-    private fun deleteScheduleData(db:SQLiteDatabase, schedule: GroupSchedule) {
-        val deleteRData = "DELETE FROM " + TABLE_SCHEDULES + " WHERE " + COL_SCHEDULE_ID + " = " +
-                schedule.id + ";"
         db.execSQL(deleteRData)
     }
 
@@ -536,7 +507,7 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         return correctExercise
     }
 
-    fun Int.toBool() = this > 0
+    private fun Int.toBool() = this > 0
 
     private fun getGroupFromName(db: SQLiteDatabase, name: String) : Group {
         lateinit var correctGroup: Group

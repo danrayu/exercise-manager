@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.RecycledViewPool
-import com.example.exercisemanager.databinding.GroupItemBinding
+import com.example.exercisemanager.databinding.ItemGroupBinding
 import com.example.exercisemanager.ui.exercises.ExerciseERVUneditableAdapter
 
 class GroupsRVAdapter(
@@ -20,11 +20,11 @@ class GroupsRVAdapter(
         fun editGroupButtonPressed(group: Group, isNew:Boolean)
     }
 
-    inner class ViewHolder(val binding: GroupItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(val binding: ItemGroupBinding) : RecyclerView.ViewHolder(binding.root) {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = GroupItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemGroupBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 

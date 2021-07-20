@@ -4,17 +4,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.exercisemanager.databinding.ExerciseItemUneditableBinding
+import com.example.exercisemanager.databinding.ItemUneditableExerciseBinding
 
 class ExerciseERVUneditableAdapter(
     private val exerciseList: MutableList<Exercise>
 ) : RecyclerView.Adapter<ExerciseERVUneditableAdapter.ViewHolder>() {
 
-    inner class ViewHolder(val binding: ExerciseItemUneditableBinding) :
+    inner class ViewHolder(val binding: ItemUneditableExerciseBinding) :
         RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ExerciseItemUneditableBinding.inflate(
+        val binding = ItemUneditableExerciseBinding.inflate(
             LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
