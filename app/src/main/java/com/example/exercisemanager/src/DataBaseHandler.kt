@@ -147,13 +147,12 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
     private fun createRepeatableSchedulesTable(db: SQLiteDatabase?) {
         val createSchedulesTable =
             "CREATE TABLE $TABLE_SCHEDULES " +
-                    "($COL_SCHEDULE_ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    "$COL_ELEMENT_ID INT," +
-                    "$COL_IS_EXERCISE NUMBER(1)," +
-                    "$COL_SCHEDULE_PATTERN VARCHAR(255)," +
-                    "$COL_SCHEDULE_TYPE VARCHAR(255)," +
-                    "$COL_REFERENCE_DATE DATETIME," +
-                    "FOREIGN KEY($COL_ELEMENT_ID)"
+            "($COL_SCHEDULE_ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            "$COL_ELEMENT_ID INT," +
+            "$COL_IS_EXERCISE NUMBER(1)," +
+            "$COL_SCHEDULE_PATTERN VARCHAR(255)," +
+            "$COL_SCHEDULE_TYPE VARCHAR(255)," +
+            "$COL_REFERENCE_DATE DATETIME);"
         db?.execSQL(createSchedulesTable)
     }
 
