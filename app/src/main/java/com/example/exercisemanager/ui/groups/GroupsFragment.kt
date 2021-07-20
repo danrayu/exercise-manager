@@ -35,7 +35,7 @@ class GroupsFragment : Fragment(), GroupsRVAdapter.EditEventInterface {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentGroupsBinding.inflate(inflater)
         binding.rvGroups.layoutManager = LinearLayoutManager(context)
 
@@ -48,7 +48,7 @@ class GroupsFragment : Fragment(), GroupsRVAdapter.EditEventInterface {
 
         val btnAddGroup: FloatingActionButton = _binding!!.root.findViewById(R.id.fab_add_group)
         btnAddGroup.setOnClickListener {
-            val group = Group("","", ArrayList(), false, 0)
+            val group = Group(0,"","", ArrayList(), false)
             editGroupButtonPressed(group, true)
         }
         return _binding!!.root

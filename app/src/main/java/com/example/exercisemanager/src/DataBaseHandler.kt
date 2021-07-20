@@ -379,10 +379,10 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
             do {
                 val groupId = result.getInt(result.getColumnIndex(COL_ID_GROUPS))
                 val group = Group(
+                    id = groupId,
                     result.getString(result.getColumnIndex(COL_NAME_GROUPS)),
                     result.getString(result.getColumnIndex(COL_DESCRIPTION_GROUPS)),
-                    readGroupExercisesData(db, groupId),
-                    id = groupId
+                    readGroupExercisesData(db, groupId)
                 )
                 list.add(group)
             }

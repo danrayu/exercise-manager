@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.exercisemanager.databinding.SchedulesTodayFragmentBinding
 import com.example.exercisemanager.src.DataBaseHandler
+import com.example.exercisemanager.src.DisplayableItem
 
 
 class TodayFragment : Fragment() {
@@ -18,7 +18,7 @@ class TodayFragment : Fragment() {
 
     private lateinit var db: DataBaseHandler
 
-    private lateinit var elementList: MutableList<Any>
+    private lateinit var elementList: MutableList<DisplayableItem>
     private lateinit var rvAdapter: TodayFragmentRVAdapter
 
     override fun onAttach(context: Context) {
@@ -32,16 +32,12 @@ class TodayFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = SchedulesTodayFragmentBinding.inflate(inflater)
         binding.rvTodaySchedule.layoutManager = LinearLayoutManager(context)
         rvAdapter = TodayFragmentRVAdapter(elementList, requireContext())
         binding.rvTodaySchedule.adapter = rvAdapter
 
         return binding.root
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
     }
 }

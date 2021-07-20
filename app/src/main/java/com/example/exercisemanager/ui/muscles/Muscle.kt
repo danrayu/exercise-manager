@@ -1,6 +1,8 @@
 package com.example.exercisemanager.ui.muscles
 
-data class Muscle (
-    var name: String,
-    var id: Int
-    )
+import com.example.exercisemanager.src.DisplayableItem
+
+class Muscle (
+    name: String,
+    id: Int
+    ) : DisplayableItem(id, name)

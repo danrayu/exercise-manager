@@ -72,12 +72,12 @@
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/fragment_groups.xml"
     },
     {
-        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/res/merged/debug/layout_schedules_fragment.xml.flat",
-        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/schedules_fragment.xml"
-    },
-    {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/res/merged/debug/layout_group_uneditable_item.xml.flat",
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/group_uneditable_item.xml"
+    },
+    {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/res/merged/debug/layout_schedules_fragment.xml.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/schedules_fragment.xml"
     },
     {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/res/merged/debug/layout_nav_header_main.xml.flat",
@@ -168,11 +168,11 @@
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
-        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable/ic_launcher_background.xml"
-    },
-    {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/res/merged/debug/layout_schedules_today_fragment.xml.flat",
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/schedules_today_fragment.xml"
+    },
+    {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable/ic_launcher_background.xml"
     }
 ]
