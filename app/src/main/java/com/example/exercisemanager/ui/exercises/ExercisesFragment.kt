@@ -13,8 +13,6 @@ import com.example.exercisemanager.R
 import com.example.exercisemanager.databinding.FragmentExercisesBinding
 import com.example.exercisemanager.src.DataBaseHandler
 import com.example.exercisemanager.src.ExerciseManagerUtility
-import com.example.exercisemanager.ui.elements.ExerciseCreatorDialogueFragment
-import com.example.exercisemanager.ui.elements.ExerciseEditorDialogueFragment
 import com.example.exercisemanager.ui.muscles.Muscle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 

@@ -1,4 +1,4 @@
-#Tue Jul 20 15:06:31 EEST 2021
+#Mon Jul 26 15:53:19 EEST 2021
 path.4=14/classes.dex
 path.3=13/classes.dex
 path.2=11/classes.dex
@@ -19,10 +19,10 @@ base.0=/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/d
 renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
-path.10=9/classes.dex
+path.10=6/classes.dex
 renamed.0=classes.dex
-base.9=/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/dex/debug/mergeProjectDexDebug/7/classes.dex
-path.9=7/classes.dex
+base.9=/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/dex/debug/mergeProjectDexDebug/9/classes.dex
+path.9=9/classes.dex
 renamed.7=classes8.dex
 base.8=/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/dex/debug/mergeProjectDexDebug/5/classes.dex
 renamed.6=classes7.dex
@@ -31,4 +31,4 @@ renamed.5=classes6.dex
 base.6=/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/dex/debug/mergeProjectDexDebug/2/classes.dex
 renamed.4=classes5.dex
 base.5=/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/dex/debug/mergeProjectDexDebug/15/classes.dex
-base.10=/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/dex/debug/mergeProjectDexDebug/9/classes.dex
+base.10=/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/dex/debug/mergeProjectDexDebug/6/classes.dex

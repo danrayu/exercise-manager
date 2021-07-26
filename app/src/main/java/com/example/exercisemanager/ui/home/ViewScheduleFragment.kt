@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.exercisemanager.databinding.FragmentViewScheduleBinding
 import com.example.exercisemanager.src.DataBaseHandler
 import com.example.exercisemanager.src.DisplayableItem
-import com.example.exercisemanager.src.Scheduler
+import org.threeten.bp.LocalDate
 
 
 class ViewScheduleFragment : Fragment() {
@@ -20,14 +20,12 @@ class ViewScheduleFragment : Fragment() {
     private lateinit var db: DataBaseHandler
 
     private lateinit var elementList: MutableList<DisplayableItem>
-    private lateinit var rvAdapter: ViewScheduleFragmentRVAdapter
-    private lateinit var scheduler: Scheduler
+    private lateinit var rvAdapter: UneditableGroupsExercisesRVAdapter
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         db = DataBaseHandler(context)
-        scheduler  = Scheduler(db)
-        elementList = scheduler.showScheduledItemsToday()
+        elementList = db.showScheduledItemsAtDate(db, LocalDate.now())
     }
 
     override fun onCreateView(
@@ -37,7 +35,7 @@ class ViewScheduleFragment : Fragment() {
     ): View {
         binding = FragmentViewScheduleBinding.inflate(inflater)
         binding.rvTodaySchedule.layoutManager = LinearLayoutManager(context)
-        rvAdapter = ViewScheduleFragmentRVAdapter(elementList, requireContext())
+        rvAdapter = UneditableGroupsExercisesRVAdapter(elementList, requireContext())
         binding.rvTodaySchedule.adapter = rvAdapter
 
         return binding.root

@@ -20,6 +20,10 @@
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/dialog_muscle_editor.xml"
     },
     {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/dialog_searchable_spinner.xml",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/dialog_searchable_spinner.xml"
+    },
+    {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_home.xml",
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/fragment_home.xml"
     },
@@ -42,6 +46,10 @@
     {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/item_group.xml",
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/item_group.xml"
+    },
+    {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/item_ss_element.xml",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/item_ss_element.xml"
     },
     {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/muscle_picker_item.xml",

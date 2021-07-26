@@ -11,42 +11,44 @@
 9-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml
 10
 11    <application
-11-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:5:5-22:19
-12        android:allowBackup="true"
-12-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:6:9-35
-13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-13-->[androidx.core:core:1.6.0] /home/dan/.gradle/caches/transforms-2/files-2.1/3b4b2ff73537da458ffce892e09dd840/core-1.6.0/AndroidManifest.xml:24:18-86
-14        android:debuggable="true"
-15        android:icon="@mipmap/ic_launcher"
-15-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:7:9-43
-16        android:label="@string/app_name"
-16-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:8:9-41
-17        android:roundIcon="@mipmap/ic_launcher_round"
-17-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:9:9-54
-18        android:supportsRtl="true"
-18-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:10:9-35
-19        android:testOnly="true"
-20        android:theme="@style/Theme.ExerciseManager" >
-20-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:11:9-53
-21        <activity
-21-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:12:9-21:20
-22            android:name="com.example.exercisemanager.MainActivity"
-22-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:13:13-41
-23            android:label="@string/app_name"
-23-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:14:13-45
-24            android:theme="@style/Theme.ExerciseManager.NoActionBar" >
-24-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:15:13-69
-25            <intent-filter>
-25-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:16:13-20:29
-26                <action android:name="android.intent.action.MAIN" />
-26-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:17:17-69
-26-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:17:25-66
-27
-28                <category android:name="android.intent.category.LAUNCHER" />
-28-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:19:17-77
-28-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:19:27-74
-29            </intent-filter>
-30        </activity>
-31    </application>
-32
-33</manifest>
+11-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:5:5-23:19
+12        android:name="com.example.exercisemanager.src.ExerciseManagerApplication"
+12-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:8:9-55
+13        android:allowBackup="true"
+13-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:6:9-35
+14        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+14-->[androidx.core:core:1.6.0] /home/dan/.gradle/caches/transforms-2/files-2.1/3b4b2ff73537da458ffce892e09dd840/core-1.6.0/AndroidManifest.xml:24:18-86
+15        android:debuggable="true"
+16        android:icon="@mipmap/ic_launcher"
+16-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:7:9-43
+17        android:label="@string/app_name"
+17-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:9:9-41
+18        android:roundIcon="@mipmap/ic_launcher_round"
+18-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:10:9-54
+19        android:supportsRtl="true"
+19-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:11:9-35
+20        android:testOnly="true"
+21        android:theme="@style/Theme.ExerciseManager" >
+21-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:12:9-53
+22        <activity
+22-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:13:9-22:20
+23            android:name="com.example.exercisemanager.MainActivity"
+23-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:14:13-41
+24            android:label="@string/app_name"
+24-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:15:13-45
+25            android:theme="@style/Theme.ExerciseManager.NoActionBar" >
+25-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:16:13-69
+26            <intent-filter>
+26-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:17:13-21:29
+27                <action android:name="android.intent.action.MAIN" />
+27-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:18:17-69
+27-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:18:25-66
+28
+29                <category android:name="android.intent.category.LAUNCHER" />
+29-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:20:17-77
+29-->/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/AndroidManifest.xml:20:27-74
+30            </intent-filter>
+31        </activity>
+32    </application>
+33
+34</manifest>

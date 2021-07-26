@@ -13,7 +13,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import com.example.exercisemanager.R;
-import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -23,7 +22,7 @@ public final class DialogExCreatorBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final Button btnSelectMuscle;
+  public final Button btnExCreatorAddMuscle;
 
   @NonNull
   public final ConstraintLayout clExc;
@@ -41,28 +40,23 @@ public final class DialogExCreatorBinding implements ViewBinding {
   public final RecyclerView rvPickMuscles;
 
   @NonNull
-  public final SearchableSpinner ssSelectMuscleCreate;
-
-  @NonNull
   public final TextView tvEnterEdescription;
 
   @NonNull
   public final TextView tvEnterEname;
 
   private DialogExCreatorBinding(@NonNull ConstraintLayout rootView,
-      @NonNull Button btnSelectMuscle, @NonNull ConstraintLayout clExc,
+      @NonNull Button btnExCreatorAddMuscle, @NonNull ConstraintLayout clExc,
       @NonNull TextView createExerciseDialogName, @NonNull EditText etEnterEdescription,
       @NonNull EditText etEnterEname, @NonNull RecyclerView rvPickMuscles,
-      @NonNull SearchableSpinner ssSelectMuscleCreate, @NonNull TextView tvEnterEdescription,
-      @NonNull TextView tvEnterEname) {
+      @NonNull TextView tvEnterEdescription, @NonNull TextView tvEnterEname) {
     this.rootView = rootView;
-    this.btnSelectMuscle = btnSelectMuscle;
+    this.btnExCreatorAddMuscle = btnExCreatorAddMuscle;
     this.clExc = clExc;
     this.createExerciseDialogName = createExerciseDialogName;
     this.etEnterEdescription = etEnterEdescription;
     this.etEnterEname = etEnterEname;
     this.rvPickMuscles = rvPickMuscles;
-    this.ssSelectMuscleCreate = ssSelectMuscleCreate;
     this.tvEnterEdescription = tvEnterEdescription;
     this.tvEnterEname = tvEnterEname;
   }
@@ -94,9 +88,9 @@ public final class DialogExCreatorBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btn_select_muscle;
-      Button btnSelectMuscle = rootView.findViewById(id);
-      if (btnSelectMuscle == null) {
+      id = R.id.btn_ex_creator_add_muscle;
+      Button btnExCreatorAddMuscle = rootView.findViewById(id);
+      if (btnExCreatorAddMuscle == null) {
         break missingId;
       }
 
@@ -126,12 +120,6 @@ public final class DialogExCreatorBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.ss_select_muscle_create;
-      SearchableSpinner ssSelectMuscleCreate = rootView.findViewById(id);
-      if (ssSelectMuscleCreate == null) {
-        break missingId;
-      }
-
       id = R.id.tv_enter_edescription;
       TextView tvEnterEdescription = rootView.findViewById(id);
       if (tvEnterEdescription == null) {
@@ -144,9 +132,9 @@ public final class DialogExCreatorBinding implements ViewBinding {
         break missingId;
       }
 
-      return new DialogExCreatorBinding((ConstraintLayout) rootView, btnSelectMuscle, clExc,
+      return new DialogExCreatorBinding((ConstraintLayout) rootView, btnExCreatorAddMuscle, clExc,
           createExerciseDialogName, etEnterEdescription, etEnterEname, rvPickMuscles,
-          ssSelectMuscleCreate, tvEnterEdescription, tvEnterEname);
+          tvEnterEdescription, tvEnterEname);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

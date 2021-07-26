@@ -437,6 +437,17 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         return list
     }
 
+    fun showScheduledItemsAtDate(db: DataBaseHandler, date: LocalDate) : MutableList<DisplayableItem> {
+        val schedules = db.readScheduleData(db.readableDatabase)
+        val itemList: MutableList<DisplayableItem> = ArrayList()
+        for (schedule in schedules) {
+            if (schedule.isScheduledAtDate(date)) {
+                itemList.add(schedule.item)
+            }
+        }
+        return itemList
+    }
+
 
     // delete methods
     fun deleteExerciseItem(db:SQLiteDatabase, exercise: Exercise) {

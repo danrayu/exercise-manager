@@ -1,6 +1,5 @@
 package com.example.exercisemanager.ui.muscles
 
-import android.R
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,8 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.exercisemanager.databinding.FragmentMusclesBinding
 import com.example.exercisemanager.src.DataBaseHandler
-import com.example.exercisemanager.ui.elements.MuscleCreatorDialogueFragment
-import com.example.exercisemanager.ui.elements.MuscleEditorDialogueFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MusclesFragment : Fragment(), MusclesRVAdapter.EditEventInterface,

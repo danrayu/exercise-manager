@@ -1910,8 +1910,8 @@ id btn_delete_muscle
 id btn_edit_exercise
 id btn_edit_group
 id btn_edit_muscle
+id btn_ex_creator_add_muscle
 id btn_save_group
-id btn_select_muscle
 id btn_select_muscle_edit
 id btn_unpick_muscle
 id buttonPanel
@@ -1936,6 +1936,7 @@ id cl_exc
 id cl_exercise_fragment
 id cl_groups_fragment
 id cl_muscle
+id cl_ss_element
 id clear_text
 id clip_horizontal
 id clip_vertical
@@ -2001,6 +2002,7 @@ id et_enter_ename
 id et_enter_mname
 id et_group_description
 id et_group_name
+id et_ss
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -2180,6 +2182,7 @@ id rv_groups
 id rv_musclesf
 id rv_pick_muscles
 id rv_pick_muscles_edit
+id rv_searchable_spinner
 id rv_today_schedule
 id rv_un_group_display
 id save_non_transition_alpha
@@ -2229,7 +2232,6 @@ id src_atop
 id src_in
 id src_over
 id ss_select_exercise
-id ss_select_muscle_create
 id ss_select_muscle_edit
 id standard
 id start
@@ -2315,6 +2317,7 @@ id tv_group_description
 id tv_group_name
 id tv_muscle_item_name
 id tv_muscle_name
+id tv_ss_element_name
 id tv_un_group_name
 id tv_ung_description
 id unchecked
@@ -2427,6 +2430,7 @@ layout dialog_ex_creator
 layout dialog_ex_editor
 layout dialog_muscle_creator
 layout dialog_muscle_editor
+layout dialog_searchable_spinner
 layout dialog_select_exercise
 layout fragment_edit_schedule
 layout fragment_exercises
@@ -2439,6 +2443,7 @@ layout item_exercise
 layout item_group
 layout item_muscle
 layout item_muscle_picker
+layout item_ss_element
 layout item_uneditable_exercise
 layout item_uneditable_group
 layout material_chip_input_combo

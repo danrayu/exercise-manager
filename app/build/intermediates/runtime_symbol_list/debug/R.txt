@@ -1909,8 +1909,8 @@ int id btn_delete_muscle 0x7f09005c
 int id btn_edit_exercise 0x7f09005d
 int id btn_edit_group 0x7f09005e
 int id btn_edit_muscle 0x7f09005f
+int id btn_ex_creator_add_muscle 0x7f09020b
 int id btn_save_group 0x7f090060
-int id btn_select_muscle 0x7f090061
 int id btn_select_muscle_edit 0x7f090062
 int id btn_unpick_muscle 0x7f090063
 int id buttonPanel 0x7f090064
@@ -1935,6 +1935,7 @@ int id cl_exc 0x7f090076
 int id cl_exercise_fragment 0x7f090077
 int id cl_groups_fragment 0x7f090078
 int id cl_muscle 0x7f090079
+int id cl_ss_element 0x7f090207
 int id clear_text 0x7f09007a
 int id clip_horizontal 0x7f09007b
 int id clip_vertical 0x7f09007c
@@ -2000,6 +2001,7 @@ int id et_enter_ename 0x7f0900b7
 int id et_enter_mname 0x7f0900b8
 int id et_group_description 0x7f0900b9
 int id et_group_name 0x7f0900ba
+int id et_ss 0x7f09020d
 int id exitUntilCollapsed 0x7f0900bb
 int id expand_activities_button 0x7f0900bc
 int id expanded_menu 0x7f0900bd
@@ -2179,6 +2181,7 @@ int id rv_groups 0x7f09016a
 int id rv_musclesf 0x7f09016b
 int id rv_pick_muscles 0x7f09016c
 int id rv_pick_muscles_edit 0x7f09016d
+int id rv_searchable_spinner 0x7f090209
 int id rv_today_schedule 0x7f09016e
 int id rv_un_group_display 0x7f09016f
 int id save_non_transition_alpha 0x7f090170
@@ -2228,7 +2231,6 @@ int id src_atop 0x7f09019b
 int id src_in 0x7f09019c
 int id src_over 0x7f09019d
 int id ss_select_exercise 0x7f09019e
-int id ss_select_muscle_create 0x7f09019f
 int id ss_select_muscle_edit 0x7f0901a0
 int id standard 0x7f0901a1
 int id start 0x7f0901a2
@@ -2314,6 +2316,7 @@ int id tv_group_description 0x7f0901f1
 int id tv_group_name 0x7f0901f2
 int id tv_muscle_item_name 0x7f0901f3
 int id tv_muscle_name 0x7f0901f4
+int id tv_ss_element_name 0x7f09020a
 int id tv_un_group_name 0x7f0901f5
 int id tv_ung_description 0x7f0901f6
 int id unchecked 0x7f0901f7
@@ -2426,6 +2429,7 @@ int layout dialog_ex_creator 0x7f0c002f
 int layout dialog_ex_editor 0x7f0c0030
 int layout dialog_muscle_creator 0x7f0c0031
 int layout dialog_muscle_editor 0x7f0c0032
+int layout dialog_searchable_spinner 0x7f0c008f
 int layout dialog_select_exercise 0x7f0c0033
 int layout fragment_edit_schedule 0x7f0c0087
 int layout fragment_exercises 0x7f0c0036
@@ -2438,6 +2442,7 @@ int layout item_exercise 0x7f0c0089
 int layout item_group 0x7f0c008a
 int layout item_muscle 0x7f0c008b
 int layout item_muscle_picker 0x7f0c008c
+int layout item_ss_element 0x7f0c0090
 int layout item_uneditable_exercise 0x7f0c008d
 int layout item_uneditable_group 0x7f0c008e
 int layout material_chip_input_combo 0x7f0c003d
