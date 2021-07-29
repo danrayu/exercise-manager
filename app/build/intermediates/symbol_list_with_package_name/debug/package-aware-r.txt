@@ -479,7 +479,6 @@ attr hideOnContentScroll
 attr hideOnScroll
 attr hintAnimationEnabled
 attr hintEnabled
-attr hintText
 attr hintTextAppearance
 attr hintTextColor
 attr homeAsUpIndicator
@@ -1766,6 +1765,8 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable ic_clock_black_24dp
+drawable ic_continue
+drawable ic_exercise
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -1777,6 +1778,8 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_muscle
+drawable ic_search
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
@@ -1905,14 +1908,15 @@ id bottom
 id bounce
 id btn_add_exercise
 id btn_add_group_exercise
+id btn_add_schedule
 id btn_delete_exercise
 id btn_delete_muscle
 id btn_edit_exercise
 id btn_edit_group
 id btn_edit_muscle
 id btn_ex_creator_add_muscle
+id btn_ex_editor_add_muscle
 id btn_save_group
-id btn_select_muscle_edit
 id btn_unpick_muscle
 id buttonPanel
 id cache_measures
@@ -2042,11 +2046,13 @@ id ignore
 id ignoreRequest
 id image
 id imageView
+id imageView2
 id info
 id invisible
 id inward
 id italic
 id item_touch_helper_previous_elevation
+id iv_continue1
 id jumpToEnd
 id jumpToStart
 id labeled
@@ -2056,9 +2062,10 @@ id leftToRight
 id line1
 id line3
 id linear
-id listItems
 id listMode
 id list_item
+id ll_pattern_length_interactable
+id main_content
 id masked
 id material_clock_display
 id material_clock_face
@@ -2179,6 +2186,7 @@ id rv_exercisef
 id rv_group_display
 id rv_group_exercises
 id rv_groups
+id rv_manage_schedules
 id rv_musclesf
 id rv_pick_muscles
 id rv_pick_muscles_edit
@@ -2195,7 +2203,6 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollable
-id search
 id search_badge
 id search_bar
 id search_button
@@ -2207,7 +2214,6 @@ id search_plate
 id search_src_text
 id search_voice_btn
 id select_dialog_listview
-id select_exercise_dialog_name
 id selected
 id selection_type
 id shortcut
@@ -2221,6 +2227,7 @@ id snackbar_action
 id snackbar_text
 id snap
 id snapMargins
+id sp_pattern_types
 id spacer
 id special_effects_controller_view_tag
 id spline
@@ -2231,8 +2238,6 @@ id square
 id src_atop
 id src_in
 id src_over
-id ss_select_exercise
-id ss_select_muscle_edit
 id standard
 id start
 id startHorizontal
@@ -2276,7 +2281,6 @@ id textWatcher
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
-id text_view
 id textinput_counter
 id textinput_error
 id textinput_helper_text
@@ -2317,6 +2321,10 @@ id tv_group_description
 id tv_group_name
 id tv_muscle_item_name
 id tv_muscle_name
+id tv_number
+id tv_pattern_length
+id tv_pattern_length_display
+id tv_pattern_type
 id tv_ss_element_name
 id tv_un_group_name
 id tv_ung_description
@@ -2331,10 +2339,12 @@ id view_tree_saved_state_registry_owner
 id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
+id vp_length_slider
 id withText
 id withinBounds
 id wrap
 id wrap_content
+id yes
 id zero_corner_chip
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
@@ -2430,19 +2440,21 @@ layout dialog_ex_creator
 layout dialog_ex_editor
 layout dialog_muscle_creator
 layout dialog_muscle_editor
+layout dialog_page_view_slider
 layout dialog_searchable_spinner
-layout dialog_select_exercise
-layout fragment_edit_schedule
 layout fragment_exercises
 layout fragment_group_edit
 layout fragment_groups
 layout fragment_home
+layout fragment_manage_schedules
 layout fragment_muscles
+layout fragment_schedule_editor
 layout fragment_view_schedule
 layout item_exercise
 layout item_group
 layout item_muscle
 layout item_muscle_picker
+layout item_pickable_circle
 layout item_ss_element
 layout item_uneditable_exercise
 layout item_uneditable_group
@@ -2496,7 +2508,6 @@ layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
-layout searchable_list_dialog
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
@@ -2655,6 +2666,8 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string pattern_length
+string pattern_type
 string reset_database
 string save
 string search_menu_title
@@ -3516,7 +3529,6 @@ styleable RecyclerView android_orientation android_clipToPadding android_descend
 styleable ScrimInsetsFrameLayout insetForeground
 styleable ScrollingViewBehavior_Layout behavior_overlapTop
 styleable SearchView android_focusable android_maxWidth android_inputType android_imeOptions closeIcon commitIcon defaultQueryHint goIcon iconifiedByDefault layout queryBackground queryHint searchHintIcon searchIcon submitBackground suggestionRowLayout voiceIcon
-styleable SearchableSpinner hintText
 styleable ShapeAppearance cornerFamily cornerFamilyBottomLeft cornerFamilyBottomRight cornerFamilyTopLeft cornerFamilyTopRight cornerSize cornerSizeBottomLeft cornerSizeBottomRight cornerSizeTopLeft cornerSizeTopRight
 styleable ShapeableImageView contentPadding contentPaddingBottom contentPaddingEnd contentPaddingLeft contentPaddingRight contentPaddingStart contentPaddingTop shapeAppearance shapeAppearanceOverlay strokeColor strokeWidth
 styleable Slider android_enabled android_value android_stepSize android_valueFrom android_valueTo haloColor haloRadius labelBehavior labelStyle thumbColor thumbElevation thumbRadius thumbStrokeColor thumbStrokeWidth tickColor tickColorActive tickColorInactive tickVisible trackColor trackColorActive trackColorInactive trackHeight

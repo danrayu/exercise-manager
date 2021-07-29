@@ -34,6 +34,8 @@
     <string name="save">SAVE</string>
     <string name="select_exercise">Select Exercise</string>
     <string name="empty">Empty</string>
+    <string name="pattern_type">Pattern type:</string>
+    <string name="pattern_length">Pattern length</string>
 
     <string-array name="muscle_list">
         <item>None</item>

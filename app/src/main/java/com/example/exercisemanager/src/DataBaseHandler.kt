@@ -47,12 +47,17 @@ const val COL_EXERCISE_ID_GE = "exercise_id"
 // table containing information for group/exercise scheduling
 const val TABLE_SCHEDULES = "RepeatableSchedules"
 const val COL_SCHEDULE_ID = "schedule_id"
-const val COL_ELEMENT_ID = "element_id"
-const val COL_IS_EXERCISE = "element_type"
 const val COL_SCHEDULE_PATTERN = "repeat_pattern"
 const val COL_SCHEDULE_TYPE = "repeat_type"
 // The date from which the pattern begins.
 const val COL_REFERENCE_DATE = "reference_date"
+
+// table containing displayableItems for schedules
+const val TABLE_SCHEDULE_ITEMS = "ScheduleItems"
+// schedule_id is also a column
+const val COL_ELEMENT_ID = "element_id"
+const val COL_IS_EXERCISE = "element_type"
+
 
 
 class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null,
@@ -67,6 +72,7 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         createGroupsTable(db)
         createGroupExercisesTable(db)
         createRepeatableSchedulesTable(db)
+        createScheduleItemsTable(db)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -87,6 +93,8 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         db?.execSQL(dropGrExs)
         val dropSchRe = "DROP TABLE IF EXISTS '$TABLE_SCHEDULES'"
         db?.execSQL(dropSchRe)
+        val dropSchIt = "DROP TABLE IF EXISTS '$TABLE_SCHEDULE_ITEMS'"
+        db?.execSQL(dropSchIt)
         onCreate(db)
     }
 
@@ -148,11 +156,18 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         val createSchedulesTable =
             "CREATE TABLE $TABLE_SCHEDULES " +
             "($COL_SCHEDULE_ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            "$COL_ELEMENT_ID INT," +
-            "$COL_IS_EXERCISE NUMBER(1)," +
             "$COL_SCHEDULE_PATTERN VARCHAR(255)," +
             "$COL_SCHEDULE_TYPE VARCHAR(255)," +
             "$COL_REFERENCE_DATE DATETIME);"
+        db?.execSQL(createSchedulesTable)
+    }
+
+    private fun createScheduleItemsTable(db: SQLiteDatabase?) {
+        val createSchedulesTable =
+            "CREATE TABLE $TABLE_SCHEDULE_ITEMS " +
+                    "($COL_SCHEDULE_ID INT," +
+                    "$COL_ELEMENT_ID INT," +
+                    "$COL_IS_EXERCISE NUMBER(1);"
         db?.execSQL(createSchedulesTable)
     }
 
@@ -227,23 +242,27 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
 
     private fun insertSchedule(db: SQLiteDatabase?, schedule: Schedule) {
         val contentValues = ContentValues()
-        if (schedule.item is Exercise) {
-            contentValues.put(COL_ELEMENT_ID, schedule.item.id)
-            contentValues.put(COL_IS_EXERCISE, true)
-        }
-        if (schedule.item is Group) {
-            contentValues.put(COL_ELEMENT_ID, schedule.item.id)
-            contentValues.put(COL_IS_EXERCISE, false)
-        }
         contentValues.put(COL_SCHEDULE_PATTERN, schedule.schedulePattern)
         contentValues.put(COL_SCHEDULE_TYPE, schedule.scheduleType)
         contentValues.put(COL_REFERENCE_DATE, schedule.referenceDate.toString())
+        insertScheduleItems(db, schedule)
         val result = db?.insert(TABLE_SCHEDULES, null, contentValues)
         if (result == (0).toLong()) {
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show()
         }
         else {
             Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun insertScheduleItems(
+        db: SQLiteDatabase?, schedule: Schedule) {
+        for (item in schedule.displayableItems!!) {
+            val contentValues = ContentValues()
+            contentValues.put(COL_SCHEDULE_ID, schedule.id)
+            contentValues.put(COL_ELEMENT_ID, item.id)
+            contentValues.put(COL_IS_EXERCISE, item is Exercise)
+            db?.insert(TABLE_SCHEDULE_ITEMS, null, contentValues)
         }
     }
 
@@ -287,7 +306,7 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
     }
 
     fun updateScheduleData(db: SQLiteDatabase, schedule: Schedule) {
-        deleteScheduleData(db, schedule)
+        deleteScheduleData(db, schedule.id)
         insertSchedule(db, schedule)
     }
 
@@ -412,27 +431,37 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         val result = db.rawQuery(query, null)
         if (result.moveToFirst()) {
             do {
-                lateinit var schedule: Schedule
-                if (result.getInt(result.getColumnIndex(COL_IS_EXERCISE)).toBool()) {
-                    schedule = Schedule(
-                        result.getInt(result.getColumnIndex(COL_SCHEDULE_ID)),
-                        result.getString(result.getColumnIndex(COL_SCHEDULE_PATTERN)),
-                        getExerciseFromId(db, result.getColumnIndex(COL_ELEMENT_ID)),
-                        result.getString(result.getColumnIndex(COL_SCHEDULE_TYPE)),
-                        LocalDate.parse(result.getString(result.getColumnIndex(COL_REFERENCE_DATE)))
-                    )}
-                else {
-                    schedule = Schedule(
-                        result.getInt(result.getColumnIndex(COL_SCHEDULE_ID)),
-                        result.getString(result.getColumnIndex(COL_SCHEDULE_PATTERN)),
-                        getGroupFromId(db, result.getColumnIndex(COL_ELEMENT_ID)),
-                        result.getString(result.getColumnIndex(COL_SCHEDULE_TYPE)),
-                        LocalDate.parse(result.getString(result.getColumnIndex(COL_REFERENCE_DATE)))
-                    )}
-                list.add(schedule)
+                list.add(Schedule(
+                    result.getInt(result.getColumnIndex(COL_SCHEDULE_ID)),
+                    result.getString(result.getColumnIndex(COL_SCHEDULE_PATTERN)),
+                    readScheduleItems(db, result.getColumnIndex(COL_SCHEDULE_ID)),
+                    result.getString(result.getColumnIndex(COL_SCHEDULE_TYPE)),
+                    LocalDate.parse(result.getString(result.getColumnIndex(COL_REFERENCE_DATE)))))
                 }
                 while (result.moveToNext())
             }
+        result.close()
+        return list
+    }
+
+    private fun readScheduleItems(db: SQLiteDatabase, scheduleId: Int) : MutableList<DisplayableItem> {
+        val list: MutableList<DisplayableItem> = ArrayList()
+        val query = "Select * from $TABLE_SCHEDULE_ITEMS"
+        val result = db.rawQuery(query, null)
+        if (result.moveToFirst()) {
+            do {
+                if (result.getInt(result.getColumnIndex(COL_SCHEDULE_ID)) == scheduleId) {
+                    if (result.getInt(result.getColumnIndex(COL_IS_EXERCISE)).toBool()) {
+                        list.add(getExerciseFromId(
+                            db, result.getInt(result.getColumnIndex(COL_ELEMENT_ID))))
+                    } else {
+                        list.add(getGroupFromId(
+                            db, result.getInt(result.getColumnIndex(COL_ELEMENT_ID))))
+                    }
+                }
+            }
+            while (result.moveToNext())
+        }
         result.close()
         return list
     }
@@ -442,7 +471,7 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         val itemList: MutableList<DisplayableItem> = ArrayList()
         for (schedule in schedules) {
             if (schedule.isScheduledAtDate(date)) {
-                itemList.add(schedule.item)
+                itemList.addAll(schedule.displayableItems!!.toTypedArray())
             }
         }
         return itemList
@@ -481,16 +510,16 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         db.execSQL(deleteRData)
     }
 
-    private fun deleteScheduleData(db:SQLiteDatabase, schedule: Schedule) {
-        val deleteRData: String = if (schedule.item is Exercise) {
-            "DELETE FROM " + TABLE_SCHEDULES + " WHERE " + COL_SCHEDULE_ID + " = " +
-                    schedule.id + ";"
-        } else {
-            "DELETE FROM " + TABLE_SCHEDULES + " WHERE " + COL_SCHEDULE_ID + " = " +
-                    schedule.id + ";"
-        }
+    private fun deleteScheduleData(db:SQLiteDatabase, scheduleId: Int) {
+        db.execSQL("DELETE FROM " + TABLE_SCHEDULES + " WHERE " + COL_SCHEDULE_ID + " = " +
+                scheduleId + ";")
+        db.execSQL("DELETE FROM " + TABLE_SCHEDULE_ITEMS + " WHERE " + COL_SCHEDULE_ID + " = " +
+                scheduleId + ";")
+    }
 
-        db.execSQL(deleteRData)
+    private fun deleteScheduleItem(db: SQLiteDatabase, scheduleId: Int, itemId: Int) {
+        db.execSQL("DELETE FROM $TABLE_SCHEDULE_ITEMS WHERE" +
+                " $COL_SCHEDULE_ID = $scheduleId AND $COL_ELEMENT_ID = $itemId;")
     }
 
 

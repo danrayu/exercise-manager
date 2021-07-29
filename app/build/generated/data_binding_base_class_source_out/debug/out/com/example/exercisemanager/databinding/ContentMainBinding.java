@@ -16,8 +16,13 @@ public final class ContentMainBinding implements ViewBinding {
   @NonNull
   private final ConstraintLayout rootView;
 
-  private ContentMainBinding(@NonNull ConstraintLayout rootView) {
+  @NonNull
+  public final ConstraintLayout mainContent;
+
+  private ContentMainBinding(@NonNull ConstraintLayout rootView,
+      @NonNull ConstraintLayout mainContent) {
     this.rootView = rootView;
+    this.mainContent = mainContent;
   }
 
   @Override
@@ -47,6 +52,8 @@ public final class ContentMainBinding implements ViewBinding {
       throw new NullPointerException("rootView");
     }
 
-    return new ContentMainBinding((ConstraintLayout) rootView);
+    ConstraintLayout mainContent = (ConstraintLayout) rootView;
+
+    return new ContentMainBinding((ConstraintLayout) rootView, mainContent);
   }
 }

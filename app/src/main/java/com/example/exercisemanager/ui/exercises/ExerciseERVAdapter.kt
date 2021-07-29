@@ -24,7 +24,7 @@ class ExerciseERVAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder){
-            with(exerciseList[holder.adapterPosition]){
+            with(exerciseList[position]){
                 binding.tvExerciseName.text = this.name
 
                 binding.tvEdescription.text = this.description
@@ -36,7 +36,7 @@ class ExerciseERVAdapter(
                     notifyDataSetChanged()
                 }
                 binding.btnEditExercise.setOnClickListener {
-                    callback.editButtonPressed(exerciseList[holder.adapterPosition], holder.adapterPosition)
+                    callback.editButtonPressed(exerciseList[position], position)
                 }
             }
         }

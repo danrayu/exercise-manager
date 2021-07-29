@@ -46,8 +46,7 @@ class GroupsFragment : Fragment(), GroupsRVAdapter.EditEventInterface {
             _binding!!.tvGempty.isVisible = true
         }
 
-        val btnAddGroup: FloatingActionButton = _binding!!.root.findViewById(R.id.fab_add_group)
-        btnAddGroup.setOnClickListener {
+        binding.fabAddGroup.setOnClickListener {
             val group = Group(0,"","", ArrayList(), false)
             editGroupButtonPressed(group, true)
         }

@@ -1,13 +1,8 @@
 package com.example.exercisemanager.ui.exercises
 
 import android.app.Dialog
-import android.content.Context
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
@@ -18,7 +13,6 @@ import com.example.exercisemanager.src.DisplayableItem
 import com.example.exercisemanager.src.ExerciseManagerUtility
 import com.example.exercisemanager.ui.muscles.Muscle
 import com.example.exercisemanager.ui.searchable_spinner.SearchableSpinnerDialog
-import com.toptoche.searchablespinnerlibrary.SearchableSpinner
 
 class ExerciseCreatorDialogueFragment(private val listener: CreateExerciseDialogListener,
                                       private var muscleList: MutableList<Muscle>)
@@ -44,31 +38,30 @@ class ExerciseCreatorDialogueFragment(private val listener: CreateExerciseDialog
             binding.etEnterEdescription.setText(eDesc)
             builder.setView(binding.root)
                     // Add action buttons
-                    .setPositiveButton(R.string.create_exercise,
-                            DialogInterface.OnClickListener { _, _ ->
-                                val eName = binding.etEnterEname.text.toString()
-                                eDesc = binding.etEnterEdescription.text.toString()
-                                if (eName.isNotBlank()) {
-                                    listener.onCreateExerciseClick(eName, eDesc, selectedMusclesList)
-                                    selectedMusclesList.clear()
-                                    rvAdapter.notifyItemRangeRemoved(0, selectedMusclesList.size)
-                                }
-                                else {
-                                    Toast.makeText(context, "No name specified", Toast.LENGTH_SHORT).show()
-                                    }
+                    .setPositiveButton(R.string.create_exercise
+                    ) { _, _ ->
+                        val eName = binding.etEnterEname.text.toString()
+                        eDesc = binding.etEnterEdescription.text.toString()
+                        if (eName.isNotBlank()) {
+                            listener.onCreateExerciseClick(eName, eDesc, selectedMusclesList)
+                            selectedMusclesList.clear()
+                            rvAdapter.notifyItemRangeRemoved(0, selectedMusclesList.size)
+                        } else {
+                            Toast.makeText(context, "No name specified", Toast.LENGTH_SHORT).show()
+                            builder.show()
+                        }
 
-                            })
-                    .setNegativeButton(R.string.cancel,
-                            DialogInterface.OnClickListener { _, _ ->
-                                this.dismiss()
-                                val len = selectedMusclesList.size
-                                selectedMusclesList.clear()
-                                rvAdapter.notifyItemRangeRemoved(0, len)
-                                eDesc = ""
-                            })
+                    }
+                .setNegativeButton(R.string.cancel
+                ) { _, _ ->
+                    this.dismiss()
+                    val len = selectedMusclesList.size
+                    selectedMusclesList.clear()
+                    rvAdapter.notifyItemRangeRemoved(0, len)
+                    eDesc = ""
+                }
             val spinnerDialog = SearchableSpinnerDialog(this, muscleList.toMutableList())
-            val btnAddMuscle = binding.btnExCreatorAddMuscle
-            btnAddMuscle.setOnClickListener {
+            binding.btnExCreatorAddMuscle.setOnClickListener {
                 spinnerDialog.show(parentFragmentManager, null)
             }
             builder.create()

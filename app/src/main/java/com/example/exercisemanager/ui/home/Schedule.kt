@@ -3,10 +3,10 @@ package com.example.exercisemanager.ui.home
 import com.example.exercisemanager.src.DisplayableItem
 import org.threeten.bp.LocalDate
 
-class Schedule (
+class Schedule(
     val id: Int,
     var schedulePattern: String,
-    var item: DisplayableItem,
+    var displayableItems: MutableList<DisplayableItem>?,
     val scheduleType: String,
     var referenceDate: LocalDate
     ) {

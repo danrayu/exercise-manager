@@ -10,13 +10,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.exercisemanager.R
 import com.example.exercisemanager.databinding.FragmentGroupEditBinding
 import com.example.exercisemanager.src.DataBaseHandler
+import com.example.exercisemanager.src.DisplayableItem
 import com.example.exercisemanager.ui.exercises.Exercise
+import com.example.exercisemanager.ui.searchable_spinner.SearchableSpinnerDialog
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class EditGroupFragment(private var group: Group, private var isNew: Boolean) : Fragment(),
     GroupExercisesRVAdapter.EditEventInterface,
-    SelectExerciseDialog.OnAddGroupExercise {
+    SearchableSpinnerDialog.OnElementPressed {
 
     // View Binging
     private var _binding: FragmentGroupEditBinding? = null
@@ -26,7 +28,7 @@ class EditGroupFragment(private var group: Group, private var isNew: Boolean) : 
 
     private lateinit var rvAdapter: GroupExercisesRVAdapter
     private lateinit var allExercises: MutableList<Exercise>
-    private lateinit var dialogSelect: SelectExerciseDialog
+    private lateinit var dialogSelect: SearchableSpinnerDialog
 
 
     override fun onAttach(context: Context) {
@@ -49,8 +51,7 @@ class EditGroupFragment(private var group: Group, private var isNew: Boolean) : 
         _binding!!.etGroupName.setText(group.name)
         _binding!!.etGroupDescription.setText(group.description)
 
-        val addExerciseFAB : FloatingActionButton = _binding!!.root.findViewById(R.id.btn_add_group_exercise)
-        addExerciseFAB.setOnClickListener {
+        binding.btnAddGroupExercise.setOnClickListener {
             showSelectDialog()
         }
 
@@ -66,9 +67,7 @@ class EditGroupFragment(private var group: Group, private var isNew: Boolean) : 
     }
 
     private fun showSelectDialog() {
-        var otherExercises: MutableList<Exercise> = ArrayList()
-        otherExercises = (allExercises - group.exercises).toMutableList()
-        dialogSelect = SelectExerciseDialog(this, otherExercises)
+        dialogSelect = SearchableSpinnerDialog(this, allExercises.toMutableList())
         dialogSelect.show(parentFragmentManager, "ExerciseCreatorDialogueFragment")
     }
 
@@ -82,10 +81,6 @@ class EditGroupFragment(private var group: Group, private var isNew: Boolean) : 
         _binding = null
     }
 
-    override fun addGroupExercise(exercise: Exercise) {
-        group.exercises.add(exercise)
-        rvAdapter.notifyItemInserted(group.exercises.size-1)
-    }
 
     private fun saveGroup(group: Group) {
         if (isNew) {
@@ -94,5 +89,10 @@ class EditGroupFragment(private var group: Group, private var isNew: Boolean) : 
         else {
             db.updateGroupData(db.writableDatabase, group)
         }
+    }
+
+    override fun elementPressedInRV(item: DisplayableItem) {
+        group.exercises.add(item as Exercise)
+        rvAdapter.notifyItemInserted(group.exercises.size-1)
     }
 }

@@ -8,8 +8,7 @@ import com.example.exercisemanager.ui.muscles.Muscle
 
 class ExerciseMuscleRVAdapter(private val muscleList: MutableList<Muscle>,
                               callback: UnpickEventInterface
-)
-    : RecyclerView.Adapter<ExerciseMuscleRVAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<ExerciseMuscleRVAdapter.ViewHolder>() {
 
     private val unpickPressedCallback = callback
 

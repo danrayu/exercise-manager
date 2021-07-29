@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:id="@+id/yes"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_pattern_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="18dp"
+        android:text="@string/pattern_type"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/sp_pattern_types"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_pattern_type"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_pattern_type" />
+
+    <TextView
+        android:id="@+id/tv_pattern_length"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="18dp"
+        android:text="@string/pattern_length"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_pattern_type" />
+
+    <LinearLayout
+        android:id="@+id/ll_pattern_length_interactable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_margin="18dp"
+        android:padding="1dp"
+        android:background="@color/background_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_pattern_length"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_pattern_length">
+
+        <TextView
+            android:id="@+id/tv_pattern_length_display"
+            android:layout_width="40dp"
+            android:text="1"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/iv_continue1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_pattern_length"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_pattern_length"
+            app:srcCompat="@drawable/ic_continue"/>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

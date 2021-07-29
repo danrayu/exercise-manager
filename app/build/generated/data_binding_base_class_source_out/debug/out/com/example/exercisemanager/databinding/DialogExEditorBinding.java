@@ -13,7 +13,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import com.example.exercisemanager.R;
-import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -26,7 +25,7 @@ public final class DialogExEditorBinding implements ViewBinding {
   public final Button btnDeleteExercise;
 
   @NonNull
-  public final Button btnSelectMuscleEdit;
+  public final Button btnExEditorAddMuscle;
 
   @NonNull
   public final ConstraintLayout clExc;
@@ -41,9 +40,6 @@ public final class DialogExEditorBinding implements ViewBinding {
   public final RecyclerView rvPickMusclesEdit;
 
   @NonNull
-  public final SearchableSpinner ssSelectMuscleEdit;
-
-  @NonNull
   public final TextView textView2;
 
   @NonNull
@@ -53,19 +49,18 @@ public final class DialogExEditorBinding implements ViewBinding {
   public final TextView tvEditEname;
 
   private DialogExEditorBinding(@NonNull ConstraintLayout rootView,
-      @NonNull Button btnDeleteExercise, @NonNull Button btnSelectMuscleEdit,
+      @NonNull Button btnDeleteExercise, @NonNull Button btnExEditorAddMuscle,
       @NonNull ConstraintLayout clExc, @NonNull EditText etEditEdescription,
       @NonNull EditText etEditEname, @NonNull RecyclerView rvPickMusclesEdit,
-      @NonNull SearchableSpinner ssSelectMuscleEdit, @NonNull TextView textView2,
-      @NonNull TextView tvEditEdescription, @NonNull TextView tvEditEname) {
+      @NonNull TextView textView2, @NonNull TextView tvEditEdescription,
+      @NonNull TextView tvEditEname) {
     this.rootView = rootView;
     this.btnDeleteExercise = btnDeleteExercise;
-    this.btnSelectMuscleEdit = btnSelectMuscleEdit;
+    this.btnExEditorAddMuscle = btnExEditorAddMuscle;
     this.clExc = clExc;
     this.etEditEdescription = etEditEdescription;
     this.etEditEname = etEditEname;
     this.rvPickMusclesEdit = rvPickMusclesEdit;
-    this.ssSelectMuscleEdit = ssSelectMuscleEdit;
     this.textView2 = textView2;
     this.tvEditEdescription = tvEditEdescription;
     this.tvEditEname = tvEditEname;
@@ -104,9 +99,9 @@ public final class DialogExEditorBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.btn_select_muscle_edit;
-      Button btnSelectMuscleEdit = rootView.findViewById(id);
-      if (btnSelectMuscleEdit == null) {
+      id = R.id.btn_ex_editor_add_muscle;
+      Button btnExEditorAddMuscle = rootView.findViewById(id);
+      if (btnExEditorAddMuscle == null) {
         break missingId;
       }
 
@@ -130,12 +125,6 @@ public final class DialogExEditorBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.ss_select_muscle_edit;
-      SearchableSpinner ssSelectMuscleEdit = rootView.findViewById(id);
-      if (ssSelectMuscleEdit == null) {
-        break missingId;
-      }
-
       id = R.id.textView2;
       TextView textView2 = rootView.findViewById(id);
       if (textView2 == null) {
@@ -155,8 +144,8 @@ public final class DialogExEditorBinding implements ViewBinding {
       }
 
       return new DialogExEditorBinding((ConstraintLayout) rootView, btnDeleteExercise,
-          btnSelectMuscleEdit, clExc, etEditEdescription, etEditEname, rvPickMusclesEdit,
-          ssSelectMuscleEdit, textView2, tvEditEdescription, tvEditEname);
+          btnExEditorAddMuscle, clExc, etEditEdescription, etEditEname, rvPickMusclesEdit,
+          textView2, tvEditEdescription, tvEditEname);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

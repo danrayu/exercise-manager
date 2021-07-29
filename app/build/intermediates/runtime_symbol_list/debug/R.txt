@@ -478,7 +478,6 @@ int attr hideOnContentScroll 0x7f040199
 int attr hideOnScroll 0x7f04019a
 int attr hintAnimationEnabled 0x7f04019b
 int attr hintEnabled 0x7f04019c
-int attr hintText 0x7f04019d
 int attr hintTextAppearance 0x7f04019e
 int attr hintTextColor 0x7f04019f
 int attr homeAsUpIndicator 0x7f0401a0
@@ -1765,6 +1764,8 @@ int drawable design_ic_visibility_off 0x7f080062
 int drawable design_password_eye 0x7f080063
 int drawable design_snackbar_background 0x7f080064
 int drawable ic_clock_black_24dp 0x7f080065
+int drawable ic_continue 0x7f080099
+int drawable ic_exercise 0x7f080096
 int drawable ic_keyboard_black_24dp 0x7f080066
 int drawable ic_launcher_background 0x7f080067
 int drawable ic_launcher_foreground 0x7f080068
@@ -1776,6 +1777,8 @@ int drawable ic_mtrl_checked_circle 0x7f08006d
 int drawable ic_mtrl_chip_checked_black 0x7f08006e
 int drawable ic_mtrl_chip_checked_circle 0x7f08006f
 int drawable ic_mtrl_chip_close_circle 0x7f080070
+int drawable ic_muscle 0x7f080097
+int drawable ic_search 0x7f080098
 int drawable material_cursor_drawable 0x7f080071
 int drawable material_ic_calendar_black_24dp 0x7f080072
 int drawable material_ic_clear_black_24dp 0x7f080073
@@ -1904,14 +1907,15 @@ int id bottom 0x7f090057
 int id bounce 0x7f090058
 int id btn_add_exercise 0x7f090059
 int id btn_add_group_exercise 0x7f09005a
+int id btn_add_schedule 0x7f090210
 int id btn_delete_exercise 0x7f09005b
 int id btn_delete_muscle 0x7f09005c
 int id btn_edit_exercise 0x7f09005d
 int id btn_edit_group 0x7f09005e
 int id btn_edit_muscle 0x7f09005f
 int id btn_ex_creator_add_muscle 0x7f09020b
+int id btn_ex_editor_add_muscle 0x7f09020e
 int id btn_save_group 0x7f090060
-int id btn_select_muscle_edit 0x7f090062
 int id btn_unpick_muscle 0x7f090063
 int id buttonPanel 0x7f090064
 int id cache_measures 0x7f090065
@@ -2041,11 +2045,13 @@ int id ignore 0x7f0900de
 int id ignoreRequest 0x7f0900df
 int id image 0x7f0900e0
 int id imageView 0x7f0900e1
+int id imageView2 0x7f09020f
 int id info 0x7f0900e2
 int id invisible 0x7f0900e3
 int id inward 0x7f0900e4
 int id italic 0x7f0900e5
 int id item_touch_helper_previous_elevation 0x7f0900e6
+int id iv_continue1 0x7f090214
 int id jumpToEnd 0x7f0900e7
 int id jumpToStart 0x7f0900e8
 int id labeled 0x7f0900e9
@@ -2055,9 +2061,10 @@ int id leftToRight 0x7f0900ec
 int id line1 0x7f0900ed
 int id line3 0x7f0900ee
 int id linear 0x7f0900ef
-int id listItems 0x7f0900f0
 int id listMode 0x7f0900f1
 int id list_item 0x7f0900f2
+int id ll_pattern_length_interactable 0x7f090215
+int id main_content 0x7f09021b
 int id masked 0x7f0900f3
 int id material_clock_display 0x7f0900f4
 int id material_clock_face 0x7f0900f5
@@ -2178,6 +2185,7 @@ int id rv_exercisef 0x7f090167
 int id rv_group_display 0x7f090168
 int id rv_group_exercises 0x7f090169
 int id rv_groups 0x7f09016a
+int id rv_manage_schedules 0x7f090211
 int id rv_musclesf 0x7f09016b
 int id rv_pick_muscles 0x7f09016c
 int id rv_pick_muscles_edit 0x7f09016d
@@ -2194,7 +2202,6 @@ int id scrollIndicatorDown 0x7f090176
 int id scrollIndicatorUp 0x7f090177
 int id scrollView 0x7f090178
 int id scrollable 0x7f090179
-int id search 0x7f09017a
 int id search_badge 0x7f09017b
 int id search_bar 0x7f09017c
 int id search_button 0x7f09017d
@@ -2206,7 +2213,6 @@ int id search_plate 0x7f090182
 int id search_src_text 0x7f090183
 int id search_voice_btn 0x7f090184
 int id select_dialog_listview 0x7f090185
-int id select_exercise_dialog_name 0x7f090186
 int id selected 0x7f090187
 int id selection_type 0x7f090188
 int id shortcut 0x7f090189
@@ -2220,6 +2226,7 @@ int id snackbar_action 0x7f090190
 int id snackbar_text 0x7f090191
 int id snap 0x7f090192
 int id snapMargins 0x7f090193
+int id sp_pattern_types 0x7f090212
 int id spacer 0x7f090194
 int id special_effects_controller_view_tag 0x7f090195
 int id spline 0x7f090196
@@ -2230,8 +2237,6 @@ int id square 0x7f09019a
 int id src_atop 0x7f09019b
 int id src_in 0x7f09019c
 int id src_over 0x7f09019d
-int id ss_select_exercise 0x7f09019e
-int id ss_select_muscle_edit 0x7f0901a0
 int id standard 0x7f0901a1
 int id start 0x7f0901a2
 int id startHorizontal 0x7f0901a3
@@ -2275,7 +2280,6 @@ int id textWatcher 0x7f0901c8
 int id text_input_end_icon 0x7f0901c9
 int id text_input_error_icon 0x7f0901ca
 int id text_input_start_icon 0x7f0901cb
-int id text_view 0x7f0901cc
 int id textinput_counter 0x7f0901cd
 int id textinput_error 0x7f0901ce
 int id textinput_helper_text 0x7f0901cf
@@ -2316,6 +2320,10 @@ int id tv_group_description 0x7f0901f1
 int id tv_group_name 0x7f0901f2
 int id tv_muscle_item_name 0x7f0901f3
 int id tv_muscle_name 0x7f0901f4
+int id tv_number 0x7f090216
+int id tv_pattern_length 0x7f090217
+int id tv_pattern_length_display 0x7f090218
+int id tv_pattern_type 0x7f090219
 int id tv_ss_element_name 0x7f09020a
 int id tv_un_group_name 0x7f0901f5
 int id tv_ung_description 0x7f0901f6
@@ -2330,10 +2338,12 @@ int id view_tree_saved_state_registry_owner 0x7f0901fe
 int id view_tree_view_model_store_owner 0x7f0901ff
 int id visible 0x7f090200
 int id visible_removing_fragment_view_tag 0x7f090201
+int id vp_length_slider 0x7f09021a
 int id withText 0x7f090202
 int id withinBounds 0x7f090203
 int id wrap 0x7f090204
 int id wrap_content 0x7f090205
+int id yes 0x7f09021c
 int id zero_corner_chip 0x7f090206
 int integer abc_config_activityDefaultDur 0x7f0a0000
 int integer abc_config_activityShortDur 0x7f0a0001
@@ -2429,19 +2439,21 @@ int layout dialog_ex_creator 0x7f0c002f
 int layout dialog_ex_editor 0x7f0c0030
 int layout dialog_muscle_creator 0x7f0c0031
 int layout dialog_muscle_editor 0x7f0c0032
+int layout dialog_page_view_slider 0x7f0c0093
 int layout dialog_searchable_spinner 0x7f0c008f
-int layout dialog_select_exercise 0x7f0c0033
-int layout fragment_edit_schedule 0x7f0c0087
 int layout fragment_exercises 0x7f0c0036
 int layout fragment_group_edit 0x7f0c0037
 int layout fragment_groups 0x7f0c0038
 int layout fragment_home 0x7f0c0039
+int layout fragment_manage_schedules 0x7f0c0091
 int layout fragment_muscles 0x7f0c003a
+int layout fragment_schedule_editor 0x7f0c0092
 int layout fragment_view_schedule 0x7f0c0088
 int layout item_exercise 0x7f0c0089
 int layout item_group 0x7f0c008a
 int layout item_muscle 0x7f0c008b
 int layout item_muscle_picker 0x7f0c008c
+int layout item_pickable_circle 0x7f0c0094
 int layout item_ss_element 0x7f0c0090
 int layout item_uneditable_exercise 0x7f0c008d
 int layout item_uneditable_group 0x7f0c008e
@@ -2495,7 +2507,6 @@ int layout notification_template_custom_big 0x7f0c006d
 int layout notification_template_icon_group 0x7f0c006e
 int layout notification_template_part_chronometer 0x7f0c006f
 int layout notification_template_part_time 0x7f0c0070
-int layout searchable_list_dialog 0x7f0c0073
 int layout select_dialog_item_material 0x7f0c0074
 int layout select_dialog_multichoice_material 0x7f0c0075
 int layout select_dialog_singlechoice_material 0x7f0c0076
@@ -2654,6 +2665,8 @@ int string path_password_eye 0x7f110081
 int string path_password_eye_mask_strike_through 0x7f110082
 int string path_password_eye_mask_visible 0x7f110083
 int string path_password_strike_through 0x7f110084
+int string pattern_length 0x7f11008d
+int string pattern_type 0x7f11008c
 int string reset_database 0x7f110085
 int string save 0x7f110086
 int string search_menu_title 0x7f110087
@@ -4782,8 +4795,6 @@ int styleable SearchView_searchIcon 13
 int styleable SearchView_submitBackground 14
 int styleable SearchView_suggestionRowLayout 15
 int styleable SearchView_voiceIcon 16
-int[] styleable SearchableSpinner { 0x7f04019d }
-int styleable SearchableSpinner_hintText 0
 int[] styleable ShapeAppearance { 0x7f0400ea, 0x7f0400eb, 0x7f0400ec, 0x7f0400ed, 0x7f0400ee, 0x7f0400f0, 0x7f0400f1, 0x7f0400f2, 0x7f0400f3, 0x7f0400f4 }
 int styleable ShapeAppearance_cornerFamily 0
 int styleable ShapeAppearance_cornerFamilyBottomLeft 1

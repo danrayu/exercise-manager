@@ -32,21 +32,25 @@ com/example/exercisemanager/databinding/FragmentGroupsBinding.java
  com.example.exercisemanager.databinding.FragmentGroupsBinding
 com/example/exercisemanager/BuildConfig.java
  com.example.exercisemanager.BuildConfig
+com/example/exercisemanager/databinding/ItemPickableCircleBinding.java
+ com.example.exercisemanager.databinding.ItemPickableCircleBinding
 com/example/exercisemanager/databinding/DialogSearchableSpinnerBinding.java
  com.example.exercisemanager.databinding.DialogSearchableSpinnerBinding
+com/example/exercisemanager/databinding/DialogPageViewSliderBinding.java
+ com.example.exercisemanager.databinding.DialogPageViewSliderBinding
 com/example/exercisemanager/databinding/ItemSsElementBinding.java
  com.example.exercisemanager.databinding.ItemSsElementBinding
-com/example/exercisemanager/databinding/FragmentEditScheduleBinding.java
- com.example.exercisemanager.databinding.FragmentEditScheduleBinding
 com/example/exercisemanager/databinding/DialogExEditorBinding.java
  com.example.exercisemanager.databinding.DialogExEditorBinding
-com/example/exercisemanager/databinding/DialogSelectExerciseBinding.java
- com.example.exercisemanager.databinding.DialogSelectExerciseBinding
 com/example/exercisemanager/DataBindingTriggerClass.java
  com.example.exercisemanager.DataBindingTriggerClass
 com/example/exercisemanager/databinding/ItemGroupBinding.java
  com.example.exercisemanager.databinding.ItemGroupBinding
+com/example/exercisemanager/databinding/FragmentManageSchedulesBinding.java
+ com.example.exercisemanager.databinding.FragmentManageSchedulesBinding
 com/example/exercisemanager/databinding/ItemUneditableGroupBinding.java
  com.example.exercisemanager.databinding.ItemUneditableGroupBinding
+com/example/exercisemanager/databinding/FragmentScheduleEditorBinding.java
+ com.example.exercisemanager.databinding.FragmentScheduleEditorBinding
 com/example/exercisemanager/databinding/FragmentExercisesBinding.java
  com.example.exercisemanager.databinding.FragmentExercisesBinding
