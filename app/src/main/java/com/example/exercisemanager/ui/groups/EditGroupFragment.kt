@@ -42,7 +42,7 @@ class EditGroupFragment(private var group: Group, private var isNew: Boolean) : 
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentGroupEditBinding.inflate(layoutInflater)
+        _binding = FragmentGroupEditBinding.inflate(inflater)
         binding.rvGroupExercises.layoutManager = LinearLayoutManager(context)
 
         rvAdapter = GroupExercisesRVAdapter(group.exercises, this)
@@ -63,7 +63,7 @@ class EditGroupFragment(private var group: Group, private var isNew: Boolean) : 
             this.isNew = false
         }
 
-        return _binding!!.root
+        return binding.root
     }
 
     private fun showSelectDialog() {

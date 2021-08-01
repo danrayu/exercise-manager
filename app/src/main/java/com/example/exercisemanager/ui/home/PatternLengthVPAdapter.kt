@@ -5,8 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exercisemanager.databinding.ItemPickableCircleBinding
 
-class PatternLengthVPAdapter() : RecyclerView.Adapter<PatternLengthVPAdapter.ViewHolder>() {
 
+const val MAX_PAGE_COUNT = 14
+
+class PatternLengthVPAdapter : RecyclerView.Adapter<PatternLengthVPAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: ItemPickableCircleBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -21,6 +23,6 @@ class PatternLengthVPAdapter() : RecyclerView.Adapter<PatternLengthVPAdapter.Vie
     }
 
     override fun getItemCount(): Int {
-        return 14
+        return MAX_PAGE_COUNT
     }
 }

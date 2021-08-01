@@ -2187,6 +2187,7 @@ int id rv_group_exercises 0x7f090169
 int id rv_groups 0x7f09016a
 int id rv_manage_schedules 0x7f090211
 int id rv_musclesf 0x7f09016b
+int id rv_pattern_length 0x7f09021d
 int id rv_pick_muscles 0x7f09016c
 int id rv_pick_muscles_edit 0x7f09016d
 int id rv_searchable_spinner 0x7f090209
@@ -2338,7 +2339,6 @@ int id view_tree_saved_state_registry_owner 0x7f0901fe
 int id view_tree_view_model_store_owner 0x7f0901ff
 int id visible 0x7f090200
 int id visible_removing_fragment_view_tag 0x7f090201
-int id vp_length_slider 0x7f09021a
 int id withText 0x7f090202
 int id withinBounds 0x7f090203
 int id wrap 0x7f090204

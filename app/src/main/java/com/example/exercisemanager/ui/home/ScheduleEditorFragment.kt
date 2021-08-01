@@ -12,7 +12,7 @@ class ScheduleEditorFragment(val schedule: Schedule) : Fragment(), DialogPattern
     lateinit var binding: FragmentScheduleEditorBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentScheduleEditorBinding.inflate(layoutInflater)
+        binding = FragmentScheduleEditorBinding.inflate(inflater)
         binding.llPatternLengthInteractable.setOnClickListener {
             DialogPatternLength(this).show(parentFragmentManager, null)
         }
@@ -22,5 +22,6 @@ class ScheduleEditorFragment(val schedule: Schedule) : Fragment(), DialogPattern
     }
 
     override fun onLengthSelected(length: Int) {
+        binding.tvPatternLengthDisplay.text = length.toString()
     }
 }

@@ -18,10 +18,10 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentHomeBinding.inflate(LayoutInflater.from(context))
+        binding = FragmentHomeBinding.inflate(inflater)
 
         binding.pagerHome.adapter =
-            HomePagerAdapter(requireActivity().supportFragmentManager, lifecycle)
+            HomePagerAdapter(parentFragmentManager, lifecycle)
 
         val tabNames = arrayOf(
             "Today",

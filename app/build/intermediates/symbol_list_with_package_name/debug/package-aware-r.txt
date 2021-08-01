@@ -2188,6 +2188,7 @@ id rv_group_exercises
 id rv_groups
 id rv_manage_schedules
 id rv_musclesf
+id rv_pattern_length
 id rv_pick_muscles
 id rv_pick_muscles_edit
 id rv_searchable_spinner
@@ -2339,7 +2340,6 @@ id view_tree_saved_state_registry_owner
 id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
-id vp_length_slider
 id withText
 id withinBounds
 id wrap

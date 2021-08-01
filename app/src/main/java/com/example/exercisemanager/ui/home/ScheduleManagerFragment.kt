@@ -28,7 +28,7 @@ class ScheduleManagerFragment : Fragment(), ScheduleRVAdapter.OnEditSchedule {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentManageSchedulesBinding.inflate(LayoutInflater.from(context))
+        binding = FragmentManageSchedulesBinding.inflate(inflater)
         binding.rvManageSchedules.adapter = ScheduleRVAdapter(schedules, this)
         binding.rvManageSchedules.layoutManager = LinearLayoutManager(context)
         binding.btnAddSchedule.setOnClickListener {
@@ -40,8 +40,8 @@ class ScheduleManagerFragment : Fragment(), ScheduleRVAdapter.OnEditSchedule {
     override fun onEditInterface(schedule: Schedule) {
         val fragment = ScheduleEditorFragment(schedule)
         parentFragmentManager.beginTransaction()
-            .replace(R.id.main_content, fragment)
-            .addToBackStack(null)
+            .replace(R.id.nav_host_fragment, fragment)
+            .addToBackStack("ScheduleEditorFragment")
             .commit()
     }
 }

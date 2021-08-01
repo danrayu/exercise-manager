@@ -19,5 +19,6 @@ class HomePagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle)
             0 -> return ViewScheduleFragment()
         }
         return ScheduleManagerFragment()
+
     }
 }
