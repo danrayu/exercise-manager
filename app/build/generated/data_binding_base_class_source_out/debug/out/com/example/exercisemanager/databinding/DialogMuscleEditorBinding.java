@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.example.exercisemanager.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -70,7 +71,7 @@ public final class DialogMuscleEditorBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.btn_delete_muscle;
-      Button btnDeleteMuscle = rootView.findViewById(id);
+      Button btnDeleteMuscle = ViewBindings.findChildViewById(rootView, id);
       if (btnDeleteMuscle == null) {
         break missingId;
       }
@@ -78,13 +79,13 @@ public final class DialogMuscleEditorBinding implements ViewBinding {
       ConstraintLayout clExc = (ConstraintLayout) rootView;
 
       id = R.id.et_edit_mname;
-      EditText etEditMname = rootView.findViewById(id);
+      EditText etEditMname = ViewBindings.findChildViewById(rootView, id);
       if (etEditMname == null) {
         break missingId;
       }
 
       id = R.id.tv_edit_mname;
-      TextView tvEditMname = rootView.findViewById(id);
+      TextView tvEditMname = ViewBindings.findChildViewById(rootView, id);
       if (tvEditMname == null) {
         break missingId;
       }

@@ -8,6 +8,7 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import androidx.viewpager2.widget.ViewPager2;
 import com.example.exercisemanager.R;
 import com.google.android.material.tabs.TabLayout;
@@ -60,13 +61,13 @@ public final class FragmentHomeBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.pager_home;
-      ViewPager2 pagerHome = rootView.findViewById(id);
+      ViewPager2 pagerHome = ViewBindings.findChildViewById(rootView, id);
       if (pagerHome == null) {
         break missingId;
       }
 
       id = R.id.tab_layout_home;
-      TabLayout tabLayoutHome = rootView.findViewById(id);
+      TabLayout tabLayoutHome = ViewBindings.findChildViewById(rootView, id);
       if (tabLayoutHome == null) {
         break missingId;
       }

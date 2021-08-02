@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.example.exercisemanager.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -94,13 +95,13 @@ public final class DialogExEditorBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.btn_delete_exercise;
-      Button btnDeleteExercise = rootView.findViewById(id);
+      Button btnDeleteExercise = ViewBindings.findChildViewById(rootView, id);
       if (btnDeleteExercise == null) {
         break missingId;
       }
 
       id = R.id.btn_ex_editor_add_muscle;
-      Button btnExEditorAddMuscle = rootView.findViewById(id);
+      Button btnExEditorAddMuscle = ViewBindings.findChildViewById(rootView, id);
       if (btnExEditorAddMuscle == null) {
         break missingId;
       }
@@ -108,37 +109,37 @@ public final class DialogExEditorBinding implements ViewBinding {
       ConstraintLayout clExc = (ConstraintLayout) rootView;
 
       id = R.id.et_edit_edescription;
-      EditText etEditEdescription = rootView.findViewById(id);
+      EditText etEditEdescription = ViewBindings.findChildViewById(rootView, id);
       if (etEditEdescription == null) {
         break missingId;
       }
 
       id = R.id.et_edit_ename;
-      EditText etEditEname = rootView.findViewById(id);
+      EditText etEditEname = ViewBindings.findChildViewById(rootView, id);
       if (etEditEname == null) {
         break missingId;
       }
 
       id = R.id.rv_pick_muscles_edit;
-      RecyclerView rvPickMusclesEdit = rootView.findViewById(id);
+      RecyclerView rvPickMusclesEdit = ViewBindings.findChildViewById(rootView, id);
       if (rvPickMusclesEdit == null) {
         break missingId;
       }
 
       id = R.id.textView2;
-      TextView textView2 = rootView.findViewById(id);
+      TextView textView2 = ViewBindings.findChildViewById(rootView, id);
       if (textView2 == null) {
         break missingId;
       }
 
       id = R.id.tv_edit_edescription;
-      TextView tvEditEdescription = rootView.findViewById(id);
+      TextView tvEditEdescription = ViewBindings.findChildViewById(rootView, id);
       if (tvEditEdescription == null) {
         break missingId;
       }
 
       id = R.id.tv_edit_ename;
-      TextView tvEditEname = rootView.findViewById(id);
+      TextView tvEditEname = ViewBindings.findChildViewById(rootView, id);
       if (tvEditEname == null) {
         break missingId;
       }

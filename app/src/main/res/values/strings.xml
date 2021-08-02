@@ -52,4 +52,10 @@
         <item>Back Delts</item>
     </string-array>
 
+    <string-array name="pattern_type_list">
+        <item>Pattern</item>
+        <item>Weekly</item>
+        <item>Date</item>
+    </string-array>
+
 </resources>

@@ -66,6 +66,7 @@ animator nav_default_exit_anim
 animator nav_default_pop_enter_anim
 animator nav_default_pop_exit_anim
 array muscle_list
+array pattern_type_list
 attr action
 attr actionBarDivider
 attr actionBarItemBackground

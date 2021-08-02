@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.example.exercisemanager.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -89,7 +90,7 @@ public final class DialogExCreatorBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.btn_ex_creator_add_muscle;
-      Button btnExCreatorAddMuscle = rootView.findViewById(id);
+      Button btnExCreatorAddMuscle = ViewBindings.findChildViewById(rootView, id);
       if (btnExCreatorAddMuscle == null) {
         break missingId;
       }
@@ -97,37 +98,37 @@ public final class DialogExCreatorBinding implements ViewBinding {
       ConstraintLayout clExc = (ConstraintLayout) rootView;
 
       id = R.id.create_exercise_dialog_name;
-      TextView createExerciseDialogName = rootView.findViewById(id);
+      TextView createExerciseDialogName = ViewBindings.findChildViewById(rootView, id);
       if (createExerciseDialogName == null) {
         break missingId;
       }
 
       id = R.id.et_enter_edescription;
-      EditText etEnterEdescription = rootView.findViewById(id);
+      EditText etEnterEdescription = ViewBindings.findChildViewById(rootView, id);
       if (etEnterEdescription == null) {
         break missingId;
       }
 
       id = R.id.et_enter_ename;
-      EditText etEnterEname = rootView.findViewById(id);
+      EditText etEnterEname = ViewBindings.findChildViewById(rootView, id);
       if (etEnterEname == null) {
         break missingId;
       }
 
       id = R.id.rv_pick_muscles;
-      RecyclerView rvPickMuscles = rootView.findViewById(id);
+      RecyclerView rvPickMuscles = ViewBindings.findChildViewById(rootView, id);
       if (rvPickMuscles == null) {
         break missingId;
       }
 
       id = R.id.tv_enter_edescription;
-      TextView tvEnterEdescription = rootView.findViewById(id);
+      TextView tvEnterEdescription = ViewBindings.findChildViewById(rootView, id);
       if (tvEnterEdescription == null) {
         break missingId;
       }
 
       id = R.id.tv_enter_ename;
-      TextView tvEnterEname = rootView.findViewById(id);
+      TextView tvEnterEname = ViewBindings.findChildViewById(rootView, id);
       if (tvEnterEname == null) {
         break missingId;
       }

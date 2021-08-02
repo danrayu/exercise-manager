@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.example.exercisemanager.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.lang.NullPointerException;
@@ -67,13 +68,13 @@ public final class FragmentMusclesBinding implements ViewBinding {
       ConstraintLayout clExerciseFragment = (ConstraintLayout) rootView;
 
       id = R.id.fab_add_muscle;
-      FloatingActionButton fabAddMuscle = rootView.findViewById(id);
+      FloatingActionButton fabAddMuscle = ViewBindings.findChildViewById(rootView, id);
       if (fabAddMuscle == null) {
         break missingId;
       }
 
       id = R.id.rv_musclesf;
-      RecyclerView rvMusclesf = rootView.findViewById(id);
+      RecyclerView rvMusclesf = ViewBindings.findChildViewById(rootView, id);
       if (rvMusclesf == null) {
         break missingId;
       }

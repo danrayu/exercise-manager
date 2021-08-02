@@ -167,7 +167,7 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
             "CREATE TABLE $TABLE_SCHEDULE_ITEMS " +
                     "($COL_SCHEDULE_ID INT," +
                     "$COL_ELEMENT_ID INT," +
-                    "$COL_IS_EXERCISE NUMBER(1);"
+                    "$COL_IS_EXERCISE NUMBER(1));"
         db?.execSQL(createSchedulesTable)
     }
 

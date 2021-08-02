@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.example.exercisemanager.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.lang.NullPointerException;
@@ -72,19 +73,19 @@ public final class FragmentGroupsBinding implements ViewBinding {
       ConstraintLayout clGroupsFragment = (ConstraintLayout) rootView;
 
       id = R.id.fab_add_group;
-      FloatingActionButton fabAddGroup = rootView.findViewById(id);
+      FloatingActionButton fabAddGroup = ViewBindings.findChildViewById(rootView, id);
       if (fabAddGroup == null) {
         break missingId;
       }
 
       id = R.id.rv_groups;
-      RecyclerView rvGroups = rootView.findViewById(id);
+      RecyclerView rvGroups = ViewBindings.findChildViewById(rootView, id);
       if (rvGroups == null) {
         break missingId;
       }
 
       id = R.id.tv_gempty;
-      TextView tvGempty = rootView.findViewById(id);
+      TextView tvGempty = ViewBindings.findChildViewById(rootView, id);
       if (tvGempty == null) {
         break missingId;
       }

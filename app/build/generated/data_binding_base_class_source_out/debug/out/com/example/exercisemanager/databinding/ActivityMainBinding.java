@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.example.exercisemanager.R;
 import com.google.android.material.navigation.NavigationView;
 import java.lang.NullPointerException;
@@ -61,7 +62,7 @@ public final class ActivityMainBinding implements ViewBinding {
       DrawerLayout drawerLayout = (DrawerLayout) rootView;
 
       id = R.id.nav_view;
-      NavigationView navView = rootView.findViewById(id);
+      NavigationView navView = ViewBindings.findChildViewById(rootView, id);
       if (navView == null) {
         break missingId;
       }

@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.example.exercisemanager.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.lang.NullPointerException;
@@ -65,7 +66,7 @@ public final class FragmentExercisesBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.btn_add_exercise;
-      FloatingActionButton btnAddExercise = rootView.findViewById(id);
+      FloatingActionButton btnAddExercise = ViewBindings.findChildViewById(rootView, id);
       if (btnAddExercise == null) {
         break missingId;
       }
@@ -73,7 +74,7 @@ public final class FragmentExercisesBinding implements ViewBinding {
       ConstraintLayout clExerciseFragment = (ConstraintLayout) rootView;
 
       id = R.id.rv_exercisef;
-      RecyclerView rvExercisef = rootView.findViewById(id);
+      RecyclerView rvExercisef = ViewBindings.findChildViewById(rootView, id);
       if (rvExercisef == null) {
         break missingId;
       }

@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.example.exercisemanager.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -71,19 +72,19 @@ public final class DialogMuscleCreatorBinding implements ViewBinding {
       ConstraintLayout clMuscle = (ConstraintLayout) rootView;
 
       id = R.id.create_muscle_dialog_name;
-      TextView createMuscleDialogName = rootView.findViewById(id);
+      TextView createMuscleDialogName = ViewBindings.findChildViewById(rootView, id);
       if (createMuscleDialogName == null) {
         break missingId;
       }
 
       id = R.id.et_enter_mname;
-      EditText etEnterMname = rootView.findViewById(id);
+      EditText etEnterMname = ViewBindings.findChildViewById(rootView, id);
       if (etEnterMname == null) {
         break missingId;
       }
 
       id = R.id.tv_enter_mname;
-      TextView tvEnterMname = rootView.findViewById(id);
+      TextView tvEnterMname = ViewBindings.findChildViewById(rootView, id);
       if (tvEnterMname == null) {
         break missingId;
       }

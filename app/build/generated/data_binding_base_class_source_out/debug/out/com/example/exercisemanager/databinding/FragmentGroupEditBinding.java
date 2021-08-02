@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.example.exercisemanager.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.lang.NullPointerException;
@@ -89,13 +90,13 @@ public final class FragmentGroupEditBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.btn_add_group_exercise;
-      FloatingActionButton btnAddGroupExercise = rootView.findViewById(id);
+      FloatingActionButton btnAddGroupExercise = ViewBindings.findChildViewById(rootView, id);
       if (btnAddGroupExercise == null) {
         break missingId;
       }
 
       id = R.id.btn_save_group;
-      FloatingActionButton btnSaveGroup = rootView.findViewById(id);
+      FloatingActionButton btnSaveGroup = ViewBindings.findChildViewById(rootView, id);
       if (btnSaveGroup == null) {
         break missingId;
       }
@@ -103,31 +104,31 @@ public final class FragmentGroupEditBinding implements ViewBinding {
       ConstraintLayout editGroupLayout = (ConstraintLayout) rootView;
 
       id = R.id.et_group_description;
-      EditText etGroupDescription = rootView.findViewById(id);
+      EditText etGroupDescription = ViewBindings.findChildViewById(rootView, id);
       if (etGroupDescription == null) {
         break missingId;
       }
 
       id = R.id.et_group_name;
-      EditText etGroupName = rootView.findViewById(id);
+      EditText etGroupName = ViewBindings.findChildViewById(rootView, id);
       if (etGroupName == null) {
         break missingId;
       }
 
       id = R.id.rv_group_exercises;
-      RecyclerView rvGroupExercises = rootView.findViewById(id);
+      RecyclerView rvGroupExercises = ViewBindings.findChildViewById(rootView, id);
       if (rvGroupExercises == null) {
         break missingId;
       }
 
       id = R.id.tv_group_description;
-      TextView tvGroupDescription = rootView.findViewById(id);
+      TextView tvGroupDescription = ViewBindings.findChildViewById(rootView, id);
       if (tvGroupDescription == null) {
         break missingId;
       }
 
       id = R.id.tv_group_name;
-      TextView tvGroupName = rootView.findViewById(id);
+      TextView tvGroupName = ViewBindings.findChildViewById(rootView, id);
       if (tvGroupName == null) {
         break missingId;
       }
