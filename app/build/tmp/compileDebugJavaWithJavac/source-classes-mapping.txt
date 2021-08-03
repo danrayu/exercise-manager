@@ -34,8 +34,12 @@ com/example/exercisemanager/BuildConfig.java
  com.example.exercisemanager.BuildConfig
 com/example/exercisemanager/databinding/ItemPickableCircleBinding.java
  com.example.exercisemanager.databinding.ItemPickableCircleBinding
+com/example/exercisemanager/databinding/DialogCalendarBinding.java
+ com.example.exercisemanager.databinding.DialogCalendarBinding
 com/example/exercisemanager/databinding/DialogSearchableSpinnerBinding.java
  com.example.exercisemanager.databinding.DialogSearchableSpinnerBinding
+com/example/exercisemanager/databinding/BtnCircleBinding.java
+ com.example.exercisemanager.databinding.BtnCircleBinding
 com/example/exercisemanager/databinding/DialogPageViewSliderBinding.java
  com.example.exercisemanager.databinding.DialogPageViewSliderBinding
 com/example/exercisemanager/databinding/ItemSsElementBinding.java

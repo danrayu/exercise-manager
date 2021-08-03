@@ -1814,6 +1814,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable rectangle_background_button
 drawable side_nav_bar
 drawable test_custom_background
 drawable tooltip_frame_dark
@@ -1910,6 +1911,7 @@ id bounce
 id btn_add_exercise
 id btn_add_group_exercise
 id btn_add_schedule
+id btn_circular
 id btn_delete_exercise
 id btn_delete_muscle
 id btn_edit_exercise
@@ -1921,6 +1923,7 @@ id btn_save_group
 id btn_unpick_muscle
 id buttonPanel
 id cache_measures
+id cal_dialog
 id cancel_button
 id card_layout
 id center
@@ -2054,6 +2057,8 @@ id inward
 id italic
 id item_touch_helper_previous_elevation
 id iv_continue1
+id iv_continue2
+id iv_continue3
 id jumpToEnd
 id jumpToStart
 id labeled
@@ -2065,7 +2070,9 @@ id line3
 id linear
 id listMode
 id list_item
+id ll_date_select
 id ll_pattern_length_interactable
+id ll_pattern_select
 id main_content
 id masked
 id material_clock_display
@@ -2307,6 +2314,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tv_date_selection
 id tv_edescription
 id tv_edescription_uneditable
 id tv_edit_edescription
@@ -2326,6 +2334,7 @@ id tv_muscle_name
 id tv_number
 id tv_pattern_length
 id tv_pattern_length_display
+id tv_pattern_selection
 id tv_pattern_type
 id tv_ss_element_name
 id tv_un_group_name
@@ -2420,6 +2429,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
 layout app_bar_main
+layout btn_circle
 layout content_main
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -2437,6 +2447,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout dialog_calendar
 layout dialog_ex_creator
 layout dialog_ex_editor
 layout dialog_muscle_creator
@@ -2667,12 +2678,14 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string pattern
 string pattern_length
 string pattern_type
 string reset_database
 string save
 string search_menu_title
 string select_exercise
+string starting_date
 string status_bar_notification_info_overflow
 string todo
 string workouts

@@ -3,7 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/fragment_schedule_editor.xml" value="0.67" />
+        <entry key="app/src/main/res/drawable/circular_background_button.xml" value="0.5263671875" />
+        <entry key="app/src/main/res/drawable/rectangle_background_button.xml" value="0.23645833333333333" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22010869565217392" />
+        <entry key="app/src/main/res/layout/btn_circle.xml" value="0.27708333333333335" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="0.22010869565217392" />
+        <entry key="app/src/main/res/layout/csl_button.xml" value="0.265625" />
+        <entry key="app/src/main/res/layout/dialog_calendar.xml" value="0.265625" />
+        <entry key="app/src/main/res/layout/dialog_muscle_editor.xml" value="0.2223731884057971" />
+        <entry key="app/src/main/res/layout/fragment_exercises.xml" value="0.21557971014492755" />
+        <entry key="app/src/main/res/layout/fragment_schedule_editor.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/item_pickable_circle.xml" value="0.2441123188405797" />
       </map>
     </option>
   </component>

@@ -1,11 +1,11 @@
 [
     {
-        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/layout_nav_header_main.xml.flat",
-        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/nav_header_main.xml"
-    },
-    {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable_ic_menu_camera.xml.flat",
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable/ic_menu_camera.xml"
+    },
+    {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/layout_nav_header_main.xml.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/nav_header_main.xml"
     },
     {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/mipmap-hdpi_ic_launcher.png.flat",
@@ -164,6 +164,14 @@
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-xxxhdpi/ic_muscle.png"
     },
     {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable_rectangle_background_button.xml.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable/rectangle_background_button.xml"
+    },
+    {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/layout_btn_circle.xml.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/btn_circle.xml"
+    },
+    {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/layout_dialog_searchable_spinner.xml.flat",
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/dialog_searchable_spinner.xml"
     },
@@ -226,6 +234,10 @@
     {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-mdpi_ic_continue.png.flat",
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-mdpi/ic_continue.png"
+    },
+    {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/layout_dialog_calendar.xml.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/dialog_calendar.xml"
     },
     {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/layout_item_uneditable_group.xml.flat",

@@ -32,7 +32,7 @@ class ScheduleManagerFragment : Fragment(), ScheduleRVAdapter.OnEditSchedule {
         binding.rvManageSchedules.adapter = ScheduleRVAdapter(schedules, this)
         binding.rvManageSchedules.layoutManager = LinearLayoutManager(context)
         binding.btnAddSchedule.setOnClickListener {
-            onEditInterface(Schedule(0, "", null, "", LocalDate.now()))
+            onEditInterface(Schedule(0, "00", null, "Pattern", LocalDate.now()))
         }
         return binding.root
     }
@@ -41,7 +41,6 @@ class ScheduleManagerFragment : Fragment(), ScheduleRVAdapter.OnEditSchedule {
         val fragment = ScheduleEditorFragment(schedule)
         parentFragmentManager.beginTransaction()
             .replace(R.id.nav_host_fragment, fragment)
-            .addToBackStack("ScheduleEditorFragment")
             .commit()
     }
 }

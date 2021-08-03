@@ -48,7 +48,7 @@ class ExercisesFragment : Fragment(), ExerciseCreatorDialogueFragment.CreateExer
         dialogCreate = ExerciseCreatorDialogueFragment(this, muscleList)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentExercisesBinding.inflate(layoutInflater)
         binding.rvExercisef.layoutManager = LinearLayoutManager(context)
 

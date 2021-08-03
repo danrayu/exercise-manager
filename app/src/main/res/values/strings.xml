@@ -36,6 +36,9 @@
     <string name="empty">Empty</string>
     <string name="pattern_type">Pattern type:</string>
     <string name="pattern_length">Pattern length</string>
+    <string name="pattern">Pattern</string>
+    <string name="starting_date">Starting date</string>
+    <string name="save_schedule">Save Schedule</string>
 
     <string-array name="muscle_list">
         <item>None</item>

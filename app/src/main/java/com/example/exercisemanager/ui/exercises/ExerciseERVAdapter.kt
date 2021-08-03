@@ -33,7 +33,7 @@ class ExerciseERVAdapter(
 
                 binding.cardLayout.setOnClickListener {
                     this.expand = !this.expand
-                    notifyDataSetChanged()
+                    notifyItemChanged(position)
                 }
                 binding.btnEditExercise.setOnClickListener {
                     callback.editButtonPressed(exerciseList[position], position)
