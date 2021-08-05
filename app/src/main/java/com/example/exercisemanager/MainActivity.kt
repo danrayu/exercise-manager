@@ -19,7 +19,7 @@ import com.example.exercisemanager.ui.home.ScheduleEditorFragment
 import com.example.exercisemanager.ui.home.ScheduleManagerFragment
 import com.google.android.material.navigation.NavigationView
 
-class MainActivity : AppCompatActivity(), ScheduleManagerFragment.FragmentReplacer {
+class MainActivity : AppCompatActivity(){
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var db: DataBaseHandler
@@ -65,13 +65,5 @@ class MainActivity : AppCompatActivity(), ScheduleManagerFragment.FragmentReplac
 
     override fun onBackPressed() {
         supportFragmentManager.popBackStack()
-    }
-
-    override fun onCallToReplace(schedule: Schedule) {
-        val fragmentManager = supportFragmentManager
-        fragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment, ScheduleEditorFragment(schedule))
-            .addToBackStack("ScheduleEditor")
-            .commit()
     }
 }
