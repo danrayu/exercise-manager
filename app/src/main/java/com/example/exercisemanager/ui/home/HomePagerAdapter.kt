@@ -4,10 +4,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.exercisemanager.MainActivity
 
 const val NUM_TABS = 2
 
-class HomePagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle)
+class HomePagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle, val activity: MainActivity)
     : FragmentStateAdapter(fragmentManager, lifecycle) {
 
     override fun getItemCount(): Int {
@@ -18,7 +19,7 @@ class HomePagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle)
         when (position) {
             0 -> return ViewScheduleFragment()
         }
-        return ScheduleManagerFragment()
+        return ScheduleManagerFragment(activity)
 
     }
 }

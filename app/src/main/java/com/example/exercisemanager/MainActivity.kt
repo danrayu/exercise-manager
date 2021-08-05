@@ -14,9 +14,12 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.exercisemanager.src.DataBaseHandler
+import com.example.exercisemanager.ui.home.Schedule
+import com.example.exercisemanager.ui.home.ScheduleEditorFragment
+import com.example.exercisemanager.ui.home.ScheduleManagerFragment
 import com.google.android.material.navigation.NavigationView
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ScheduleManagerFragment.FragmentReplacer {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var db: DataBaseHandler
@@ -62,5 +65,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         supportFragmentManager.popBackStack()
+    }
+
+    override fun onCallToReplace(schedule: Schedule) {
+        val fragmentManager = supportFragmentManager
+        fragmentManager.beginTransaction()
+            .replace(R.id.nav_host_fragment, ScheduleEditorFragment(schedule))
+            .addToBackStack("ScheduleEditor")
+            .commit()
     }
 }

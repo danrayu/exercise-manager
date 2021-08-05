@@ -1,8 +1,6 @@
 package com.example.exercisemanager.ui.home
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +11,7 @@ import com.example.exercisemanager.databinding.FragmentManageSchedulesBinding
 import com.example.exercisemanager.src.DataBaseHandler
 import org.threeten.bp.LocalDate
 
-class ScheduleManagerFragment : Fragment(), ScheduleRVAdapter.OnEditSchedule {
+class ScheduleManagerFragment(private val callback: FragmentReplacer) : Fragment(), ScheduleRVAdapter.OnEditSchedule {
 
     private lateinit var binding: FragmentManageSchedulesBinding
     private lateinit var db: DataBaseHandler
@@ -23,6 +21,10 @@ class ScheduleManagerFragment : Fragment(), ScheduleRVAdapter.OnEditSchedule {
         super.onCreate(savedInstanceState)
         db = DataBaseHandler(requireContext())
         schedules = db.readScheduleData(db.readableDatabase)
+    }
+
+    interface FragmentReplacer {
+        fun onCallToReplace(schedule: Schedule)
     }
 
     override fun onCreateView(
@@ -40,10 +42,6 @@ class ScheduleManagerFragment : Fragment(), ScheduleRVAdapter.OnEditSchedule {
     }
 
     override fun onEditInterface(schedule: Schedule) {
-        val fragmentManager = parentFragmentManager
-        fragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment, ScheduleEditorFragment(schedule))
-            .addToBackStack("ScheduleEditor")
-            .commit()
+        callback.onCallToReplace(schedule)
     }
 }

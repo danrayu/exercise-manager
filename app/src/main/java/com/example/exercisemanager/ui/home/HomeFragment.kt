@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.exercisemanager.MainActivity
 import com.example.exercisemanager.R
 import com.example.exercisemanager.databinding.FragmentHomeBinding
 import com.google.android.material.tabs.TabLayoutMediator
@@ -21,7 +22,7 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater)
 
         binding.pagerHome.adapter =
-            HomePagerAdapter(parentFragmentManager, lifecycle)
+            HomePagerAdapter(childFragmentManager, lifecycle, requireActivity() as MainActivity)
 
         val tabNames = arrayOf(
             "Today",

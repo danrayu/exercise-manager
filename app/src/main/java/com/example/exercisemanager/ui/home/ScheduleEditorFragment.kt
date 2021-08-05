@@ -106,7 +106,7 @@ class ScheduleEditorFragment(private var schedule: Schedule) : Fragment(),
 
         binding.clAddItem.setOnClickListener {
             val spinnerDialog = SearchableSpinnerDialog(this, allUnsortedItems)
-            spinnerDialog.show(parentFragmentManager, null)
+            spinnerDialog.show(childFragmentManager, null)
         }
         return binding.root
     }

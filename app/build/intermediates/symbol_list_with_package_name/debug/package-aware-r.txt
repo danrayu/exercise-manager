@@ -1950,6 +1950,7 @@ id cl_add_item
 id cl_exc
 id cl_exercise_fragment
 id cl_groups_fragment
+id cl_manage_schedules
 id cl_muscle
 id cl_name_and_edit_holder
 id cl_ss_element

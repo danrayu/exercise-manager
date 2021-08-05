@@ -1949,6 +1949,7 @@ int id cl_add_item 0x7f09021d
 int id cl_exc 0x7f09007b
 int id cl_exercise_fragment 0x7f09007c
 int id cl_groups_fragment 0x7f09007d
+int id cl_manage_schedules 0x7f090222
 int id cl_muscle 0x7f09007e
 int id cl_name_and_edit_holder 0x7f090220
 int id cl_ss_element 0x7f09007f
