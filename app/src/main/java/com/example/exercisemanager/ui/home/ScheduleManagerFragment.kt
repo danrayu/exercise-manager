@@ -1,6 +1,8 @@
 package com.example.exercisemanager.ui.home
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,15 +34,16 @@ class ScheduleManagerFragment : Fragment(), ScheduleRVAdapter.OnEditSchedule {
         binding.rvManageSchedules.adapter = ScheduleRVAdapter(schedules, this)
         binding.rvManageSchedules.layoutManager = LinearLayoutManager(context)
         binding.btnAddSchedule.setOnClickListener {
-            onEditInterface(Schedule(0, "00", null, "Pattern", LocalDate.now()))
+            onEditInterface(Schedule(-1, "00", ArrayList(), "Pattern", LocalDate.now()))
         }
         return binding.root
     }
 
     override fun onEditInterface(schedule: Schedule) {
-        val fragment = ScheduleEditorFragment(schedule)
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment, fragment)
+        val fragmentManager = parentFragmentManager
+        fragmentManager.beginTransaction()
+            .replace(R.id.nav_host_fragment, ScheduleEditorFragment(schedule))
+            .addToBackStack("ScheduleEditor")
             .commit()
     }
 }

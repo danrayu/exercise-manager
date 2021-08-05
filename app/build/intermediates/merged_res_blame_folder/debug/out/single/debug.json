@@ -1,23 +1,43 @@
 [
     {
-        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable_ic_menu_camera.xml.flat",
-        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable/ic_menu_camera.xml"
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-xxhdpi_ic_add.png.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-xxhdpi/ic_add.png"
     },
     {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/layout_nav_header_main.xml.flat",
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/nav_header_main.xml"
     },
     {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable_ic_menu_camera.xml.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable/ic_menu_camera.xml"
+    },
+    {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-xxhdpi_ic_delete.png.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-xxhdpi/ic_delete.png"
+    },
+    {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/mipmap-hdpi_ic_launcher.png.flat",
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-mdpi_ic_add.png.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-mdpi/ic_add.png"
     },
     {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
     },
     {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-anydpi_ic_delete.xml.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-anydpi/ic_delete.xml"
+    },
+    {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/mipmap-hdpi_ic_launcher_round.png.flat",
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-anydpi_ic_save_casette.xml.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-anydpi/ic_save_casette.xml"
     },
     {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/layout_item_muscle_picker.xml.flat",
@@ -40,6 +60,10 @@
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-xhdpi/ic_muscle.png"
     },
     {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-hdpi_ic_save_casette.png.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-hdpi/ic_save_casette.png"
+    },
+    {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/layout_fragment_schedule_editor.xml.flat",
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/fragment_schedule_editor.xml"
     },
@@ -52,8 +76,16 @@
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-xhdpi/ic_continue.png"
     },
     {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-xxhdpi_ic_save_casette.png.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-xxhdpi/ic_save_casette.png"
+    },
+    {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-xhdpi_ic_save_casette.png.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-xhdpi/ic_save_casette.png"
     },
     {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/layout_item_pickable_circle.xml.flat",
@@ -84,6 +116,10 @@
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-anydpi/ic_continue.xml"
     },
     {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-xhdpi_ic_delete.png.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-xhdpi/ic_delete.png"
+    },
+    {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/menu_activity_main_drawer.xml.flat",
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/menu/activity_main_drawer.xml"
     },
@@ -94,6 +130,10 @@
     {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/layout_fragment_group_edit.xml.flat",
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/fragment_group_edit.xml"
+    },
+    {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-xhdpi_ic_add.png.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-xhdpi/ic_add.png"
     },
     {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-xxhdpi_ic_search.png.flat",
@@ -110,6 +150,10 @@
     {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable_ic_menu_guide.xml.flat",
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable/ic_menu_guide.xml"
+    },
+    {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-hdpi_ic_add.png.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-hdpi/ic_add.png"
     },
     {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-hdpi_ic_exercise.png.flat",
@@ -188,6 +232,10 @@
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-xhdpi/ic_search.png"
     },
     {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-anydpi_ic_add.xml.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-anydpi/ic_add.xml"
+    },
+    {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-anydpi_ic_search.xml.flat",
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-anydpi/ic_search.xml"
     },
@@ -198,6 +246,10 @@
     {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-mdpi_ic_delete.png.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-mdpi/ic_delete.png"
     },
     {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/mipmap-mdpi_ic_launcher.png.flat",
@@ -230,6 +282,10 @@
     {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/layout_dialog_muscle_editor.xml.flat",
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/dialog_muscle_editor.xml"
+    },
+    {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-mdpi_ic_save_casette.png.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-mdpi/ic_save_casette.png"
     },
     {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-mdpi_ic_continue.png.flat",
@@ -282,5 +338,9 @@
     {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-hdpi_ic_delete.png.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-hdpi/ic_delete.png"
     }
 ]

@@ -54,10 +54,9 @@ class GroupsFragment : Fragment(), GroupsRVAdapter.EditEventInterface {
     }
 
     override fun editGroupButtonPressed(group: Group, isNew: Boolean) {
-        val fragment = EditGroupFragment(group, isNew)
-        val manager : FragmentManager = parentFragmentManager
-        manager.beginTransaction()
-            .replace(R.id.nav_host_fragment, fragment)
+        val fragmentManager = parentFragmentManager
+            fragmentManager.beginTransaction()
+            .replace(R.id.nav_host_fragment, EditGroupFragment(group, isNew))
             .addToBackStack("EditGroupFragment")
             .commit()
     }

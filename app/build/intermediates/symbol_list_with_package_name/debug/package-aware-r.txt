@@ -1115,6 +1115,7 @@ color dim_foreground_material_dark
 color dim_foreground_material_light
 color error_color_material_dark
 color error_color_material_light
+color evil_red
 color fitness_gray
 color foreground_material_dark
 color foreground_material_light
@@ -1765,8 +1766,10 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable ic_add
 drawable ic_clock_black_24dp
 drawable ic_continue
+drawable ic_delete
 drawable ic_exercise
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
@@ -1780,6 +1783,7 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_muscle
+drawable ic_save_casette
 drawable ic_search
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
@@ -1914,12 +1918,14 @@ id btn_add_schedule
 id btn_circular
 id btn_delete_exercise
 id btn_delete_muscle
+id btn_delete_schedule
 id btn_edit_exercise
 id btn_edit_group
 id btn_edit_muscle
 id btn_ex_creator_add_muscle
 id btn_ex_editor_add_muscle
 id btn_save_group
+id btn_save_schedule
 id btn_unpick_muscle
 id buttonPanel
 id cache_measures
@@ -1940,11 +1946,14 @@ id chip3
 id chip_group
 id chronometer
 id circle_center
+id cl_add_item
 id cl_exc
 id cl_exercise_fragment
 id cl_groups_fragment
 id cl_muscle
+id cl_name_and_edit_holder
 id cl_ss_element
+id cl_uneditable_group_name_holder
 id clear_text
 id clip_horizontal
 id clip_vertical
@@ -2056,6 +2065,7 @@ id invisible
 id inward
 id italic
 id item_touch_helper_previous_elevation
+id iv_add_item
 id iv_continue1
 id iv_continue2
 id iv_continue3
@@ -2199,6 +2209,7 @@ id rv_musclesf
 id rv_pattern_length
 id rv_pick_muscles
 id rv_pick_muscles_edit
+id rv_schedule_editor_display
 id rv_searchable_spinner
 id rv_today_schedule
 id rv_un_group_display
@@ -2286,6 +2297,7 @@ id textStart
 id textTop
 id textView
 id textView2
+id textView3
 id textWatcher
 id text_input_end_icon
 id text_input_error_icon
@@ -2314,12 +2326,14 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tv_date_display
 id tv_date_selection
 id tv_edescription
 id tv_edescription_uneditable
 id tv_edit_edescription
 id tv_edit_ename
 id tv_edit_mname
+id tv_edit_schedule_heading
 id tv_enter_edescription
 id tv_enter_ename
 id tv_enter_mname
@@ -2354,7 +2368,6 @@ id withText
 id withinBounds
 id wrap
 id wrap_content
-id yes
 id zero_corner_chip
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
@@ -2587,6 +2600,7 @@ string chip_text
 string clear_text_end_icon_content_description
 string confirm_changes
 string create_exercise
+string delete_schedule
 string description
 string description_text
 string edit_exercise
@@ -2683,6 +2697,7 @@ string pattern_length
 string pattern_type
 string reset_database
 string save
+string save_schedule
 string search_menu_title
 string select_exercise
 string starting_date

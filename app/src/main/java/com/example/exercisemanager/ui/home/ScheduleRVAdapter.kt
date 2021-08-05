@@ -26,7 +26,10 @@ class ScheduleRVAdapter(private val schedules: MutableList<Schedule>, private va
                 var expanded = false
                 var elementText = ""
                 for (item in this.displayableItems!!) {
-                    elementText = elementText + item.name + "\n"
+                    if (elementText != "") {
+                        elementText += "\n"
+                    }
+                    elementText += item.name
                 }
                 binding.tvExerciseName.text = elementText
 

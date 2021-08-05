@@ -240,13 +240,13 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         return true
     }
 
-    private fun insertSchedule(db: SQLiteDatabase?, schedule: Schedule) {
+    fun insertSchedule(db: SQLiteDatabase?, schedule: Schedule) {
         val contentValues = ContentValues()
         contentValues.put(COL_SCHEDULE_PATTERN, schedule.schedulePattern)
         contentValues.put(COL_SCHEDULE_TYPE, schedule.scheduleType)
         contentValues.put(COL_REFERENCE_DATE, schedule.referenceDate.toString())
-        insertScheduleItems(db, schedule)
         val result = db?.insert(TABLE_SCHEDULES, null, contentValues)
+        insertScheduleItems(db, schedule)
         if (result == (0).toLong()) {
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show()
         }
@@ -257,9 +257,11 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
 
     private fun insertScheduleItems(
         db: SQLiteDatabase?, schedule: Schedule) {
+        this.deleteScheduleItems(this.writableDatabase, schedule.id)
         for (item in schedule.displayableItems!!) {
             val contentValues = ContentValues()
-            contentValues.put(COL_SCHEDULE_ID, schedule.id)
+            val schedules = readScheduleData(this.readableDatabase)
+            contentValues.put(COL_SCHEDULE_ID, schedules[schedules.size - 1].id)
             contentValues.put(COL_ELEMENT_ID, item.id)
             contentValues.put(COL_IS_EXERCISE, item is Exercise)
             db?.insert(TABLE_SCHEDULE_ITEMS, null, contentValues)
@@ -284,7 +286,7 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         db.execSQL(editData)
     }
 
-    fun updateExerciseMusclesData(db: SQLiteDatabase, exercise: Exercise) {
+    private fun updateExerciseMusclesData(db: SQLiteDatabase, exercise: Exercise) {
         val muscleList = exercise.muscles
         deleteExerciseMuscleData(db, exercise.id)
         insertExerciseMuscleRelation(db, exercise.id, muscleList)
@@ -299,7 +301,7 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         db.execSQL(editData)
     }
 
-    fun updateGroupExercisesData(db: SQLiteDatabase, group: Group) {
+    private fun updateGroupExercisesData(db: SQLiteDatabase, group: Group) {
         val exerciseList = group.exercises
         deleteGroupExercisesData(db, group.id)
         insertGroupExerciseRelation(db, group.id, exerciseList)
@@ -434,12 +436,26 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
                 list.add(Schedule(
                     result.getInt(result.getColumnIndex(COL_SCHEDULE_ID)),
                     result.getString(result.getColumnIndex(COL_SCHEDULE_PATTERN)),
-                    readScheduleItems(db, result.getColumnIndex(COL_SCHEDULE_ID)),
+                    readScheduleItems(db, result.getInt(result.getColumnIndex(COL_SCHEDULE_ID))),
                     result.getString(result.getColumnIndex(COL_SCHEDULE_TYPE)),
                     LocalDate.parse(result.getString(result.getColumnIndex(COL_REFERENCE_DATE)))))
                 }
                 while (result.moveToNext())
             }
+        result.close()
+        return list
+    }
+
+    fun readScheduleIds(db: SQLiteDatabase) : MutableList<Int> {
+        val list: MutableList<Int> = ArrayList()
+        val query = "Select * from $TABLE_SCHEDULES"
+        val result = db.rawQuery(query, null)
+        if (result.moveToFirst()) {
+            do {
+                list.add(result.getInt(result.getColumnIndex(COL_SCHEDULE_ID)))
+            }
+            while (result.moveToNext())
+        }
         result.close()
         return list
     }
@@ -466,7 +482,7 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         return list
     }
 
-    fun showScheduledItemsAtDate(db: DataBaseHandler, date: LocalDate) : MutableList<DisplayableItem> {
+    fun readScheduledItemsAtDate(db: DataBaseHandler, date: LocalDate) : MutableList<DisplayableItem> {
         val schedules = db.readScheduleData(db.readableDatabase)
         val itemList: MutableList<DisplayableItem> = ArrayList()
         for (schedule in schedules) {
@@ -510,9 +526,14 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         db.execSQL(deleteRData)
     }
 
-    private fun deleteScheduleData(db:SQLiteDatabase, scheduleId: Int) {
+    fun deleteScheduleData(db:SQLiteDatabase, scheduleId: Int) {
         db.execSQL("DELETE FROM " + TABLE_SCHEDULES + " WHERE " + COL_SCHEDULE_ID + " = " +
                 scheduleId + ";")
+        db.execSQL("DELETE FROM " + TABLE_SCHEDULE_ITEMS + " WHERE " + COL_SCHEDULE_ID + " = " +
+                scheduleId + ";")
+    }
+
+    private fun deleteScheduleItems(db: SQLiteDatabase, scheduleId: Int) {
         db.execSQL("DELETE FROM " + TABLE_SCHEDULE_ITEMS + " WHERE " + COL_SCHEDULE_ID + " = " +
                 scheduleId + ";")
     }

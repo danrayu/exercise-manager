@@ -3,7 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-anydpi/ic_add.xml" value="0.35052083333333334" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_continue.xml" value="0.28020833333333334" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_delete.xml" value="0.28020833333333334" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_save_casette.xml" value="0.28020833333333334" />
         <entry key="app/src/main/res/drawable/circular_background_button.xml" value="0.5263671875" />
+        <entry key="app/src/main/res/drawable/ic_save_casette.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/drawable/rectangle_background_button.xml" value="0.23645833333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22010869565217392" />
         <entry key="app/src/main/res/layout/btn_circle.xml" value="0.27708333333333335" />
@@ -13,7 +18,11 @@
         <entry key="app/src/main/res/layout/dialog_muscle_editor.xml" value="0.2223731884057971" />
         <entry key="app/src/main/res/layout/fragment_exercises.xml" value="0.21557971014492755" />
         <entry key="app/src/main/res/layout/fragment_schedule_editor.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/item_exercise.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/item_group.xml" value="0.5" />
         <entry key="app/src/main/res/layout/item_pickable_circle.xml" value="0.2441123188405797" />
+        <entry key="app/src/main/res/layout/item_uneditable_exercise.xml" value="0.21467391304347827" />
+        <entry key="app/src/main/res/layout/item_uneditable_group.xml" value="0.334375" />
       </map>
     </option>
   </component>

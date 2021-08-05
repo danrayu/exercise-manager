@@ -4,7 +4,7 @@ import com.example.exercisemanager.src.DisplayableItem
 import org.threeten.bp.LocalDate
 
 class Schedule(
-    val id: Int,
+    var id: Int,
     var schedulePattern: String,
     var displayableItems: MutableList<DisplayableItem>?,
     val scheduleType: String,
@@ -14,7 +14,7 @@ class Schedule(
         var isScheduled = false
         var differenceDays = date.compareTo(referenceDate)
 
-        if (scheduleType == "pattern") {
+        if (scheduleType == "Pattern") {
             val patternArray = schedulePattern.split("")
             // removing unnecessary length to improve performance
             differenceDays %= patternArray.size
@@ -28,7 +28,7 @@ class Schedule(
                 differenceDays -= 1
             }
         }
-        else if (scheduleType == "weekly") {
+        else if (scheduleType == "Weekly") {
             val daysInWeek = 7
             val patternArray = schedulePattern.split(",")
             // removing unnecessary length to improve performance

@@ -1,5 +1,6 @@
 package com.example.exercisemanager.ui.home
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
+import com.example.exercisemanager.R
 import com.example.exercisemanager.databinding.ItemUneditableExerciseBinding
 import com.example.exercisemanager.databinding.ItemUneditableGroupBinding
 import com.example.exercisemanager.src.DisplayableItem
@@ -31,6 +33,7 @@ class UneditableGroupsExercisesRVAdapter(private val itemList: MutableList<Displ
 
     inner class ExerciseViewHolder(private val binding: ItemUneditableExerciseBinding) :
         BaseViewHolder(binding) {
+            @SuppressLint("ResourceAsColor")
             override fun bind(item: DisplayableItem) {
                 with(item as Exercise) {
 

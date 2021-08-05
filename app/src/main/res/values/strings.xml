@@ -39,6 +39,7 @@
     <string name="pattern">Pattern</string>
     <string name="starting_date">Starting date</string>
     <string name="save_schedule">Save Schedule</string>
+    <string name="delete_schedule">Delete schedule</string>
 
     <string-array name="muscle_list">
         <item>None</item>

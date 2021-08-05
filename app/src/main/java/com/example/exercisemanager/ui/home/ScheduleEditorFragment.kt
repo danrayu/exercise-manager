@@ -1,27 +1,54 @@
 package com.example.exercisemanager.ui.home
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.exercisemanager.R
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.exercisemanager.databinding.FragmentScheduleEditorBinding
+import com.example.exercisemanager.src.DataBaseHandler
+import com.example.exercisemanager.src.DisplayableItem
+import com.example.exercisemanager.ui.searchable_spinner.SearchableSpinnerDialog
 import org.threeten.bp.LocalDate
 
 const val DAYS_IN_WEEK = 7
 
 class ScheduleEditorFragment(private var schedule: Schedule) : Fragment(),
     DialogPatternLength.OnLengthSelected, DialogSelectPattern.OnPatternSelected,
-    DialogSelectWeekPattern.OnPatternSelected, DialogSelectReferenceDate.OnDateSelected {
+    DialogSelectWeekPattern.OnPatternSelected, DialogSelectReferenceDate.OnDateSelected,
+    SearchableSpinnerDialog.OnElementPressed {
 
     lateinit var binding: FragmentScheduleEditorBinding
     private var pattern: MutableList<Boolean> = ArrayList()
+    private lateinit var rvAdapter: UneditableGroupsExercisesRVAdapter
+    private lateinit var db: DataBaseHandler
+    private lateinit var allUnsortedItems: MutableList<DisplayableItem>
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        db = DataBaseHandler(context)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentScheduleEditorBinding.inflate(inflater)
-        binding.tvDateSelection.text = schedule.referenceDate.toString()
+        binding.tvDateDisplay.text = schedule.referenceDate.toString()
+        rvAdapter = UneditableGroupsExercisesRVAdapter(schedule.displayableItems!!, requireContext())
+        binding.rvScheduleEditorDisplay.adapter = rvAdapter
+        binding.rvScheduleEditorDisplay.layoutManager = LinearLayoutManager(requireContext())
+        allUnsortedItems = (db.readExercisesData(db.readableDatabase) +
+                db.readGroupData(db.readableDatabase)).toMutableList()
+
+        if (schedule.id == -1) {
+            binding.tvEditScheduleHeading.text = "Add schedule"
+        }
+        else {
+            binding.tvEditScheduleHeading.text = "Edit schedule"
+        }
+
         for (day in schedule.schedulePattern.split("")) {
             if ("1" == day) {
                 pattern.add(true)
@@ -33,17 +60,24 @@ class ScheduleEditorFragment(private var schedule: Schedule) : Fragment(),
         val spinner = binding.spPatternTypes
         ArrayAdapter.createFromResource(
             requireContext(),
-            R.array.pattern_type_list,
+            com.example.exercisemanager.R.array.pattern_type_list,
             android.R.layout.simple_spinner_item
         ).also { adapter ->
-            // Specify the layout to use when the list of choices appears
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            // Apply the adapter to the spinner
             spinner.adapter = adapter
         }
         binding.tvPatternLengthDisplay.text = pattern.size.toString()
         binding.llPatternLengthInteractable.setOnClickListener {
             DialogPatternLength(this).show(childFragmentManager, null)
+        }
+
+        binding.btnSaveSchedule.setOnClickListener {
+            if (schedule.id == -1) {
+                db.insertSchedule(db.writableDatabase, schedule)
+                val scheduleIdList = db.readScheduleIds(db.readableDatabase)
+                schedule.id = scheduleIdList[scheduleIdList.size - 1]
+            }
+            else db.updateScheduleData(db.writableDatabase, schedule)
         }
 
         binding.llPatternSelect.setOnClickListener {
@@ -55,8 +89,24 @@ class ScheduleEditorFragment(private var schedule: Schedule) : Fragment(),
                 DialogSelectWeekPattern(pattern, this).show(childFragmentManager, null)
             }
         }
+
+        binding.btnDeleteSchedule.setOnClickListener {
+            if (schedule.id == -1) {
+                Toast.makeText(context, "Schedule doesn't exist yet", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                db.deleteScheduleData(db.writableDatabase, schedule.id)
+                Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         binding.llDateSelect.setOnClickListener {
             DialogSelectReferenceDate(this).show(childFragmentManager, null)
+        }
+
+        binding.clAddItem.setOnClickListener {
+            val spinnerDialog = SearchableSpinnerDialog(this, allUnsortedItems)
+            spinnerDialog.show(parentFragmentManager, null)
         }
         return binding.root
     }
@@ -85,6 +135,11 @@ class ScheduleEditorFragment(private var schedule: Schedule) : Fragment(),
 
     override fun onDateSelected(date: LocalDate) {
         schedule.referenceDate = date
-        binding.tvDateSelection.text = schedule.referenceDate.toString()
+        binding.tvDateDisplay.text = schedule.referenceDate.toString()
+    }
+
+    override fun elementPressedInRV(item: DisplayableItem) {
+        schedule.displayableItems!!.add(item)
+        rvAdapter.notifyItemInserted(schedule.displayableItems!!.size - 1)
     }
 }

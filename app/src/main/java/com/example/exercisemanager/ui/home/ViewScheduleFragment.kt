@@ -25,7 +25,7 @@ class ViewScheduleFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         db = DataBaseHandler(context)
-        elementList = db.showScheduledItemsAtDate(db, LocalDate.now())
+        elementList = db.readScheduledItemsAtDate(db, LocalDate.now())
     }
 
     override fun onCreateView(
