@@ -8,6 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="fitness_gray">#232323</color>
-    <color name="background_gray">#DEDEDE</color>
+    <color name="background_gray">#E1E1E1</color>
     <color name="evil_red">#BB3030</color>
+    <color name="exercise_red">#FFD6D1</color>
+    <color name="exercise_blue">#BEFFF8</color>
 </resources>

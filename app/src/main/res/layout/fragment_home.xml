@@ -6,7 +6,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/background_gray">
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout_home"
@@ -17,7 +18,7 @@
             android:id="@+id/pager_home"
             android:padding="8dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"/>
     </LinearLayout>
 
 </FrameLayout>

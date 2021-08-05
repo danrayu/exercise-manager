@@ -1,6 +1,5 @@
 package com.example.exercisemanager.ui.home
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +7,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import com.example.exercisemanager.R
 import com.example.exercisemanager.databinding.ItemUneditableExerciseBinding
 import com.example.exercisemanager.databinding.ItemUneditableGroupBinding
 import com.example.exercisemanager.src.DisplayableItem
@@ -28,13 +26,12 @@ class UneditableGroupsExercisesRVAdapter(private val itemList: MutableList<Displ
 
     abstract class BaseViewHolder(binding: ViewBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        abstract fun bind(item: DisplayableItem)
+        abstract fun bind(item: DisplayableItem, position: Int)
     }
 
     inner class ExerciseViewHolder(private val binding: ItemUneditableExerciseBinding) :
         BaseViewHolder(binding) {
-            @SuppressLint("ResourceAsColor")
-            override fun bind(item: DisplayableItem) {
+            override fun bind(item: DisplayableItem, position: Int) {
                 with(item as Exercise) {
 
                     binding.tvExerciseNameUneditable.text = this.name
@@ -46,7 +43,7 @@ class UneditableGroupsExercisesRVAdapter(private val itemList: MutableList<Displ
 
                     binding.cardLayout.setOnClickListener {
                         this.expand = !this.expand
-                        notifyDataSetChanged()
+                        notifyItemChanged(position)
                     }
                 }
             }
@@ -54,7 +51,7 @@ class UneditableGroupsExercisesRVAdapter(private val itemList: MutableList<Displ
 
     inner class GroupViewHolder(private val binding: ItemUneditableGroupBinding) :
         BaseViewHolder(binding) {
-        override fun bind(item: DisplayableItem) {
+        override fun bind(item: DisplayableItem, position: Int) {
             with(item as Group) {
 
                 // setting up child rv containing exercises
@@ -77,7 +74,7 @@ class UneditableGroupsExercisesRVAdapter(private val itemList: MutableList<Displ
 
                 binding.groupCardLayoutSchedule.setOnClickListener {
                     this.expanded = !this.expanded
-                    notifyDataSetChanged()
+                    notifyItemChanged(position)
                 }
             }
         }
@@ -94,11 +91,11 @@ class UneditableGroupsExercisesRVAdapter(private val itemList: MutableList<Displ
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
         if (holder.itemViewType == VIEW_TYPE_ONE) {
 
-            holder.bind(itemList[position])
+            holder.bind(itemList[position], position)
         }
         else {
             with (holder as GroupViewHolder) {
-                this.bind(itemList[position])
+                this.bind(itemList[position], position)
             }
         }
     }

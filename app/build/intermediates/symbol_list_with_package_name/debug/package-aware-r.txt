@@ -1116,6 +1116,8 @@ color dim_foreground_material_light
 color error_color_material_dark
 color error_color_material_light
 color evil_red
+color exercise_blue
+color exercise_red
 color fitness_gray
 color foreground_material_dark
 color foreground_material_light
@@ -1770,6 +1772,7 @@ drawable ic_add
 drawable ic_clock_black_24dp
 drawable ic_continue
 drawable ic_delete
+drawable ic_edit
 drawable ic_exercise
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
@@ -1818,7 +1821,8 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
-drawable rectangle_background_button
+drawable oval_background_button
+drawable rectangle_radius_corners
 drawable side_nav_bar
 drawable test_custom_background
 drawable tooltip_frame_dark
@@ -1953,6 +1957,7 @@ id cl_groups_fragment
 id cl_manage_schedules
 id cl_muscle
 id cl_name_and_edit_holder
+id cl_sort_holder_view
 id cl_ss_element
 id cl_uneditable_group_name_holder
 id clear_text
@@ -2313,7 +2318,6 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
-id today
 id toggle
 id toolbar
 id top
@@ -2478,6 +2482,7 @@ layout fragment_schedule_editor
 layout fragment_view_schedule
 layout item_exercise
 layout item_group
+layout item_grouped_uneditable_exercise
 layout item_muscle
 layout item_muscle_picker
 layout item_pickable_circle

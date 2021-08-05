@@ -5,19 +5,25 @@
     android:id="@+id/muscle_card_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardBackgroundColor="@color/background_gray">
+    android:layout_marginStart="18dp"
+    android:layout_marginEnd="18dp"
+    android:layout_marginBottom="9dp"
+    android:layout_marginTop="9dp"
+    app:cardBackgroundColor="@color/white">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-                <Button
+
+                <ImageButton
                     android:id="@+id/btn_edit_muscle"
                     android:layout_width="40dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="10dp"
+                    android:backgroundTint="@color/white"
+                    android:src="@drawable/ic_edit"
                     app:layout_constraintEnd_toStartOf="@+id/tv_muscle_name"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

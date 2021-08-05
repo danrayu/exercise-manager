@@ -17,7 +17,7 @@ import org.threeten.bp.LocalDate
 
 const val DAYS_IN_WEEK = 7
 
-class ScheduleEditorFragment(private var schedule: Schedule) : Fragment(),
+class ScheduleEditorFragment(private var schedule: Schedule, private val callback: NotifyManager) : Fragment(),
     DialogPatternLength.OnLengthSelected, DialogSelectPattern.OnPatternSelected,
     DialogSelectWeekPattern.OnPatternSelected, DialogSelectReferenceDate.OnDateSelected,
     SearchableSpinnerDialog.OnElementPressed {
@@ -27,6 +27,13 @@ class ScheduleEditorFragment(private var schedule: Schedule) : Fragment(),
     private lateinit var rvAdapter: UneditableGroupsExercisesRVAdapter
     private lateinit var db: DataBaseHandler
     private lateinit var allUnsortedItems: MutableList<DisplayableItem>
+    val originalSchedule = schedule
+
+    interface NotifyManager {
+        fun onDeleteSchedule(schedule: Schedule)
+        fun onCreateSchedule(schedule: Schedule)
+        fun onUpdateSchedule(schedule: Schedule)
+    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -76,8 +83,10 @@ class ScheduleEditorFragment(private var schedule: Schedule) : Fragment(),
                 db.insertSchedule(db.writableDatabase, schedule)
                 val scheduleIdList = db.readScheduleIds(db.readableDatabase)
                 schedule.id = scheduleIdList[scheduleIdList.size - 1]
+                callback.onCreateSchedule(schedule)
             }
             else db.updateScheduleData(db.writableDatabase, schedule)
+            callback.onUpdateSchedule(schedule)
         }
 
         binding.llPatternSelect.setOnClickListener {
@@ -97,6 +106,8 @@ class ScheduleEditorFragment(private var schedule: Schedule) : Fragment(),
             else {
                 db.deleteScheduleData(db.writableDatabase, schedule.id)
                 Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
+                callback.onDeleteSchedule(originalSchedule)
+                requireActivity().onBackPressed()
             }
         }
 

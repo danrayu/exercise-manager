@@ -4,24 +4,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.exercisemanager.databinding.ItemUneditableExerciseBinding
+import com.example.exercisemanager.databinding.ItemGroupedUneditableExerciseBinding
 
 class ExerciseERVUneditableAdapter(
     private val exerciseList: MutableList<Exercise>
 ) : RecyclerView.Adapter<ExerciseERVUneditableAdapter.ViewHolder>() {
 
-    inner class ViewHolder(val binding: ItemUneditableExerciseBinding) :
+    inner class ViewHolder(val binding: ItemGroupedUneditableExerciseBinding) :
         RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ItemUneditableExerciseBinding.inflate(
+        val binding = ItemGroupedUneditableExerciseBinding.inflate(
             LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder) {
-            with(exerciseList[holder.adapterPosition]) {
+            with(exerciseList[position]) {
 
                 binding.tvExerciseNameUneditable.text = this.name
 
@@ -32,7 +32,7 @@ class ExerciseERVUneditableAdapter(
 
                 binding.cardLayout.setOnClickListener {
                     this.expand = !this.expand
-                    notifyDataSetChanged()
+                    notifyItemChanged(position)
                 }
             }
         }

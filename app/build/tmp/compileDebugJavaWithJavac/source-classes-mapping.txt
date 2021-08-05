@@ -22,6 +22,8 @@ com/example/exercisemanager/databinding/DialogMuscleEditorBinding.java
  com.example.exercisemanager.databinding.DialogMuscleEditorBinding
 com/example/exercisemanager/databinding/ActivityMainBinding.java
  com.example.exercisemanager.databinding.ActivityMainBinding
+com/example/exercisemanager/databinding/ItemGroupedUneditableExerciseBinding.java
+ com.example.exercisemanager.databinding.ItemGroupedUneditableExerciseBinding
 com/example/exercisemanager/databinding/ItemMusclePickerBinding.java
  com.example.exercisemanager.databinding.ItemMusclePickerBinding
 com/example/exercisemanager/databinding/AppBarMainBinding.java
