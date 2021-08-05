@@ -18,6 +18,7 @@
         <entry key="app/src/main/res/layout/content_main.xml" value="0.22010869565217392" />
         <entry key="app/src/main/res/layout/csl_button.xml" value="0.265625" />
         <entry key="app/src/main/res/layout/dialog_calendar.xml" value="0.265625" />
+        <entry key="app/src/main/res/layout/dialog_filter_displayable_items.xml" value="0.33958333333333335" />
         <entry key="app/src/main/res/layout/dialog_muscle_editor.xml" value="0.2223731884057971" />
         <entry key="app/src/main/res/layout/fragment_exercises.xml" value="0.21557971014492755" />
         <entry key="app/src/main/res/layout/fragment_groups.xml" value="0.1651469098277609" />

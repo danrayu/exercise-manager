@@ -13,7 +13,7 @@ import com.example.exercisemanager.src.DisplayableItem
 import org.threeten.bp.LocalDate
 
 
-class ViewScheduleFragment : Fragment() {
+class ViewScheduleFragment : Fragment(), DialogSortFilter.NotifyCategoriesApplied {
 
     private lateinit var binding: FragmentViewScheduleBinding
 
@@ -38,6 +38,16 @@ class ViewScheduleFragment : Fragment() {
         rvAdapter = UneditableGroupsExercisesRVAdapter(elementList, requireContext())
         binding.rvTodaySchedule.adapter = rvAdapter
 
+        binding.btnOpenSortFilterMenu.setOnClickListener {
+            DialogSortFilter(this).show(childFragmentManager, null)
+        }
+
         return binding.root
+    }
+
+    override fun onApplyCategoriesPressed(categories: Categories) {
+        elementList = categories.applyCategories(elementList)
+        rvAdapter = UneditableGroupsExercisesRVAdapter(elementList, requireContext())
+        binding.rvTodaySchedule.adapter = rvAdapter
     }
 }

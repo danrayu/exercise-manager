@@ -10,15 +10,16 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/rv_today_schedule">
         <ImageButton
-            android:id="@+id/btn_save_schedule"
+            android:id="@+id/btn_open_sort_filter_menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:padding="8dp"
             android:backgroundTint="@color/white"
-            android:src="@drawable/ic_save_casette"
+            android:src="@drawable/ic_sort"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

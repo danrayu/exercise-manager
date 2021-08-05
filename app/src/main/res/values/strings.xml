@@ -40,6 +40,12 @@
     <string name="starting_date">Starting date</string>
     <string name="save_schedule">Save Schedule</string>
     <string name="delete_schedule">Delete schedule</string>
+    <string name="filter_and_sort">Filter and sort</string>
+    <string name="order">Order</string>
+    <string name="include">Include</string>
+    <string name="target_muscles">Target muscles</string>
+    <string name="alphabetic_order">Alphabetic order</string>
+    <string name="order_by_type">Order by type</string>
 
     <string-array name="muscle_list">
         <item>None</item>
@@ -62,4 +68,28 @@
         <item>Date</item>
     </string-array>
 
+    <string-array name="list_order">
+        <item>Ascending</item>
+        <item>Descending</item>
+    </string-array>
+
+    <string-array name="list_type_order">
+        <item>Mixed</item>
+        <item>Exercises first</item>
+        <item>Groups first</item>
+    </string-array>
+
+    <string-array name="list_included">
+        <item>All</item>
+        <item>Exercises</item>
+        <item>Groups</item>
+    </string-array>
+
+    <string-array name="type_order_exercises">
+        <item>Exercises first</item>
+    </string-array>
+
+    <string-array name="type_order_groups">
+        <item>Groups first</item>
+    </string-array>
 </resources>

@@ -75,9 +75,18 @@ class SelectableBubblesLVA(private val callback: OnElementPress, val context: Co
         with(holder) {
             binding.btnCircular.textOn = (position + 1).toString()
             binding.btnCircular.textOff = (position + 1).toString()
+            val list = this@SelectableBubblesLVA.currentList
             binding.btnCircular.isChecked = this@SelectableBubblesLVA.currentList[position]
+            if (binding.btnCircular.isChecked) {
+                binding.btnCircular.setBackgroundColor(ContextCompat.getColor(context, R.color.teal_200))
+            }
+            else {
+                binding.btnCircular.setBackgroundColor(ContextCompat.getColor(context, R.color.background_gray))
+            }
             binding.btnCircular.setOnCheckedChangeListener { _, isChecked ->
+                binding.btnCircular.isChecked = this@SelectableBubblesLVA.currentList[position]
                 callback.onElementPress(position)
+
                 if (isChecked) {
                     binding.btnCircular.setBackgroundColor(ContextCompat.getColor(context, R.color.teal_200))
                 }

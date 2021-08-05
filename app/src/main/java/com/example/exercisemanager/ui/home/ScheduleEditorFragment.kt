@@ -27,7 +27,7 @@ class ScheduleEditorFragment(private var schedule: Schedule, private val callbac
     private lateinit var rvAdapter: UneditableGroupsExercisesRVAdapter
     private lateinit var db: DataBaseHandler
     private lateinit var allUnsortedItems: MutableList<DisplayableItem>
-    val originalSchedule = schedule
+    private val originalSchedule = schedule
 
     interface NotifyManager {
         fun onDeleteSchedule(schedule: Schedule)
@@ -56,8 +56,8 @@ class ScheduleEditorFragment(private var schedule: Schedule, private val callbac
             binding.tvEditScheduleHeading.text = "Edit schedule"
         }
 
-        for (day in schedule.schedulePattern.split("")) {
-            if ("1" == day) {
+        for (day in schedule.schedulePattern.toCharArray()) {
+            if (day == '1') {
                 pattern.add(true)
             }
             else {
