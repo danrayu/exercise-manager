@@ -24,7 +24,7 @@ class HomeFragment : Fragment() {
             HomePagerAdapter(childFragmentManager, lifecycle)
 
         val tabNames = arrayOf(
-            "Today",
+            "View",
             "Scheduler"
         )
 

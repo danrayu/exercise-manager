@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="18dp"
                 android:background="@drawable/oval_background_button"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="@color/background_gray"
                 android:padding="8dp"
                 android:src="@drawable/ic_check"
                 app:layout_constraintBottom_toBottomOf="parent"

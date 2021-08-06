@@ -2109,6 +2109,9 @@ id constraintLayout2
 id constraintLayout3
 id constraintLayout4
 id constraintLayout5
+id constraintLayout6
+id constraintLayout7
+id constraintLayout8
 id container
 id content
 id contentPanel
@@ -2507,6 +2510,10 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tv_1
+id tv_3
+id tv_5
+id tv_7
 id tv_date_display
 id tv_date_selection
 id tv_edescription
@@ -2757,6 +2764,7 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 navigation mobile_navigation
 plurals mtrl_badge_content_description
+string _1_creating_exercises
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -2819,6 +2827,13 @@ string filter_and_sort
 string group_name
 string groups
 string guide
+string guide_subtext_1
+string guide_subtext_2
+string guide_subtext_3
+string guide_subtext_4
+string guide_title_2
+string guide_title_3
+string guide_title_4
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string include

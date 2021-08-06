@@ -47,6 +47,14 @@
     <string name="alphabetic_order">Alphabetic order</string>
     <string name="order_by_type">Order by type</string>
     <string name="guide">Guide</string>
+    <string name="_1_creating_exercises">1) Creating Exercises</string>
+    <string name="guide_subtext_1">a) Navigate to Exercises tab.\n b) Press blue plus, and type in name and description.\n c)Add muscles that the exercise targets, and press the blue checkmark. That\'s it!</string>
+    <string name="guide_title_2">2) Creating Groups</string>
+    <string name="guide_subtext_2">a) Navigate to Groups tab.\n b) Press blue plus, and type in name and description.\n c)Add exercises by pressing the blue plus, and press the blue save button. And that is the truth.</string>
+    <string name="guide_title_3">3) Creating Schedules</string>
+    <string name="guide_subtext_3">a) Navigate to Home tab. The app starts on it.\n b) Navigate to Scheduler by pressing the tab name or by swiping right. Press the blue plus button.\n c) Select pattern type. Pattern pattern type is a certain repeatable order of days where the exercises and groups will be scheduled. Weekly is the same, but the length is bound to seven. Schedule example: Day 1 - Push up, Day 2 - Rest, Day 3 - Push up.\n d) Starting date is when the pattern begins. You can set it to any date.\n e) Add groups and exercises with the blue button, and save the schedule.</string>
+    <string name="guide_title_4">4) Using Schedules</string>
+    <string name="guide_subtext_4">a) Navigate to Home tab. The app starts on it.\n b) Here all scheduled exercises and groups will be displayed. You can sort them.\n c) Select the filter and sort categories, and press the blue checkmark.</string>
 
     <string-array name="muscle_list">
         <item>Biceps</item>

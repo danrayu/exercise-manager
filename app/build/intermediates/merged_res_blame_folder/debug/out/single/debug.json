@@ -16,12 +16,12 @@
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable/ic_menu_gallery.xml"
     },
     {
-        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
-    },
-    {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-xhdpi_ic_muscle.png.flat",
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-xhdpi/ic_muscle.png"
+    },
+    {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-xhdpi_ic_continue.png.flat",
@@ -104,16 +104,16 @@
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/dialog_page_view_slider.xml"
     },
     {
-        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-xxxhdpi_ic_muscle.png.flat",
-        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-xxxhdpi/ic_muscle.png"
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-hdpi_ic_continue.png.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-hdpi/ic_continue.png"
     },
     {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-xxhdpi_ic_continue.png.flat",
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-xxhdpi/ic_continue.png"
     },
     {
-        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-hdpi_ic_continue.png.flat",
-        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-hdpi/ic_continue.png"
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/drawable-xxxhdpi_ic_muscle.png.flat",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/drawable-xxxhdpi/ic_muscle.png"
     },
     {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/merged_res/debug/layout_btn_circle.xml.flat",

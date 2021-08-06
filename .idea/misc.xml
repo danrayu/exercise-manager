@@ -27,6 +27,7 @@
         <entry key="app/src/main/res/layout/dialog_searchable_spinner.xml" value="0.1651469098277609" />
         <entry key="app/src/main/res/layout/fragment_exercises.xml" value="0.21557971014492755" />
         <entry key="app/src/main/res/layout/fragment_groups.xml" value="0.1651469098277609" />
+        <entry key="app/src/main/res/layout/fragment_guide.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1651469098277609" />
         <entry key="app/src/main/res/layout/fragment_muscles.xml" value="0.1651469098277609" />
         <entry key="app/src/main/res/layout/fragment_schedule_editor.xml" value="0.33" />
