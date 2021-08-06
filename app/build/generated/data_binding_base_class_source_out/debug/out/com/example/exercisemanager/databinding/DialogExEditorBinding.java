@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,7 +22,7 @@ import java.lang.String;
 
 public final class DialogExEditorBinding implements ViewBinding {
   @NonNull
-  private final ConstraintLayout rootView;
+  private final ScrollView rootView;
 
   @NonNull
   public final ImageButton btnCloseCreateDialog;
@@ -33,7 +34,7 @@ public final class DialogExEditorBinding implements ViewBinding {
   public final ImageButton btnSaveItem;
 
   @NonNull
-  public final ConstraintLayout clExc;
+  public final ScrollView clExc;
 
   @NonNull
   public final ConstraintLayout constraintLayout;
@@ -56,9 +57,9 @@ public final class DialogExEditorBinding implements ViewBinding {
   @NonNull
   public final TextView tvPageName;
 
-  private DialogExEditorBinding(@NonNull ConstraintLayout rootView,
+  private DialogExEditorBinding(@NonNull ScrollView rootView,
       @NonNull ImageButton btnCloseCreateDialog, @NonNull Button btnExEditorAddMuscle,
-      @NonNull ImageButton btnSaveItem, @NonNull ConstraintLayout clExc,
+      @NonNull ImageButton btnSaveItem, @NonNull ScrollView clExc,
       @NonNull ConstraintLayout constraintLayout, @NonNull EditText etEditEdescription,
       @NonNull EditText etEditEname, @NonNull RecyclerView rvPickMusclesEdit,
       @NonNull TextView tvEditEdescription, @NonNull TextView tvEditEname,
@@ -79,7 +80,7 @@ public final class DialogExEditorBinding implements ViewBinding {
 
   @Override
   @NonNull
-  public ConstraintLayout getRoot() {
+  public ScrollView getRoot() {
     return rootView;
   }
 
@@ -122,7 +123,7 @@ public final class DialogExEditorBinding implements ViewBinding {
         break missingId;
       }
 
-      ConstraintLayout clExc = (ConstraintLayout) rootView;
+      ScrollView clExc = (ScrollView) rootView;
 
       id = R.id.constraintLayout;
       ConstraintLayout constraintLayout = ViewBindings.findChildViewById(rootView, id);
@@ -166,7 +167,7 @@ public final class DialogExEditorBinding implements ViewBinding {
         break missingId;
       }
 
-      return new DialogExEditorBinding((ConstraintLayout) rootView, btnCloseCreateDialog,
+      return new DialogExEditorBinding((ScrollView) rootView, btnCloseCreateDialog,
           btnExEditorAddMuscle, btnSaveItem, clExc, constraintLayout, etEditEdescription,
           etEditEname, rvPickMusclesEdit, tvEditEdescription, tvEditEname, tvPageName);
     }

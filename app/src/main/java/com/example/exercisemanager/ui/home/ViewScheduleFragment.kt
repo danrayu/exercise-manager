@@ -16,16 +16,16 @@ import org.threeten.bp.LocalDate
 class ViewScheduleFragment : Fragment(), DialogSortFilter.NotifyCategoriesApplied {
 
     private lateinit var binding: FragmentViewScheduleBinding
-
     private lateinit var db: DataBaseHandler
-
     private lateinit var elementList: MutableList<DisplayableItem>
     private lateinit var rvAdapter: UneditableGroupsExercisesRVAdapter
+    private lateinit var date: LocalDate
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        date = LocalDate.now()
         db = DataBaseHandler(context)
-        elementList = db.readScheduledItemsAtDate(db, LocalDate.now())
+        elementList = db.readScheduledItemsAtDate(db, date)
     }
 
     override fun onCreateView(
@@ -46,6 +46,8 @@ class ViewScheduleFragment : Fragment(), DialogSortFilter.NotifyCategoriesApplie
     }
 
     override fun onApplyCategoriesPressed(categories: Categories) {
+        date = categories.date
+        elementList = db.readScheduledItemsAtDate(db, date)
         elementList = categories.applyCategories(elementList)
         rvAdapter = UneditableGroupsExercisesRVAdapter(elementList, requireContext())
         binding.rvTodaySchedule.adapter = rvAdapter

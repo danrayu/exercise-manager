@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-anydpi/ic_add.xml" value="0.35052083333333334" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_check.xml" value="0.24375" />
         <entry key="app/src/main/res/drawable-anydpi/ic_continue.xml" value="0.28020833333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_delete.xml" value="0.28020833333333334" />
         <entry key="app/src/main/res/drawable-anydpi/ic_save_casette.xml" value="0.28020833333333334" />
@@ -31,7 +32,7 @@
         <entry key="app/src/main/res/layout/fragment_schedule_editor.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_view_schedule.xml" value="0.33958333333333335" />
         <entry key="app/src/main/res/layout/item_exercise.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/item_group.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/item_group.xml" value="0.33" />
         <entry key="app/src/main/res/layout/item_grouped_uneditable_exercise.xml" value="0.33958333333333335" />
         <entry key="app/src/main/res/layout/item_muscle.xml" value="0.1651469098277609" />
         <entry key="app/src/main/res/layout/item_pickable_circle.xml" value="0.2441123188405797" />

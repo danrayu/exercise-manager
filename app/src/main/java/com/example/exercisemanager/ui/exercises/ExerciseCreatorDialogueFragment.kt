@@ -52,6 +52,7 @@ class ExerciseCreatorDialogueFragment(private val listener: CreateExerciseDialog
                         listener.onCreateExerciseClick(eName, eDesc, selectedMusclesList)
                         selectedMusclesList.clear()
                         rvAdapter.notifyItemRangeRemoved(0, selectedMusclesList.size)
+                        this.dismiss()
                     }
                     else {
                         Toast.makeText(context, "Name taken", Toast.LENGTH_SHORT).show()
@@ -65,11 +66,11 @@ class ExerciseCreatorDialogueFragment(private val listener: CreateExerciseDialog
 
             builder.setView(binding.root).setNegativeButton(R.string.cancel,
                 DialogInterface.OnClickListener { _, _ ->
-                    this.dismiss()
                     val len = selectedMusclesList.size
                     selectedMusclesList.clear()
                     rvAdapter.notifyItemRangeRemoved(0, len)
                     eDesc = ""
+                    this.dismiss()
                 })
 
             val spinnerDialog = SearchableSpinnerDialog(this, muscleList.toMutableList())

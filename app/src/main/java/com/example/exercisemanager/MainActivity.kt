@@ -7,16 +7,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.exercisemanager.src.DataBaseHandler
-import com.example.exercisemanager.ui.home.Schedule
-import com.example.exercisemanager.ui.home.ScheduleEditorFragment
-import com.example.exercisemanager.ui.home.ScheduleManagerFragment
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity(){

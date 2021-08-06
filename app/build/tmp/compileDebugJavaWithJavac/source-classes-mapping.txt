@@ -32,6 +32,8 @@ com/example/exercisemanager/databinding/DialogFilterDisplayableItemsBinding.java
  com.example.exercisemanager.databinding.DialogFilterDisplayableItemsBinding
 com/example/exercisemanager/databinding/ItemExerciseBinding.java
  com.example.exercisemanager.databinding.ItemExerciseBinding
+com/example/exercisemanager/databinding/FragmentGuideBinding.java
+ com.example.exercisemanager.databinding.FragmentGuideBinding
 com/example/exercisemanager/databinding/FragmentGroupsBinding.java
  com.example.exercisemanager.databinding.FragmentGroupsBinding
 com/example/exercisemanager/BuildConfig.java

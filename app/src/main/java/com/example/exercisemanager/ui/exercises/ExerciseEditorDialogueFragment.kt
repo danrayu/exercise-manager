@@ -65,6 +65,7 @@ class ExerciseEditorDialogueFragment(private var listener: EditExerciseDialogLis
                         listener.onEditExerciseConfirm(exercise, exerciseIndex)
                         selectedMusclesList.clear()
                         rvAdapter.notifyItemRangeRemoved(0, selectedMusclesList.size)
+                        this.dismiss()
                     }
                     else {
                         Toast.makeText(context, "Name taken", Toast.LENGTH_SHORT).show()

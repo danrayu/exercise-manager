@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.exercisemanager.R
 import com.example.exercisemanager.databinding.ItemExerciseBinding
 import com.example.exercisemanager.ui.exercises.Exercise
 
@@ -31,7 +32,7 @@ class GroupExercisesRVAdapter(
                 binding.tvEdescription.text = this.description
 
                 binding.rlExpandedEdescription.visibility = if (this.expand) View.VISIBLE else View.GONE
-
+                binding.btnEditExercise.setImageResource(R.drawable.ic_delete)
                 binding.cardLayout.setOnClickListener {
                     this.expand = !this.expand
                     notifyDataSetChanged()

@@ -24,6 +24,10 @@
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/activity_main.xml"
     },
     {
+        "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_guide.xml",
+        "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/fragment_guide.xml"
+    },
+    {
         "merged": "/home/dan/AndroidStudioProjects/ExerciseManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/dialog_muscle_creator.xml",
         "source": "/home/dan/AndroidStudioProjects/ExerciseManager/app/src/main/res/layout/dialog_muscle_creator.xml"
     },

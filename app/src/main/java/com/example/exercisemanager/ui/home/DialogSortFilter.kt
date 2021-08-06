@@ -16,9 +16,11 @@ import com.example.exercisemanager.ui.muscles.Muscle
 import com.example.exercisemanager.ui.searchable_spinner.SearchableSpinnerDialog
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayoutManager
+import org.threeten.bp.LocalDate
 
 class DialogSortFilter(private val listener: NotifyCategoriesApplied)
-    : DialogFragment(), TargetMusclesRVA.OnRemoveElement, SearchableSpinnerDialog.OnElementPressed {
+    : DialogFragment(), TargetMusclesRVA.OnRemoveElement,
+    SearchableSpinnerDialog.OnElementPressed, DialogSelectReferenceDate.OnDateSelected {
 
     private lateinit var categories: Categories
     private val targetMuscles: MutableList<Muscle> = ArrayList()
@@ -27,6 +29,7 @@ class DialogSortFilter(private val listener: NotifyCategoriesApplied)
     private lateinit var db: DataBaseHandler
     private lateinit var spinnerDialog: SearchableSpinnerDialog
     private lateinit var allMuscleList: MutableList<Muscle>
+    private lateinit var binding: DialogFilterDisplayableItemsBinding
 
     interface NotifyCategoriesApplied {
         fun onApplyCategoriesPressed(categories: Categories)
@@ -41,7 +44,7 @@ class DialogSortFilter(private val listener: NotifyCategoriesApplied)
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
             val builder = AlertDialog.Builder(it)
-            val binding = DialogFilterDisplayableItemsBinding.inflate(LayoutInflater.from(context))
+            binding = DialogFilterDisplayableItemsBinding.inflate(LayoutInflater.from(context))
             val spinnerTypeIncluded = binding.spItemTypeIncluded
             val spinnerTypeOrder = binding.spTypeOrder
             val spinnerSortOrder = binding.spSortOrder
@@ -76,9 +79,8 @@ class DialogSortFilter(private val listener: NotifyCategoriesApplied)
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 spinnerSortOrder.adapter = adapter
             }
-
             categories = Categories(Order.Descending, TypeOrder.Mixed,
-                Included.DisplayableItem, targetMuscles)
+                Included.DisplayableItem, targetMuscles, LocalDate.now())
 
             binding.btnCloseSortDialog.setOnClickListener {
                 this.dismiss()
@@ -88,6 +90,10 @@ class DialogSortFilter(private val listener: NotifyCategoriesApplied)
                 this, getSpinnerList())
             binding.btnAddTargetMuscle.setOnClickListener {
                 spinnerDialog.show(childFragmentManager, null)
+            }
+
+            binding.llDateSelect.setOnClickListener {
+                DialogSelectReferenceDate(this).show(childFragmentManager, null)
             }
 
             binding.btnSaveSortFilter.setOnClickListener {
@@ -106,7 +112,7 @@ class DialogSortFilter(private val listener: NotifyCategoriesApplied)
                         "All" -> Included.DisplayableItem
                         "Exercises" -> Included.Exercise
                         else -> Included.Group
-                    }, targetMuscles)
+                    }, targetMuscles, categories.date)
                 listener.onApplyCategoriesPressed(categories)
                 this.dismiss()
             }
@@ -170,5 +176,10 @@ class DialogSortFilter(private val listener: NotifyCategoriesApplied)
         val spinnerList: MutableList<DisplayableItem> = ArrayList()
         spinnerList.addAll(allMuscleList)
         return spinnerList.minus(targetMuscles).toMutableList()
+    }
+
+    override fun onDateSelected(date: LocalDate) {
+        categories.date = date
+        binding.tvDateDisplay.text = categories.date.toString()
     }
 }

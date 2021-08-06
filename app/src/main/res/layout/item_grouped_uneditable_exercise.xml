@@ -8,7 +8,7 @@
     app:contentPaddingBottom="3dp"
     android:layout_marginBottom="9dp"
     android:layout_marginTop="9dp"
-    app:cardBackgroundColor="@color/exercise_blue">
+    app:cardBackgroundColor="@color/background_gray">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

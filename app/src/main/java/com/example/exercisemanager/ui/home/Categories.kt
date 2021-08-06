@@ -4,9 +4,11 @@ import com.example.exercisemanager.src.DisplayableItem
 import com.example.exercisemanager.ui.exercises.Exercise
 import com.example.exercisemanager.ui.groups.Group
 import com.example.exercisemanager.ui.muscles.Muscle
+import org.threeten.bp.LocalDate
 
 enum class Order {
-    Descending, Ascending
+    Descending,
+    Ascending
 }
 
 enum class TypeOrder {
@@ -21,7 +23,7 @@ enum class Included {
     Group
 }
 
-class Categories(var order: Order, var typeOrder: TypeOrder, var included: Included, var targetMuscles: MutableList<Muscle>) {
+class Categories(var order: Order, var typeOrder: TypeOrder, var included: Included, var targetMuscles: MutableList<Muscle>, var date: LocalDate) {
 
     fun applyCategories(unorderedList: MutableList<DisplayableItem>) : MutableList<DisplayableItem> {
 

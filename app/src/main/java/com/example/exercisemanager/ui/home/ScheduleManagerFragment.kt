@@ -1,20 +1,17 @@
 package com.example.exercisemanager.ui.home
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.exercisemanager.R
 import com.example.exercisemanager.databinding.FragmentManageSchedulesBinding
 import com.example.exercisemanager.src.DataBaseHandler
 import org.threeten.bp.LocalDate
-import kotlin.properties.Delegates
 
-class ScheduleManagerFragment : Fragment(), ScheduleRVAdapter.OnEditSchedule, ScheduleEditorFragment.NotifyManager {
+class ScheduleManagerFragment : Fragment(), ScheduleRVAdapter.OnEditSchedule,
+    DialogEditSchedule.NotifyManager {
 
     private lateinit var binding: FragmentManageSchedulesBinding
     private lateinit var db: DataBaseHandler
@@ -43,11 +40,7 @@ class ScheduleManagerFragment : Fragment(), ScheduleRVAdapter.OnEditSchedule, Sc
     }
 
     override fun onEditInterface(schedule: Schedule) {
-        val fragmentManager = requireActivity().supportFragmentManager
-        fragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment, ScheduleEditorFragment(schedule, this))
-            .addToBackStack("ScheduleEditor")
-            .commit()
+        DialogEditSchedule(schedule, this).show(childFragmentManager, null)
     }
 
     override fun onDeleteSchedule(schedule: Schedule) {
@@ -67,7 +60,7 @@ class ScheduleManagerFragment : Fragment(), ScheduleRVAdapter.OnEditSchedule, Sc
         rvadapter.notifyItemChanged(toBeUpdatedIndex)
     }
 
-    fun MutableList<Schedule>.indexWithMatchingId(id: Int): Int {
+    private fun MutableList<Schedule>.indexWithMatchingId(id: Int): Int {
         var matchingIndex = 0
         for (index in 0 until this.size) {
             if (this[index].id == id) {

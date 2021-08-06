@@ -1,126 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cl_exc"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:id="@+id/cl_exc">
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageButton
-            android:id="@+id/btn_close_create_dialog"
-            android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="18dp"
-            android:background="@drawable/oval_background_button"
-            android:backgroundTint="@color/white"
-            android:padding="8dp"
-            android:src="@drawable/ic_delete"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/btn_close_create_dialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="18dp"
+                android:background="@drawable/oval_background_button"
+                android:backgroundTint="@color/white"
+                android:padding="8dp"
+                android:src="@drawable/ic_delete"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_page_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/edit_exercise"
+                android:textSize="23sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_save_item"
+                app:layout_constraintStart_toEndOf="@+id/btn_close_create_dialog"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageButton
+                android:id="@+id/btn_save_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="18dp"
+                android:background="@drawable/oval_background_button"
+                android:backgroundTint="@color/white"
+                android:padding="8dp"
+                android:src="@drawable/ic_check"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
-            android:id="@+id/tv_page_name"
+            android:id="@+id/tv_edit_ename"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/edit_exercise"
-            android:textSize="23sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btn_save_item"
-            app:layout_constraintStart_toEndOf="@+id/btn_close_create_dialog"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-        <ImageButton
-            android:id="@+id/btn_save_item"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="18dp"
-            android:background="@drawable/oval_background_button"
-            android:backgroundTint="@color/white"
-            android:padding="8dp"
-            android:src="@drawable/ic_check"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="24dp"
+            android:text="@string/exercise_name"
+            android:textColor="@color/black"
+            android:textSize="21sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+        <EditText
+            android:id="@+id/et_edit_ename"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:textColor="@color/fitness_gray"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_edit_ename" />
+
+        <TextView
+            android:id="@+id/tv_edit_edescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:text="@string/exercise_description"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_edit_ename" />
+
+        <EditText
+            android:id="@+id/et_edit_edescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:textColor="@color/fitness_gray"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_edit_edescription" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_pick_muscles_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_edit_edescription" />
+
+        <Button
+            android:id="@+id/btn_ex_editor_add_muscle"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:text="@string/add_muscle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_pick_muscles_edit" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/tv_edit_ename"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="24dp"
-        android:text="@string/exercise_name"
-        android:textColor="@color/black"
-        android:textSize="21sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
-
-    <EditText
-        android:id="@+id/et_edit_ename"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:textColor="@color/fitness_gray"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_edit_ename" />
-
-    <TextView
-        android:id="@+id/tv_edit_edescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="24dp"
-        android:text="@string/exercise_description"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_edit_ename" />
-
-    <EditText
-        android:id="@+id/et_edit_edescription"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:textColor="@color/fitness_gray"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_edit_edescription" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_pick_muscles_edit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_edit_edescription" />
-
-    <Button
-        android:id="@+id/btn_ex_editor_add_muscle"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_margin="10dp"
-        android:text="@string/add_muscle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_pick_muscles_edit" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
