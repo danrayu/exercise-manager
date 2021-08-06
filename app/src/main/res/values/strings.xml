@@ -49,7 +49,6 @@
     <string name="guide">Guide</string>
 
     <string-array name="muscle_list">
-        <item>None</item>
         <item>Biceps</item>
         <item>Middle Back</item>
         <item>Upper Chest</item>
