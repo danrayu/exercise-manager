@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.exercisemanager.R
@@ -60,7 +61,17 @@ class EditGroupFragment(private var group: Group, private var isNew: Boolean) : 
             group.name = _binding!!.etGroupName.text.toString()
             group.description = _binding!!.etGroupDescription.text.toString()
             saveGroup(group)
-            this.isNew = false
+            if (group.name.isNotBlank()) {
+                if (group.name !in db.getGroupAndExerciseNames()) {
+                    saveGroup(group)
+                    this.isNew = false
+                }
+                else {
+                    Toast.makeText(context, "Name taken", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                Toast.makeText(context, "No name specified", Toast.LENGTH_SHORT).show()
+            }
         }
 
         return binding.root

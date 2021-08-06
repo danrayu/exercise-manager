@@ -1,6 +1,7 @@
 package com.example.exercisemanager.ui.exercises
 
 import android.app.Dialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Toast
@@ -11,15 +12,19 @@ import com.example.exercisemanager.R
 import com.example.exercisemanager.databinding.DialogExCreatorBinding
 import com.example.exercisemanager.src.DisplayableItem
 import com.example.exercisemanager.src.ExerciseManagerUtility
+import com.example.exercisemanager.ui.home.TargetMusclesRVA
 import com.example.exercisemanager.ui.muscles.Muscle
 import com.example.exercisemanager.ui.searchable_spinner.SearchableSpinnerDialog
+import com.google.android.flexbox.FlexWrap
+import com.google.android.flexbox.FlexboxLayoutManager
 
 class ExerciseCreatorDialogueFragment(private val listener: CreateExerciseDialogListener,
-                                      private var muscleList: MutableList<Muscle>)
-    : DialogFragment(), ExerciseMuscleRVAdapter.UnpickEventInterface, SearchableSpinnerDialog.OnElementPressed {
+                                      private var muscleList: MutableList<Muscle>,
+                                      private val allNames: MutableList<String>)
+    : DialogFragment(),  SearchableSpinnerDialog.OnElementPressed, TargetMusclesRVA.OnRemoveElement{
 
     var selectedMusclesList: MutableList<Muscle> = ArrayList()
-    private lateinit var rvAdapter: ExerciseMuscleRVAdapter
+    private lateinit var rvAdapter: TargetMusclesRVA
     private val exu = ExerciseManagerUtility()
     private var eDesc = ""
 
@@ -32,45 +37,47 @@ class ExerciseCreatorDialogueFragment(private val listener: CreateExerciseDialog
             val builder = AlertDialog.Builder(it)
             val binding = DialogExCreatorBinding.inflate(LayoutInflater.from(context))
 
-            binding.rvPickMuscles.layoutManager = LinearLayoutManager(context)
-            rvAdapter = ExerciseMuscleRVAdapter(selectedMusclesList, this)
+            val layoutManager = FlexboxLayoutManager(requireContext())
+            binding.rvPickMuscles.layoutManager = layoutManager
+            rvAdapter = TargetMusclesRVA(selectedMusclesList, this)
+            layoutManager.flexWrap = FlexWrap.WRAP
             binding.rvPickMuscles.adapter = rvAdapter
             binding.etEnterEdescription.setText(eDesc)
-            builder.setView(binding.root)
-                    // Add action buttons
-                    .setPositiveButton(R.string.create_exercise
-                    ) { _, _ ->
-                        val eName = binding.etEnterEname.text.toString()
-                        eDesc = binding.etEnterEdescription.text.toString()
-                        if (eName.isNotBlank()) {
-                            listener.onCreateExerciseClick(eName, eDesc, selectedMusclesList)
-                            selectedMusclesList.clear()
-                            rvAdapter.notifyItemRangeRemoved(0, selectedMusclesList.size)
-                        } else {
-                            Toast.makeText(context, "No name specified", Toast.LENGTH_SHORT).show()
-                            builder.show()
-                        }
 
+            binding.btnSaveItem.setOnClickListener {
+                val eName = binding.etEnterEname.text.toString()
+                eDesc = binding.etEnterEdescription.text.toString()
+                if (eName.isNotBlank()) {
+                    if (eName !in allNames) {
+                        listener.onCreateExerciseClick(eName, eDesc, selectedMusclesList)
+                        selectedMusclesList.clear()
+                        rvAdapter.notifyItemRangeRemoved(0, selectedMusclesList.size)
                     }
-                .setNegativeButton(R.string.cancel
-                ) { _, _ ->
+                    else {
+                        Toast.makeText(context, "Name taken", Toast.LENGTH_SHORT).show()
+                        builder.show()
+                    }
+                } else {
+                    Toast.makeText(context, "No name specified", Toast.LENGTH_SHORT).show()
+                    builder.show()
+                }
+            }
+
+            builder.setView(binding.root).setNegativeButton(R.string.cancel,
+                DialogInterface.OnClickListener { _, _ ->
                     this.dismiss()
                     val len = selectedMusclesList.size
                     selectedMusclesList.clear()
                     rvAdapter.notifyItemRangeRemoved(0, len)
                     eDesc = ""
-                }
+                })
+
             val spinnerDialog = SearchableSpinnerDialog(this, muscleList.toMutableList())
             binding.btnExCreatorAddMuscle.setOnClickListener {
                 spinnerDialog.show(parentFragmentManager, null)
             }
             builder.create()
         } ?: throw IllegalStateException("Activity cannot be null")
-    }
-
-    override fun unpickMuscleButtonPressed(muscleIndex: Int) {
-        selectedMusclesList.removeAt(muscleIndex)
-        rvAdapter.notifyItemRemoved(muscleIndex)
     }
 
     override fun elementPressedInRV(item: DisplayableItem) {
@@ -82,6 +89,11 @@ class ExerciseCreatorDialogueFragment(private val listener: CreateExerciseDialog
         else {
             Toast.makeText(context, "Exercise already selected", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    override fun onRemoveElementCall(muscle: Muscle, muscleIndex: Int) {
+        selectedMusclesList.removeAt(muscleIndex)
+        rvAdapter.notifyItemRemoved(muscleIndex)
     }
 
 }

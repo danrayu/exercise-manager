@@ -1,6 +1,7 @@
 package com.example.exercisemanager.ui.home
 
 import android.app.Dialog
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,26 +9,47 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
-import com.example.exercisemanager.databinding.DialogExCreatorBinding
 import com.example.exercisemanager.databinding.DialogFilterDisplayableItemsBinding
+import com.example.exercisemanager.src.DataBaseHandler
+import com.example.exercisemanager.src.DisplayableItem
 import com.example.exercisemanager.ui.muscles.Muscle
+import com.example.exercisemanager.ui.searchable_spinner.SearchableSpinnerDialog
+import com.google.android.flexbox.FlexWrap
+import com.google.android.flexbox.FlexboxLayoutManager
 
-class DialogSortFilter(private val listener: NotifyCategoriesApplied) : DialogFragment() {
+class DialogSortFilter(private val listener: NotifyCategoriesApplied)
+    : DialogFragment(), TargetMusclesRVA.OnRemoveElement, SearchableSpinnerDialog.OnElementPressed {
 
     private lateinit var categories: Categories
     private val targetMuscles: MutableList<Muscle> = ArrayList()
+    private lateinit var rvAdapter: TargetMusclesRVA
+    private lateinit var layoutManager: FlexboxLayoutManager
+    private lateinit var db: DataBaseHandler
+    private lateinit var spinnerDialog: SearchableSpinnerDialog
+    private lateinit var allMuscleList: MutableList<Muscle>
 
     interface NotifyCategoriesApplied {
         fun onApplyCategoriesPressed(categories: Categories)
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        db = DataBaseHandler(requireContext())
+        allMuscleList = db.readMusclesData(db.readableDatabase)
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
             val builder = AlertDialog.Builder(it)
             val binding = DialogFilterDisplayableItemsBinding.inflate(LayoutInflater.from(context))
-            var spinnerTypeIncluded = binding.spItemTypeIncluded
+            val spinnerTypeIncluded = binding.spItemTypeIncluded
             val spinnerTypeOrder = binding.spTypeOrder
             val spinnerSortOrder = binding.spSortOrder
+            rvAdapter = TargetMusclesRVA(targetMuscles, this)
+            layoutManager = FlexboxLayoutManager(requireContext())
+            binding.rvTargetMuscles.adapter = rvAdapter
+            binding.rvTargetMuscles.layoutManager = layoutManager
+            layoutManager.flexWrap = FlexWrap.WRAP
 
             // setting up spinners
             ArrayAdapter.createFromResource(
@@ -55,12 +77,19 @@ class DialogSortFilter(private val listener: NotifyCategoriesApplied) : DialogFr
                 spinnerSortOrder.adapter = adapter
             }
 
-            categories =
-                Categories(Order.Descending, TypeOrder.Mixed, Included.DisplayableItem, targetMuscles)
+            categories = Categories(Order.Descending, TypeOrder.Mixed,
+                Included.DisplayableItem, targetMuscles)
 
             binding.btnCloseSortDialog.setOnClickListener {
                 this.dismiss()
             }
+
+            spinnerDialog = SearchableSpinnerDialog(
+                this, getSpinnerList())
+            binding.btnAddTargetMuscle.setOnClickListener {
+                spinnerDialog.show(childFragmentManager, null)
+            }
+
             binding.btnSaveSortFilter.setOnClickListener {
                 categories = Categories(
                     when (spinnerSortOrder.selectedItem.toString())
@@ -123,4 +152,23 @@ class DialogSortFilter(private val listener: NotifyCategoriesApplied) : DialogFr
         } ?: throw IllegalStateException("Activity cannot be null")
     }
 
+    override fun onRemoveElementCall(muscle: Muscle, muscleIndex: Int) {
+        targetMuscles.remove(muscle)
+        rvAdapter.notifyItemRemoved(muscleIndex)
+        spinnerDialog = SearchableSpinnerDialog(
+            this, getSpinnerList())
+    }
+
+    override fun elementPressedInRV(item: DisplayableItem) {
+        targetMuscles.add(item as Muscle)
+        rvAdapter.notifyItemInserted(targetMuscles.size - 1)
+        spinnerDialog = SearchableSpinnerDialog(
+            this, getSpinnerList())
+    }
+
+    private fun getSpinnerList() : MutableList<DisplayableItem> {
+        val spinnerList: MutableList<DisplayableItem> = ArrayList()
+        spinnerList.addAll(allMuscleList)
+        return spinnerList.minus(targetMuscles).toMutableList()
+    }
 }

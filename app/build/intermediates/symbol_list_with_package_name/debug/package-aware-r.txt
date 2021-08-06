@@ -2044,10 +2044,10 @@ id bounceStart
 id btn_add_exercise
 id btn_add_group_exercise
 id btn_add_schedule
+id btn_add_target_muscle
 id btn_circular
+id btn_close_create_dialog
 id btn_close_sort_dialog
-id btn_delete_exercise
-id btn_delete_muscle
 id btn_delete_schedule
 id btn_edit_exercise
 id btn_edit_group
@@ -2055,7 +2055,9 @@ id btn_edit_muscle
 id btn_ex_creator_add_muscle
 id btn_ex_editor_add_muscle
 id btn_open_sort_filter_menu
+id btn_remove_targetmuscle
 id btn_save_group
+id btn_save_item
 id btn_save_schedule
 id btn_save_sort_filter
 id btn_unpick_muscle
@@ -2080,6 +2082,7 @@ id chip_group
 id chronometer
 id circle_center
 id cl_add_item
+id cl_btn_big_target_muscle
 id cl_exc
 id cl_exercise_fragment
 id cl_groups_fragment
@@ -2112,8 +2115,6 @@ id continuousVelocity
 id coordinator
 id cos
 id counterclockwise
-id create_exercise_dialog_name
-id create_muscle_dialog_name
 id currentState
 id custom
 id customPanel
@@ -2377,6 +2378,7 @@ id rv_pick_muscles
 id rv_pick_muscles_edit
 id rv_schedule_editor_display
 id rv_searchable_spinner
+id rv_target_muscles
 id rv_today_schedule
 id rv_un_group_display
 id save_non_transition_alpha
@@ -2474,7 +2476,6 @@ id textSpacerNoTitle
 id textStart
 id textTop
 id textView
-id textView2
 id textView3
 id textWatcher
 id text_input_end_icon
@@ -2526,12 +2527,14 @@ id tv_item_type_included
 id tv_muscle_item_name
 id tv_muscle_name
 id tv_number
+id tv_page_name
 id tv_pattern_length
 id tv_pattern_length_display
 id tv_pattern_selection
 id tv_pattern_type
 id tv_sort_order
 id tv_ss_element_name
+id tv_targetmuscle_name
 id tv_type_order
 id tv_un_group_name
 id tv_ung_description
@@ -2672,6 +2675,7 @@ layout item_muscle
 layout item_muscle_picker
 layout item_pickable_circle
 layout item_ss_element
+layout item_targetmuscle_display
 layout item_uneditable_exercise
 layout item_uneditable_group
 layout material_chip_input_combo

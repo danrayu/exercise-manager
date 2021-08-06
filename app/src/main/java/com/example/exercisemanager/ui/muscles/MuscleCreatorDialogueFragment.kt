@@ -22,28 +22,26 @@ class MuscleCreatorDialogueFragment(listener: CreateMuscleDialogListener, var mu
         return activity?.let {
             val builder = AlertDialog.Builder(it)
             val binding = DialogMuscleCreatorBinding.inflate(LayoutInflater.from(context))
+            binding.btnSaveItem.setOnClickListener {
+                var mName = binding.etEnterMname.text.toString()
+                if (mName.isNotBlank()) {
+                    var foundCopy = false
+                    for (muscle in muscleList) {
+                        if (muscle == mName) {
+                            Toast.makeText(context, "Muscle already exists", Toast.LENGTH_SHORT).show()
+                            foundCopy = true
+                            break
+                        }
+                    }
+                    if (!foundCopy) {
+                        listener.onCreateMuscleClick(mName)
+                    }
+                }
+                else {
+                    Toast.makeText(context, "No name specified", Toast.LENGTH_SHORT).show()
+                }
+            }
             builder.setView(binding.root)
-                    // Add action buttons
-                    .setPositiveButton(R.string.add_muscle,
-                            DialogInterface.OnClickListener { dialog, id ->
-                                var mName = binding.etEnterMname.text.toString()
-                                if (mName.isNotBlank()) {
-                                    var foundCopy = false
-                                    for (muscle in muscleList) {
-                                        if (muscle == mName) {
-                                            Toast.makeText(context, "Muscle already exists", Toast.LENGTH_SHORT).show()
-                                            foundCopy = true
-                                            break
-                                        }
-                                    }
-                                    if (!foundCopy) {
-                                        listener.onCreateMuscleClick(mName)
-                                    }
-                                }
-                                else {
-                                    Toast.makeText(context, "No name specified", Toast.LENGTH_SHORT).show()
-                                }
-                            })
                     .setNegativeButton(R.string.cancel,
                             DialogInterface.OnClickListener { dialog, id ->
                                 this.dismiss()

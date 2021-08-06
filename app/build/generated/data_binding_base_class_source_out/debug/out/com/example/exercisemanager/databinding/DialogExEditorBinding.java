@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,13 +24,19 @@ public final class DialogExEditorBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final Button btnDeleteExercise;
+  public final ImageButton btnCloseCreateDialog;
 
   @NonNull
   public final Button btnExEditorAddMuscle;
 
   @NonNull
+  public final ImageButton btnSaveItem;
+
+  @NonNull
   public final ConstraintLayout clExc;
+
+  @NonNull
+  public final ConstraintLayout constraintLayout;
 
   @NonNull
   public final EditText etEditEdescription;
@@ -41,30 +48,33 @@ public final class DialogExEditorBinding implements ViewBinding {
   public final RecyclerView rvPickMusclesEdit;
 
   @NonNull
-  public final TextView textView2;
-
-  @NonNull
   public final TextView tvEditEdescription;
 
   @NonNull
   public final TextView tvEditEname;
 
+  @NonNull
+  public final TextView tvPageName;
+
   private DialogExEditorBinding(@NonNull ConstraintLayout rootView,
-      @NonNull Button btnDeleteExercise, @NonNull Button btnExEditorAddMuscle,
-      @NonNull ConstraintLayout clExc, @NonNull EditText etEditEdescription,
+      @NonNull ImageButton btnCloseCreateDialog, @NonNull Button btnExEditorAddMuscle,
+      @NonNull ImageButton btnSaveItem, @NonNull ConstraintLayout clExc,
+      @NonNull ConstraintLayout constraintLayout, @NonNull EditText etEditEdescription,
       @NonNull EditText etEditEname, @NonNull RecyclerView rvPickMusclesEdit,
-      @NonNull TextView textView2, @NonNull TextView tvEditEdescription,
-      @NonNull TextView tvEditEname) {
+      @NonNull TextView tvEditEdescription, @NonNull TextView tvEditEname,
+      @NonNull TextView tvPageName) {
     this.rootView = rootView;
-    this.btnDeleteExercise = btnDeleteExercise;
+    this.btnCloseCreateDialog = btnCloseCreateDialog;
     this.btnExEditorAddMuscle = btnExEditorAddMuscle;
+    this.btnSaveItem = btnSaveItem;
     this.clExc = clExc;
+    this.constraintLayout = constraintLayout;
     this.etEditEdescription = etEditEdescription;
     this.etEditEname = etEditEname;
     this.rvPickMusclesEdit = rvPickMusclesEdit;
-    this.textView2 = textView2;
     this.tvEditEdescription = tvEditEdescription;
     this.tvEditEname = tvEditEname;
+    this.tvPageName = tvPageName;
   }
 
   @Override
@@ -94,9 +104,9 @@ public final class DialogExEditorBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btn_delete_exercise;
-      Button btnDeleteExercise = ViewBindings.findChildViewById(rootView, id);
-      if (btnDeleteExercise == null) {
+      id = R.id.btn_close_create_dialog;
+      ImageButton btnCloseCreateDialog = ViewBindings.findChildViewById(rootView, id);
+      if (btnCloseCreateDialog == null) {
         break missingId;
       }
 
@@ -106,7 +116,19 @@ public final class DialogExEditorBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btn_save_item;
+      ImageButton btnSaveItem = ViewBindings.findChildViewById(rootView, id);
+      if (btnSaveItem == null) {
+        break missingId;
+      }
+
       ConstraintLayout clExc = (ConstraintLayout) rootView;
+
+      id = R.id.constraintLayout;
+      ConstraintLayout constraintLayout = ViewBindings.findChildViewById(rootView, id);
+      if (constraintLayout == null) {
+        break missingId;
+      }
 
       id = R.id.et_edit_edescription;
       EditText etEditEdescription = ViewBindings.findChildViewById(rootView, id);
@@ -126,12 +148,6 @@ public final class DialogExEditorBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.textView2;
-      TextView textView2 = ViewBindings.findChildViewById(rootView, id);
-      if (textView2 == null) {
-        break missingId;
-      }
-
       id = R.id.tv_edit_edescription;
       TextView tvEditEdescription = ViewBindings.findChildViewById(rootView, id);
       if (tvEditEdescription == null) {
@@ -144,9 +160,15 @@ public final class DialogExEditorBinding implements ViewBinding {
         break missingId;
       }
 
-      return new DialogExEditorBinding((ConstraintLayout) rootView, btnDeleteExercise,
-          btnExEditorAddMuscle, clExc, etEditEdescription, etEditEname, rvPickMusclesEdit,
-          textView2, tvEditEdescription, tvEditEname);
+      id = R.id.tv_page_name;
+      TextView tvPageName = ViewBindings.findChildViewById(rootView, id);
+      if (tvPageName == null) {
+        break missingId;
+      }
+
+      return new DialogExEditorBinding((ConstraintLayout) rootView, btnCloseCreateDialog,
+          btnExEditorAddMuscle, btnSaveItem, clExc, constraintLayout, etEditEdescription,
+          etEditEname, rvPickMusclesEdit, tvEditEdescription, tvEditEname, tvPageName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -2043,10 +2043,10 @@ int id bounceStart 0x7f09022d
 int id btn_add_exercise 0x7f090059
 int id btn_add_group_exercise 0x7f09005a
 int id btn_add_schedule 0x7f09005b
+int id btn_add_target_muscle 0x7f09026b
 int id btn_circular 0x7f09005c
+int id btn_close_create_dialog 0x7f09026f
 int id btn_close_sort_dialog 0x7f09022e
-int id btn_delete_exercise 0x7f09005d
-int id btn_delete_muscle 0x7f09005e
 int id btn_delete_schedule 0x7f09005f
 int id btn_edit_exercise 0x7f090060
 int id btn_edit_group 0x7f090061
@@ -2054,7 +2054,9 @@ int id btn_edit_muscle 0x7f090062
 int id btn_ex_creator_add_muscle 0x7f090063
 int id btn_ex_editor_add_muscle 0x7f090064
 int id btn_open_sort_filter_menu 0x7f09022f
+int id btn_remove_targetmuscle 0x7f090269
 int id btn_save_group 0x7f090065
+int id btn_save_item 0x7f090270
 int id btn_save_schedule 0x7f090066
 int id btn_save_sort_filter 0x7f090230
 int id btn_unpick_muscle 0x7f090067
@@ -2079,6 +2081,7 @@ int id chip_group 0x7f090078
 int id chronometer 0x7f090079
 int id circle_center 0x7f09007a
 int id cl_add_item 0x7f09007b
+int id cl_btn_big_target_muscle 0x7f09026d
 int id cl_exc 0x7f09007c
 int id cl_exercise_fragment 0x7f09007d
 int id cl_groups_fragment 0x7f09007e
@@ -2111,8 +2114,6 @@ int id continuousVelocity 0x7f09023a
 int id coordinator 0x7f09008f
 int id cos 0x7f090090
 int id counterclockwise 0x7f090091
-int id create_exercise_dialog_name 0x7f090092
-int id create_muscle_dialog_name 0x7f090093
 int id currentState 0x7f09023b
 int id custom 0x7f090094
 int id customPanel 0x7f090095
@@ -2376,6 +2377,7 @@ int id rv_pick_muscles 0x7f090181
 int id rv_pick_muscles_edit 0x7f090182
 int id rv_schedule_editor_display 0x7f090183
 int id rv_searchable_spinner 0x7f090184
+int id rv_target_muscles 0x7f09026c
 int id rv_today_schedule 0x7f090185
 int id rv_un_group_display 0x7f090186
 int id save_non_transition_alpha 0x7f090187
@@ -2473,7 +2475,6 @@ int id textSpacerNoTitle 0x7f0901d6
 int id textStart 0x7f0901d7
 int id textTop 0x7f0901d8
 int id textView 0x7f0901d9
-int id textView2 0x7f0901da
 int id textView3 0x7f0901db
 int id textWatcher 0x7f0901dc
 int id text_input_end_icon 0x7f0901dd
@@ -2525,12 +2526,14 @@ int id tv_item_type_included 0x7f09025f
 int id tv_muscle_item_name 0x7f090209
 int id tv_muscle_name 0x7f09020a
 int id tv_number 0x7f09020b
+int id tv_page_name 0x7f090271
 int id tv_pattern_length 0x7f09020c
 int id tv_pattern_length_display 0x7f09020d
 int id tv_pattern_selection 0x7f09020e
 int id tv_pattern_type 0x7f09020f
 int id tv_sort_order 0x7f090260
 int id tv_ss_element_name 0x7f090210
+int id tv_targetmuscle_name 0x7f09026a
 int id tv_type_order 0x7f090261
 int id tv_un_group_name 0x7f090211
 int id tv_ung_description 0x7f090212
@@ -2671,6 +2674,7 @@ int layout item_muscle 0x7f0c0042
 int layout item_muscle_picker 0x7f0c0043
 int layout item_pickable_circle 0x7f0c0044
 int layout item_ss_element 0x7f0c0045
+int layout item_targetmuscle_display 0x7f0c008e
 int layout item_uneditable_exercise 0x7f0c0046
 int layout item_uneditable_group 0x7f0c0047
 int layout material_chip_input_combo 0x7f0c0048

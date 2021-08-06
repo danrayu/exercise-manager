@@ -4,8 +4,8 @@ package com.example.exercisemanager.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,10 +22,16 @@ public final class DialogMuscleEditorBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final Button btnDeleteMuscle;
+  public final ImageButton btnCloseCreateDialog;
+
+  @NonNull
+  public final ImageButton btnSaveItem;
 
   @NonNull
   public final ConstraintLayout clExc;
+
+  @NonNull
+  public final ConstraintLayout constraintLayout;
 
   @NonNull
   public final EditText etEditMname;
@@ -33,14 +39,21 @@ public final class DialogMuscleEditorBinding implements ViewBinding {
   @NonNull
   public final TextView tvEditMname;
 
+  @NonNull
+  public final TextView tvPageName;
+
   private DialogMuscleEditorBinding(@NonNull ConstraintLayout rootView,
-      @NonNull Button btnDeleteMuscle, @NonNull ConstraintLayout clExc,
-      @NonNull EditText etEditMname, @NonNull TextView tvEditMname) {
+      @NonNull ImageButton btnCloseCreateDialog, @NonNull ImageButton btnSaveItem,
+      @NonNull ConstraintLayout clExc, @NonNull ConstraintLayout constraintLayout,
+      @NonNull EditText etEditMname, @NonNull TextView tvEditMname, @NonNull TextView tvPageName) {
     this.rootView = rootView;
-    this.btnDeleteMuscle = btnDeleteMuscle;
+    this.btnCloseCreateDialog = btnCloseCreateDialog;
+    this.btnSaveItem = btnSaveItem;
     this.clExc = clExc;
+    this.constraintLayout = constraintLayout;
     this.etEditMname = etEditMname;
     this.tvEditMname = tvEditMname;
+    this.tvPageName = tvPageName;
   }
 
   @Override
@@ -70,13 +83,25 @@ public final class DialogMuscleEditorBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btn_delete_muscle;
-      Button btnDeleteMuscle = ViewBindings.findChildViewById(rootView, id);
-      if (btnDeleteMuscle == null) {
+      id = R.id.btn_close_create_dialog;
+      ImageButton btnCloseCreateDialog = ViewBindings.findChildViewById(rootView, id);
+      if (btnCloseCreateDialog == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_save_item;
+      ImageButton btnSaveItem = ViewBindings.findChildViewById(rootView, id);
+      if (btnSaveItem == null) {
         break missingId;
       }
 
       ConstraintLayout clExc = (ConstraintLayout) rootView;
+
+      id = R.id.constraintLayout;
+      ConstraintLayout constraintLayout = ViewBindings.findChildViewById(rootView, id);
+      if (constraintLayout == null) {
+        break missingId;
+      }
 
       id = R.id.et_edit_mname;
       EditText etEditMname = ViewBindings.findChildViewById(rootView, id);
@@ -90,8 +115,14 @@ public final class DialogMuscleEditorBinding implements ViewBinding {
         break missingId;
       }
 
-      return new DialogMuscleEditorBinding((ConstraintLayout) rootView, btnDeleteMuscle, clExc,
-          etEditMname, tvEditMname);
+      id = R.id.tv_page_name;
+      TextView tvPageName = ViewBindings.findChildViewById(rootView, id);
+      if (tvPageName == null) {
+        break missingId;
+      }
+
+      return new DialogMuscleEditorBinding((ConstraintLayout) rootView, btnCloseCreateDialog,
+          btnSaveItem, clExc, constraintLayout, etEditMname, tvEditMname, tvPageName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

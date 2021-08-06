@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,10 +27,13 @@ public final class DialogExCreatorBinding implements ViewBinding {
   public final Button btnExCreatorAddMuscle;
 
   @NonNull
+  public final ImageButton btnSaveItem;
+
+  @NonNull
   public final ConstraintLayout clExc;
 
   @NonNull
-  public final TextView createExerciseDialogName;
+  public final ConstraintLayout constraintLayout;
 
   @NonNull
   public final EditText etEnterEdescription;
@@ -46,20 +50,26 @@ public final class DialogExCreatorBinding implements ViewBinding {
   @NonNull
   public final TextView tvEnterEname;
 
+  @NonNull
+  public final TextView tvPageName;
+
   private DialogExCreatorBinding(@NonNull ConstraintLayout rootView,
-      @NonNull Button btnExCreatorAddMuscle, @NonNull ConstraintLayout clExc,
-      @NonNull TextView createExerciseDialogName, @NonNull EditText etEnterEdescription,
-      @NonNull EditText etEnterEname, @NonNull RecyclerView rvPickMuscles,
-      @NonNull TextView tvEnterEdescription, @NonNull TextView tvEnterEname) {
+      @NonNull Button btnExCreatorAddMuscle, @NonNull ImageButton btnSaveItem,
+      @NonNull ConstraintLayout clExc, @NonNull ConstraintLayout constraintLayout,
+      @NonNull EditText etEnterEdescription, @NonNull EditText etEnterEname,
+      @NonNull RecyclerView rvPickMuscles, @NonNull TextView tvEnterEdescription,
+      @NonNull TextView tvEnterEname, @NonNull TextView tvPageName) {
     this.rootView = rootView;
     this.btnExCreatorAddMuscle = btnExCreatorAddMuscle;
+    this.btnSaveItem = btnSaveItem;
     this.clExc = clExc;
-    this.createExerciseDialogName = createExerciseDialogName;
+    this.constraintLayout = constraintLayout;
     this.etEnterEdescription = etEnterEdescription;
     this.etEnterEname = etEnterEname;
     this.rvPickMuscles = rvPickMuscles;
     this.tvEnterEdescription = tvEnterEdescription;
     this.tvEnterEname = tvEnterEname;
+    this.tvPageName = tvPageName;
   }
 
   @Override
@@ -95,11 +105,17 @@ public final class DialogExCreatorBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btn_save_item;
+      ImageButton btnSaveItem = ViewBindings.findChildViewById(rootView, id);
+      if (btnSaveItem == null) {
+        break missingId;
+      }
+
       ConstraintLayout clExc = (ConstraintLayout) rootView;
 
-      id = R.id.create_exercise_dialog_name;
-      TextView createExerciseDialogName = ViewBindings.findChildViewById(rootView, id);
-      if (createExerciseDialogName == null) {
+      id = R.id.constraintLayout;
+      ConstraintLayout constraintLayout = ViewBindings.findChildViewById(rootView, id);
+      if (constraintLayout == null) {
         break missingId;
       }
 
@@ -133,9 +149,15 @@ public final class DialogExCreatorBinding implements ViewBinding {
         break missingId;
       }
 
-      return new DialogExCreatorBinding((ConstraintLayout) rootView, btnExCreatorAddMuscle, clExc,
-          createExerciseDialogName, etEnterEdescription, etEnterEname, rvPickMuscles,
-          tvEnterEdescription, tvEnterEname);
+      id = R.id.tv_page_name;
+      TextView tvPageName = ViewBindings.findChildViewById(rootView, id);
+      if (tvPageName == null) {
+        break missingId;
+      }
+
+      return new DialogExCreatorBinding((ConstraintLayout) rootView, btnExCreatorAddMuscle,
+          btnSaveItem, clExc, constraintLayout, etEnterEdescription, etEnterEname, rvPickMuscles,
+          tvEnterEdescription, tvEnterEname, tvPageName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

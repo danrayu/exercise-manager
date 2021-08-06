@@ -24,18 +24,16 @@ class MuscleEditorDialogueFragment(
             val builder = AlertDialog.Builder(it)
             val binding = DialogMuscleEditorBinding.inflate(LayoutInflater.from(context))
             binding.etEditMname.setText(muscle.name)
+            binding.btnSaveItem.setOnClickListener {
+                muscle.name = binding.etEditMname.text.toString()
+                listener.onEditMuscleConfirm(muscle)
+            }
             builder.setView(binding.root)
-                    .setPositiveButton(R.string.confirm_changes,
-                            DialogInterface.OnClickListener { _, _ ->
-                                muscle.name = binding.etEditMname.text.toString()
-                                listener.onEditMuscleConfirm(muscle)
-                            })
                     .setNegativeButton(R.string.cancel,
                             DialogInterface.OnClickListener { _, _ ->
                                 this.dismiss()
                             })
-            val btnDeleteMuscle: Button = binding.btnDeleteMuscle
-            btnDeleteMuscle.setOnClickListener {
+            binding.btnCloseCreateDialog.setOnClickListener {
                 listener.onMuscleDeleteClick(this, muscleIndex)
             }
             builder.create()

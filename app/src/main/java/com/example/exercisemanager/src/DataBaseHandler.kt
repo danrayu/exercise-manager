@@ -498,8 +498,9 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
     fun deleteExerciseItem(db:SQLiteDatabase, exercise: Exercise) {
         val deleteEData = "DELETE FROM " + TABLE_EXERCISES + " WHERE " + COL_ID_EXERCISES + " = " +
                 exercise.id + ";"
-        db.execSQL(deleteEData)
         deleteExerciseMuscleData(db, exercise.id)
+        db.execSQL(deleteEData)
+
     }
 
     fun deleteMuscleItem(db:SQLiteDatabase, muscle: Muscle) {
@@ -589,5 +590,14 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
             }
         }
         return correctGroup
+    }
+
+    fun getGroupAndExerciseNames() : MutableList<String> {
+        val listOfItems = readExercisesData(this.readableDatabase) + readGroupData(this.readableDatabase)
+        val listOfNames: MutableList<String> = ArrayList()
+        for (item in listOfItems) {
+            listOfNames.add(item.name)
+        }
+        return listOfNames
     }
 }

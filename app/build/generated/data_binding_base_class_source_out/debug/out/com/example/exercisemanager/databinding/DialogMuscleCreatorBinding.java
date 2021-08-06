@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,10 +22,13 @@ public final class DialogMuscleCreatorBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final ImageButton btnSaveItem;
+
+  @NonNull
   public final ConstraintLayout clMuscle;
 
   @NonNull
-  public final TextView createMuscleDialogName;
+  public final ConstraintLayout constraintLayout;
 
   @NonNull
   public final EditText etEnterMname;
@@ -32,14 +36,20 @@ public final class DialogMuscleCreatorBinding implements ViewBinding {
   @NonNull
   public final TextView tvEnterMname;
 
+  @NonNull
+  public final TextView tvPageName;
+
   private DialogMuscleCreatorBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ConstraintLayout clMuscle, @NonNull TextView createMuscleDialogName,
-      @NonNull EditText etEnterMname, @NonNull TextView tvEnterMname) {
+      @NonNull ImageButton btnSaveItem, @NonNull ConstraintLayout clMuscle,
+      @NonNull ConstraintLayout constraintLayout, @NonNull EditText etEnterMname,
+      @NonNull TextView tvEnterMname, @NonNull TextView tvPageName) {
     this.rootView = rootView;
+    this.btnSaveItem = btnSaveItem;
     this.clMuscle = clMuscle;
-    this.createMuscleDialogName = createMuscleDialogName;
+    this.constraintLayout = constraintLayout;
     this.etEnterMname = etEnterMname;
     this.tvEnterMname = tvEnterMname;
+    this.tvPageName = tvPageName;
   }
 
   @Override
@@ -69,11 +79,17 @@ public final class DialogMuscleCreatorBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btn_save_item;
+      ImageButton btnSaveItem = ViewBindings.findChildViewById(rootView, id);
+      if (btnSaveItem == null) {
+        break missingId;
+      }
+
       ConstraintLayout clMuscle = (ConstraintLayout) rootView;
 
-      id = R.id.create_muscle_dialog_name;
-      TextView createMuscleDialogName = ViewBindings.findChildViewById(rootView, id);
-      if (createMuscleDialogName == null) {
+      id = R.id.constraintLayout;
+      ConstraintLayout constraintLayout = ViewBindings.findChildViewById(rootView, id);
+      if (constraintLayout == null) {
         break missingId;
       }
 
@@ -89,8 +105,14 @@ public final class DialogMuscleCreatorBinding implements ViewBinding {
         break missingId;
       }
 
-      return new DialogMuscleCreatorBinding((ConstraintLayout) rootView, clMuscle,
-          createMuscleDialogName, etEnterMname, tvEnterMname);
+      id = R.id.tv_page_name;
+      TextView tvPageName = ViewBindings.findChildViewById(rootView, id);
+      if (tvPageName == null) {
+        break missingId;
+      }
+
+      return new DialogMuscleCreatorBinding((ConstraintLayout) rootView, btnSaveItem, clMuscle,
+          constraintLayout, etEnterMname, tvEnterMname, tvPageName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

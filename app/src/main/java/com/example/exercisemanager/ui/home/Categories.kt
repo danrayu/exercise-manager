@@ -78,18 +78,21 @@ class Categories(var order: Order, var typeOrder: TypeOrder, var included: Inclu
         if (targetMuscles.size == 0) {
             return this
         }
+        val tMuscles: MutableList<Muscle> = ArrayList()
+        tMuscles.addAll(targetMuscles)
         val filteredList: MutableList<DisplayableItem> = ArrayList()
         for (item in this) {
+            tMuscles.clear()
+            tMuscles.addAll(targetMuscles)
             if (item is Exercise) {
-                val targetMuscles = targetMuscles
                 for (muscle in item.muscles) {
-                    for (targetMuscle in targetMuscles) {
-                        if (muscle == targetMuscle) {
-                            targetMuscles.remove(muscle)
+                    for (targetMuscle in tMuscles) {
+                        if (muscle.name == targetMuscle.name) {
+                            tMuscles.remove(targetMuscle)
                             break
                         }
                     }
-                    if (targetMuscles.isEmpty()) {
+                    if (tMuscles.size == 0) {
                         filteredList.add(item)
                         break
                     }
@@ -108,19 +111,22 @@ class Categories(var order: Order, var typeOrder: TypeOrder, var included: Inclu
             return this
         }
         val filteredList: MutableList<DisplayableItem> = ArrayList()
+        val tMuscles: MutableList<Muscle> = ArrayList()
+        tMuscles.addAll(targetMuscles)
         for (item in this) {
             if (item is Group) {
-                val targetMuscles = targetMuscles
+                tMuscles.clear()
+                tMuscles.addAll(targetMuscles)
                 for (exercise in item.exercises) {
                     for (muscle in exercise.muscles) {
-                        for (targetMuscle in targetMuscles) {
-                            if (muscle == targetMuscle) {
-                                targetMuscles.remove(muscle)
+                        for (targetMuscle in tMuscles) {
+                            if (muscle.name == targetMuscle.name) {
+                                tMuscles.remove(targetMuscle)
                                 break
                             }
                         }
                     }
-                    if (targetMuscles.isEmpty()) {
+                    if (tMuscles.size == 1) {
                         filteredList.add(item)
                         break
                     }

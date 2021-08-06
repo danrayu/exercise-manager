@@ -12,7 +12,7 @@ class ExerciseERVAdapter(
 ) : RecyclerView.Adapter<ExerciseERVAdapter.ViewHolder>() {
 
     interface EditEventInterface {
-        fun editButtonPressed(exercise: Exercise, exerciseIndex: Int)
+        fun editButtonPressed(exerciseIndex: Int)
     }
 
     inner class ViewHolder(val binding: ItemExerciseBinding) : RecyclerView.ViewHolder(binding.root)
@@ -26,9 +26,7 @@ class ExerciseERVAdapter(
         with(holder){
             with(exerciseList[position]){
                 binding.tvExerciseName.text = this.name
-
                 binding.tvEdescription.text = this.description
-
                 binding.rlExpandedEdescription.visibility = if (this.expand) View.VISIBLE else View.GONE
 
                 binding.cardLayout.setOnClickListener {
@@ -36,7 +34,7 @@ class ExerciseERVAdapter(
                     notifyItemChanged(position)
                 }
                 binding.btnEditExercise.setOnClickListener {
-                    callback.editButtonPressed(exerciseList[position], position)
+                    callback.editButtonPressed(position)
                 }
             }
         }

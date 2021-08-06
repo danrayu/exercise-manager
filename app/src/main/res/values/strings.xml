@@ -46,6 +46,7 @@
     <string name="target_muscles">Target muscles</string>
     <string name="alphabetic_order">Alphabetic order</string>
     <string name="order_by_type">Order by type</string>
+    <string name="guide">Guide</string>
 
     <string-array name="muscle_list">
         <item>None</item>

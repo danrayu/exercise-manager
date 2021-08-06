@@ -18,8 +18,12 @@
         <entry key="app/src/main/res/layout/content_main.xml" value="0.22010869565217392" />
         <entry key="app/src/main/res/layout/csl_button.xml" value="0.265625" />
         <entry key="app/src/main/res/layout/dialog_calendar.xml" value="0.265625" />
+        <entry key="app/src/main/res/layout/dialog_ex_creator.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/dialog_ex_editor.xml" value="0.25" />
         <entry key="app/src/main/res/layout/dialog_filter_displayable_items.xml" value="0.33958333333333335" />
+        <entry key="app/src/main/res/layout/dialog_muscle_creator.xml" value="0.33645833333333336" />
         <entry key="app/src/main/res/layout/dialog_muscle_editor.xml" value="0.2223731884057971" />
+        <entry key="app/src/main/res/layout/dialog_searchable_spinner.xml" value="0.1651469098277609" />
         <entry key="app/src/main/res/layout/fragment_exercises.xml" value="0.21557971014492755" />
         <entry key="app/src/main/res/layout/fragment_groups.xml" value="0.1651469098277609" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1651469098277609" />
@@ -31,8 +35,10 @@
         <entry key="app/src/main/res/layout/item_grouped_uneditable_exercise.xml" value="0.33958333333333335" />
         <entry key="app/src/main/res/layout/item_muscle.xml" value="0.1651469098277609" />
         <entry key="app/src/main/res/layout/item_pickable_circle.xml" value="0.2441123188405797" />
+        <entry key="app/src/main/res/layout/item_targetmuscle_display.xml" value="0.33177083333333335" />
         <entry key="app/src/main/res/layout/item_uneditable_exercise.xml" value="0.21467391304347827" />
         <entry key="app/src/main/res/layout/item_uneditable_group.xml" value="0.334375" />
+        <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.33645833333333336" />
       </map>
     </option>
   </component>

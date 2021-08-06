@@ -1,7 +1,3 @@
-com/example/exercisemanager/DataBindingTriggerClass.java
- com.example.exercisemanager.DataBindingTriggerClass
-com/example/exercisemanager/BuildConfig.java
- com.example.exercisemanager.BuildConfig
 com/example/exercisemanager/databinding/ItemMuscleBinding.java
  com.example.exercisemanager.databinding.ItemMuscleBinding
 com/example/exercisemanager/databinding/DialogExCreatorBinding.java
@@ -38,6 +34,10 @@ com/example/exercisemanager/databinding/ItemExerciseBinding.java
  com.example.exercisemanager.databinding.ItemExerciseBinding
 com/example/exercisemanager/databinding/FragmentGroupsBinding.java
  com.example.exercisemanager.databinding.FragmentGroupsBinding
+com/example/exercisemanager/BuildConfig.java
+ com.example.exercisemanager.BuildConfig
+com/example/exercisemanager/databinding/ItemTargetmuscleDisplayBinding.java
+ com.example.exercisemanager.databinding.ItemTargetmuscleDisplayBinding
 com/example/exercisemanager/databinding/ItemPickableCircleBinding.java
  com.example.exercisemanager.databinding.ItemPickableCircleBinding
 com/example/exercisemanager/databinding/DialogCalendarBinding.java
@@ -54,6 +54,8 @@ com/example/exercisemanager/databinding/DialogExEditorBinding.java
  com.example.exercisemanager.databinding.DialogExEditorBinding
 com/example/exercisemanager/databinding/ItemGroupBinding.java
  com.example.exercisemanager.databinding.ItemGroupBinding
+com/example/exercisemanager/DataBindingTriggerClass.java
+ com.example.exercisemanager.DataBindingTriggerClass
 com/example/exercisemanager/databinding/ItemUneditableGroupBinding.java
  com.example.exercisemanager.databinding.ItemUneditableGroupBinding
 com/example/exercisemanager/databinding/FragmentManageSchedulesBinding.java

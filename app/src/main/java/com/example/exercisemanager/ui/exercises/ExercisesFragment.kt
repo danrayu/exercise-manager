@@ -45,7 +45,8 @@ class ExercisesFragment : Fragment(), ExerciseCreatorDialogueFragment.CreateExer
         db = DataBaseHandler(context)
         exerciseList = db.readExercisesData(db.readableDatabase)
         muscleList = db.readMusclesData(db.readableDatabase)
-        dialogCreate = ExerciseCreatorDialogueFragment(this, muscleList)
+        dialogCreate = ExerciseCreatorDialogueFragment(this, muscleList,
+            db.getGroupAndExerciseNames())
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -73,7 +74,7 @@ class ExercisesFragment : Fragment(), ExerciseCreatorDialogueFragment.CreateExer
     }
 
     private fun showCreateDialog() {
-        dialogCreate.show(parentFragmentManager, "ExerciseCreatorDialogueFragment")
+        dialogCreate.show(childFragmentManager, "ExerciseCreatorDialogueFragment")
     }
 
     override fun onCreateExerciseClick(name: String, desc: String, muscles: MutableList<Muscle>) {
@@ -82,6 +83,7 @@ class ExercisesFragment : Fragment(), ExerciseCreatorDialogueFragment.CreateExer
             db.insertExerciseData(db.writableDatabase, exercise)
             exerciseList.add(exercise)
             rvAdapter.notifyItemInserted(exerciseList.size - 1)
+            updateRv()
         }
         else {
             Toast.makeText(context, "Name already taken", Toast.LENGTH_SHORT).show()
@@ -89,16 +91,18 @@ class ExercisesFragment : Fragment(), ExerciseCreatorDialogueFragment.CreateExer
     }
 
     // from ERVAdapter receives list index, creates Dialog
-    override fun editButtonPressed(exercise: Exercise, exerciseIndex: Int) {
-        val dialogEdit = ExerciseEditorDialogueFragment(this, exercise, exerciseIndex, muscleList)
-        dialogEdit.show(parentFragmentManager, "ExerciseEditorDialogueFragment")
+    override fun editButtonPressed(exerciseIndex: Int) {
+        val dialogEdit = ExerciseEditorDialogueFragment(this, exerciseList[exerciseIndex],
+            exerciseIndex, muscleList, db.getGroupAndExerciseNames())
+        dialogEdit.show(childFragmentManager, "ExerciseEditorDialogueFragment")
     }
 
     // from dialog gets edited ex data and updates to db
-    override fun onEditExerciseConfirm(exercise: Exercise) {
+    override fun onEditExerciseConfirm(exercise: Exercise, exerciseIndex: Int) {
         db.updateExerciseData(db.writableDatabase, exercise)
-        exerciseList = db.readExercisesData(db.readableDatabase)
-        rvAdapter.notifyDataSetChanged()
+        exerciseList[exerciseIndex] = exercise
+        rvAdapter.notifyItemChanged(exerciseIndex)
+        updateRv()
     }
 
 
@@ -108,5 +112,12 @@ class ExercisesFragment : Fragment(), ExerciseCreatorDialogueFragment.CreateExer
         db.deleteExerciseItem(db.writableDatabase, exerciseList[exerciseIndex])
         exerciseList.removeAt(exerciseIndex)
         rvAdapter.notifyItemRemoved(exerciseIndex)
+        updateRv()
+    }
+
+    private fun updateRv() {
+        exerciseList = db.readExercisesData(db.readableDatabase)
+        rvAdapter = ExerciseERVAdapter(exerciseList, this)
+        binding.rvExercisef.adapter = rvAdapter
     }
 }
